@@ -127,8 +127,8 @@ function HappyTimes(nStage,bWin)
 	local bonus_1st = tonumber(GetTask(ABLUEMOON_QUEST_RIGHT_COUNT_1st))
 	local bonus_2nd = tonumber(GetTask(ABLUEMOON_QUEST_RIGHT_COUNT_2nd))
 	local nLevel = GetLevel();
-	local award_1st = nLevel^2*3;  --第一关每题奖励 [级别*级别*3]经验
-	local award_2nd = nLevel^2*6;
+	local award_1st = nLevel^2*3000;  --第一关每题奖励 [级别*级别*3]经验
+	local award_2nd = nLevel^2*6000;
 	local nEarnExp_1st = 0;
 	local nEarnExp_2nd = 0;
 	local nTotalExp = 0;
@@ -309,11 +309,13 @@ function show_question(num, caption)
 		
 		for i = 1, 4 do
 			options[i] = QuestTab:getCell(row, 3 + i)
-			if (tbl_answer_index[answer] == i) then
-				options[i] = format("%s/#answer_ok(%d,%d)", options[i], Onum, Qnum)
-			else
-				options[i] = format("%s/#answer_fail(%d,%d)", options[i], Onum, Qnum)
-			end
+			-- 默认正确
+			options[i] = format("%s/#answer_ok(%d,%d)", options[i], Onum, Qnum)
+			-- if (tbl_answer_index[answer] == i) then
+			-- 	options[i] = format("%s/#answer_ok(%d,%d)", options[i], Onum, Qnum)
+			-- else
+			-- 	options[i] = format("%s/#answer_fail(%d,%d)", options[i], Onum, Qnum)
+			-- end
 		end
 		ReSort(options)
 		Say(question, 4, options[1], options[2], options[3], options[4])
@@ -420,7 +422,8 @@ function abluemoon_luck()
 		SetTask(ABLUEMOON_LUCK,0)
 		SetTask(ABLUEMOON_LUCKY_COUNT,1)
 	end 
-	local nluck = random(1,7)
+	-- local nluck = random(1,7)
+	local nluck = 7;  --自己大吉
 	if GetTask(ABLUEMOON_LUCK) == 0 then
 		SetTask(ABLUEMOON_LUCK,nluck)
 		Say("<color=green>兔小丫<color>：天灵灵，地灵灵，都没有我兔子灵，（咒语）％￥＃％￥※……※（咒语），掐指一算，这位大侠今天的运势是：<color=yellow>"..tluck[nluck].."<color>。",2,
