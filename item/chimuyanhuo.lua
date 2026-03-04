@@ -1,0 +1,7 @@
+--³àÄ»Ñæ»ð
+
+Include("\\script\\item\\yanhuo.lua");
+
+function OnUse()
+	use_yanhuo("³àÄ»Ñæ»ð");
+end;

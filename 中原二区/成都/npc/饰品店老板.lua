@@ -1,0 +1,13 @@
+-- ====================== 文件信息 ======================
+-- 剑侠情缘onlineII 饰品店老板脚本
+-- Edited by peres
+-- 2005/02/22 PM 18:03
+-- ======================================================
+
+function main()
+	local nMap, nX, nY = GetWorldPos()
+	if nMap  == 5100 then 
+	return
+	end
+	Sale(39);
+end;

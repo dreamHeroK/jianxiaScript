@@ -1,0 +1,11 @@
+--任务  
+--地点：汴京 任务：天门阵任务，结点1
+--策划：樊万松  2004.02.28
+
+function main()
+	local nMap, nX, nY = GetWorldPos()
+	if nMap  == 5100 then 
+	return
+	end
+	Talk(1,"","<color=green>店小二<color>：一看就是准备去雁门关寻宝的吧？还瞒得了我？来我们店吧，提供灵通消息哦。");
+end;

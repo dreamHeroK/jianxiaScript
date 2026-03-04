@@ -1,0 +1,30 @@
+Name	G	D	P	Num	freePbby	freeExpire	freeBind	freeNotice	freeLimit	FreeTimingAppears	Pbby	Expire	Bind	Notice	Limit	TimingAppears
+Tªn vËt phÈm:	id	id	id	Chän	X¸c suÊt miÔn phÝ	Thêi gian tån t¹i (Ngµy)	Khãa kh«ng (4 khãa, 1 kh«ng khãa)	Th«ng b¸o kh«ng	Giíi h¹n mét GS	H¹n chÕ t×nh h×nh xuÊt hiÖn(theo sè rót th­ëng)	Tû lÖ	Thêi gian tån t¹i (Ngµy)	khãa kh«ng	Th«ng b¸o kh«ng	Giíi h¹n mét GS	H¹n chÕ t×nh h×nh xuÊt hiÖn(theo sè rót th­ëng)
+Tói §¸ Quý CÊp 5	2	1	31024	1	0	0	4	0	0	0	100	0	1	0	15	0
+§ång TÕ Chi NguyÖn	2	1	30913	2	500	0	4	0	0	0	3000	0	1	0	0	0
+ThiÕt tinh cÊp 4	2	1	30612	1	100	0	4	0	0	0	6000	0	1	0	0	0
+M¶nh Kim xµ cÊp 7 (giµy)	2	1	31397	10	10	0	1	1	5	70	200	0	1	1	15	18
+Tói §¸ Quý CÊp 1	2	1	30998	1	5000	0	4	0	0	0	8000	0	1	0	0	0
+Tói §¸ Quý CÊp 2	2	1	30999	1	1000	0	4	0	0	0	4000	0	1	0	0	0
+Tói §¸ Quý CÊp 3	2	1	31000	1	500	0	4	0	0	0	2500	0	1	0	0	0
+HiÖp NghÜa Chi Chøng	2	1	30912	20	56690	0	4	0	0	0	29570	0	1	0	0	0
+M¶nh Kim xµ cÊp 7 (phi phong)	2	1	31399	10	0	0	1	1	0	0	200	0	1	1	20	0
+LÖnh bµi ®é cèng hiÕn	2	1	30914	1	100	7	4	0	0	0	1000	7	1	0	30	0
+B¹ch C©u Hoµn	2	1	270	1	6000	7	4	0	0	0	4000	7	1	0	0	0
+TÈy T©m Th¹ch cÊp 5	2	1	30525	1	0	0	4	0	0	0	1200	0	1	0	100	0
+LuyÖn L« ThiÕt cÊp 5	2	1	30531	1	0	0	4	0	0	0	1200	0	1	0	100	0
+Dao Tr× §¹i Hoµn §¬n	1	0	30010	3	8000	7	4	0	0	0	5000	0	1	0	0	0
+Bao ®¸ Quý cÊp 6	2	1	31123	1	0	0	4	0	0	0	80	0	1	1	5	100
+Hoµng Kim §¹i Hång Bao (trèng)	2	1	538	1	1000	7	4	0	0	0	1000	15	1	0	30	0
+Tinh Hoa UÈn Linh CÊp 6	2	1	30668	1	0	0	4	0	0	0	3000	0	1	0	0	0
+M¶nh Kim xµ cÊp 7 (huy ch­¬ng)	2	1	31398	10	0	0	1	1	5	70	200	0	1	1	15	18
+Kinh M¹ch §ång Nh©n	2	1	30730	1	1000	0	4	0	0	0	3000	0	1	0	0	0
+Tô Linh Hoµn	2	1	30458	1	1000	7	4	0	0	0	4000	7	1	0	0	0
+§¹i B¹ch C©u hoµn	2	1	1007	1	1000	7	4	0	0	0	2000	7	1	0	0	0
+Tói §¸ Quý CÊp 4	2	1	31001	1	0	7	4	0	0	0	500	0	1	0	0	0
+Kinh M¹ch Ng©n Nh©n	2	1	30731	1	100	0	4	0	0	0	3000	0	1	0	0	0
+Tói Háa Phông	2	1	50020	1	0	0	4	0	0	0	50	0	1	1	5	350
+Linh Chi Tôc MÖnh Hoµn	1	0	30009	3	9000	7	4	0	0	0	8000	0	1	0	0	0
+TuyÕt S©m Ph¶n KhÝ Hoµn	1	0	30011	3	9000	7	4	0	0	0	8000	0	1	0	0	0
+TÈy T©m Th¹ch cÊp 6	2	1	30526	1	0	0	4	0	0	0	600	0	1	0	80	0
+LuyÖn L« ThiÕt cÊp 6	2	1	30532	1	0	0	4	0	0	0	600	0	1	0	80	0

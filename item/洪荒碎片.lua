@@ -1,0 +1,51 @@
+--洪荒碎片片物品脚本
+function OnUse(nItemIdx)
+	local szBookName = GetItemName(nItemIdx) -- 取名称
+	if GetPlayerRoute() == 0 then
+		Msg2Player("你还没有加入门派，所以你不能使用"..szBookName)
+		return
+	end
+	Say("使用"..szBookName.."可以兑换各种物品, 您需要兑换什么呢？",
+		5,
+		"\n◆100个换500个耀阳碎片, 确定要使用吗？/cbwmadw",
+		"\n◆999个换1个【天罡令】, 确定要使用吗？/cbwmadw3",
+		"\n◆3333个换1龙隐☆之精华, 确定要使用吗？/cbwmadw1",
+		"\n◆9999个换1个苍梧☆之精华, 确定要使用吗？/cbwmadw2",
+		"\n◆不了/no_use"
+        )
+end
+
+function no_use()
+end	
+function cbwmadw()
+	if DelItem(2,95,1506,100) == 1 then
+		AddItem(2,95,741,500)
+		Msg2Player("你已兑换成功，你变强更进一步！")
+
+
+	end
+end
+function cbwmadw1()
+	if DelItem(2,95,1506,3333) == 1 then
+		AddItem(2,95,7008,1)
+		Msg2Player("你已兑换成功，龙隐☆之精华！")
+		AddLocalNews("恭喜玩家:"..GetName().." 集齐3333个洪荒碎片兑换神秘物品[龙隐☆之精华]1个");
+
+	end
+end
+function cbwmadw2()
+	if DelItem(2,95,1506,9999) == 1 then
+		AddItem(2,95,7009,1)
+		Msg2Player("你已兑换成功，苍梧☆之精华！")
+		AddLocalNews("恭喜玩家:"..GetName().." 集齐9999个洪荒碎片兑换神秘物品[苍梧☆之精华]1个");
+
+	end
+end
+function cbwmadw3()
+	if DelItem(2,95,1506,999) == 1 then
+		AddItem(2,95,204,1)
+		Msg2Player("你已兑换成功，你变强更进一步！")
+		AddLocalNews("恭喜玩家:"..GetName().." 集齐999个洪荒碎片兑换神秘物品[天罡令]1个");
+
+	end
+end

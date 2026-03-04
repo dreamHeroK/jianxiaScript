@@ -1,0 +1,1 @@
+--文件作废 活动移至 script\isolate\online_activites\catch_fish\

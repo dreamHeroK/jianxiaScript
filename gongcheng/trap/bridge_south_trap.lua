@@ -1,0 +1,15 @@
+--create date:07-04-27
+--author:yanjun
+--describe:南边桥梁Trap点
+Include("\\script\\gongcheng\\gongcheng_function.lua");
+
+tReturnPos = {{1114,2944},{1114,2944}};
+
+function main()
+	local nPlayerCamp = GCZ_GetPlayerCamp()
+	if GetMissionV(MV_MISSION_STATE) == MS_STATE_READY then	--如果是准备阶段都不能通过
+		SetPos(tReturnPos[nPlayerCamp][1],tReturnPos[nPlayerCamp][2]);
+		Msg2Player("目前处于准备阶段,无法通过.");
+		return 0;
+	end;
+end;

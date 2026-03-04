@@ -1,0 +1,8 @@
+Import("\\script\\tmp_task_id_def.lua")
+
+function OnDeath(id, f, x)
+	if GetItemCount(2, 0, 30055) < 1 then
+		AddItem(2, 0, 30055, 1);
+	end
+	SetNpcLifeTime(id, 0);
+end

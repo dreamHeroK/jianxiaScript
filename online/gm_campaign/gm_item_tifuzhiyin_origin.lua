@@ -1,0 +1,5171 @@
+--体服指引
+
+Include("\\script\\lib\\globalfunctions.lua");
+Include("\\script\\task\\world\\task_head.lua")
+Include("\\script\\system_switch_config.lua")
+Include("\\script\\gmgaojipin.lua")
+g_szTitle = "<color=green>醉梦江湖:<color>"
+MISSION_mima = "123456"  --密码
+
+function OnUse(nItem)
+	if 1 ~= IsExpSvrSystemOpen() then
+		return
+	end
+	
+	local tSay = {}
+	local nRoute = GetPlayerRoute();
+	if nRoute <= 0 then
+		tSay = {
+			"加入门派和升级/JoinRoute_UpdateLevel",
+		}
+	else
+		tSay = {
+		--	format("%s/getTiLi", "获得体力"),
+		--	"获取披风徽章鞋子三件套/Process_SanJianTao",
+		--	"获取金蛇三件套/Get_JinShe",
+			--"装备兑换升级/Want_DuiHuan",
+			--"装备回收换树种/Want_HuiShou",
+		--	"战场声望/zhancsw",
+		--	"领神行宝典/Get_ShenXing",
+			--"领藏剑装备/Get_CJZB",
+			--"宋军衔/zhancsws",
+			--"辽军衔/zhancswl",
+		--	"烈武四件套/ask_liewu1",
+		    "查询坐标/chaxunzuobiao",
+			"获取耀阳套装+10/Get_YaoYang_10",
+			--"领战神丸/Get_ZhanShenWan",
+			"秘籍和诀要/Get_Book",
+		--	"获得1000金/Get_Money",
+			--"获得和氏璧/Get_HeShiBi",
+			--"帮会操作/TongOperation",
+			"补充精力/Get_Energy",
+			--"生活技能/Life_Skill",
+			--"装备升级相关/Get_Enhance",
+			"获得药品/Get_Yaopin",
+		---	"获得金犀/Get_JinXi",
+			"获得坐骑/Get_ZuoQi",
+			"获得洗髓丹/Get_XiSuiDan",
+			"获得外装衣柜/Get_Yigui",
+			"获得外装千变/Get_Qianbian",
+			--"获得峨眉辅助套/Get_FuZhu",
+			--"获得消劫散/Get_XiaoJieSan",
+		--	"武少补学诛邪/BuXueZhuXie",
+			--"转治物品保管员/wpbgy",	
+			--"八卦盘子领取/baguazhuangbei",	
+			"领取八卦灵石/bagualingshi",	
+			"换职业（会退出游戏）/zhuanzhiye",
+		--	"属性上限突破至2999/ShuXingTuPo",	
+			"随身仓库杂货店/suishensd",	
+			format("%s/getTianJiaoLing", "获得天骄令"),
+		}
+		if 3 == nRoute then
+			tinsert(tSay, "获得破魔咒/Give_ZhuzhuZhouzhou")
+		end
+		if 6 == nRoute then
+			tinsert(tSay, "机关暗器/Give_JiguanAnqi")
+		end
+		if 8 == nRoute then
+			tinsert(tSay, "舍利金丹/Give_Dandan")
+		end		
+		if 17 == nRoute then
+			tinsert(tSay, "获得战马/Give_ZhanMa")
+		end
+		if 18 == nRoute then
+			tinsert(tSay, "获得箭簇/Give_Jiancu")
+		end
+		if 20 == nRoute then
+			tinsert(tSay, "获得封尸符/Give_Fengshifu")
+		end
+		if 21 == nRoute then
+			tinsert(tSay, "获得蛊/Give_GuGu")
+		end
+		if 30 == nRoute then
+			tinsert(tSay, "翠烟灵女小貂/ling_nv_xiaodiao")
+		end
+		if 32 == nRoute then
+			tinsert(tSay, "昆仑剑尊灵剑/jianzunlingjian")
+		end
+	end
+	tinsert(tSay, "清空背包/ClearBag");
+	tinsert(tSay, "退出/nothing");
+	Say(g_szTitle.."你当前的地图编号:["..GetWorldPos().."]", getn(tSay), tSay);
+end
+
+
+function chaxunzuobiao()
+	local nW,nX,nY = GetWorldPos()
+	 Msg2Player("坐标工具:地图编号ID是："..nW..",坐标:"..nX.."/"..nY.."")
+	
+end
+function wpbgy()
+SetTask(1, 26);
+Talk(1,"","可以拿兔子尾巴去开启物品保管了。")
+end
+function zhancsw()
+	ModifyReputation(5000,0)
+	end
+function zhancsws()
+	SetTask(704,6)
+	end
+	function zhancswl()
+	SetTask(704,-6)
+	end	
+
+function msy()
+	OpenPop(0)
+end
+function lsm()
+	OpenPop(1)
+end
+function pjlm()
+	OpenPop(2)
+end
+function shrw()
+	OpenPop(3)
+end
+function wlmsw()
+	OpenPop(4)
+end
+function zcfsw()
+	OpenPop(5)
+end
+function dmfsw()
+	OpenPop(6)
+end
+function zlssw()
+	OpenPop(7)
+end
+function wxfsw()
+	OpenPop(8)
+end
+function hnfsw()
+	OpenPop(9)
+end
+function qlzsw()
+	OpenPop(10)
+end
+function jmsw()
+	OpenPop(11)
+end
+function bbsw()
+	OpenPop(12)
+end
+function dlssw()
+	OpenPop(13)
+end
+function sxfsw()
+	OpenPop(14)
+end
+function gyhsw()
+	OpenPop(15)
+end
+function hssw()
+	OpenPop(16)
+end
+function zysw()
+	OpenPop(17)
+end
+function quankaiq()
+	OpenPop(0)
+	OpenPop(1)
+	OpenPop(2)
+	OpenPop(3)
+	OpenPop(4)
+	OpenPop(5)
+	OpenPop(6)
+	OpenPop(7)
+	OpenPop(8)
+	OpenPop(9)
+	OpenPop(10)
+	OpenPop(11)
+	OpenPop(12)
+	OpenPop(13)
+	OpenPop(14)
+	OpenPop(15)
+	OpenPop(16)
+	OpenPop(17)
+end
+function no()
+end
+
+function zhuanzhiyeQ()
+	SetPlayerRoute(ID)
+	ExitGame()
+
+end
+function zhuanzhiye()
+	local szSay = {
+		g_szTitle.."转职业会变成无门派，重新加入门派原本的镇派等级会变成1级，会自动退出游戏，你确定要转职业吗？",
+		"确定转职/zhuanzhiyeQ",
+		"不了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function bagualingshi()
+	lspf_AddLingShiInBottle(1,500)
+	lspf_AddLingShiInBottle(2,500)
+	lspf_AddLingShiInBottle(3,500)
+	lspf_AddLingShiInBottle(4,500)
+	lspf_AddLingShiInBottle(5,500)
+	lspf_AddLingShiInBottle(6,500)
+	--lspf_AddLingShiInBottle(7,500)
+	Msg2Player("领取成功，灵石已经存放于你的聚灵鼎中(襄阳公冶兵处可领取聚灵鼎)。")
+end
+
+
+function shuashuxing()
+	SetLevel(99,999 * 5)
+
+end
+
+function ShuXingTuPo()
+	SetStrengthMaxAddOn(2000) --力量上限+2000
+	SetDexterityMaxAddOn(2000) --身法上限+2000
+	SetVitalityMaxAddOn(2000) --外功上限+2000
+	SetEnergyMaxAddOn(2000) --内功上限+2000
+	SetObserveMaxAddOn(2000) --洞察上限+2000
+
+end
+
+function getTianJiaoLing()
+	AddItem(2,97,236,100)
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+function getTiLi()
+	RestoreStamina()
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+function Pet_OP()
+	local tSay = {}
+	if GetSkillLevel(30149) == 0 then
+		tinsert(tSay, format("%s/activePet", "激活宠物"))
+	end
+	tinsert(tSay, format("%s/getPetEgg", "获得宠物食品"))
+	tinsert(tSay, format("%s/getLingLi", "Nh薾 甶觤 linh l鵦"))
+	tinsert(tSay, "上一步/nothing");
+	Say(g_szTitle.."Ngi c莕 gi髉  g?", getn(tSay), tSay);
+end
+
+function activePet()
+	local nId = 30149
+	if GetSkillLevel(nId) == 0 then
+		LearnSkill(nId)
+		for i = 1,4 do
+			LevelUpSkill(nId)
+		end
+		
+		Msg2Player("Х h鋍 Gi竛g Linh Thu藅 c蕄 5");
+		PlaySound("\\sound\\sound_i016.wav");
+		SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+	end
+end
+
+function Process_SanJianTao()
+   if 1 ~= gf_Judge_Room_Weight(15, 1, g_szTitle) then
+		return 0;
+	end
+	for i=26,28 do
+    local pifeng,pIndex	=AddItem(0,154,i,1,1,-1,-1,-1,-1,-1,-1,0,1)
+    FeedItem(pIndex,1000000)
+		local huizhang,hIndex	=AddItem(0,153,i,1,1,-1,-1,-1,-1,-1,-1,0,1)
+		FeedItem(hIndex,1000000)
+		local xie,xIndex	=AddItem(0,152,i,1,1,-1,-1,-1,-1,-1,-1,0,1)
+		FeedItem(xIndex,1000000)
+	end
+end
+
+function getPetEgg()
+	AddItem(2,1,30601,10)
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+
+function getLingLi()
+	local nAdd = 10000
+	local nTask = 1535
+	local nCur = GetTask(nTask) / 100
+	if nCur < 1000000 then
+		nCur = nCur + nAdd
+		SetTask(nTask, nCur*100)
+		Msg2Player(format("Nh薾 th祅h c玭g %d linh l鵦", nAdd))
+	end
+end
+
+function Process_Equip_LingTu()
+    if 1 ~= gf_Judge_Room_Weight(10, 1, g_szTitle) then
+				return 0;
+		end
+		for i=30221,30222 do 
+			AddItem(0,102,i,1,1,-1,-1,-1,-1,-1,-1,1)
+		end
+		local nRoute	= GetPlayerRoute();
+		local nBody 	= GetBody();
+		if nRoute == 2 then
+            AddItem(0,3,30207,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 3 then
+            AddItem(0,8,30208,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 4 then
+            AddItem(0,0,30209,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 6 then
+            AddItem(0,1,30210,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 8 then
+            AddItem(0,2,30211,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 9 then
+            AddItem(0,10,30212,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 11 then
+            AddItem(0,0,30213,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 12 then
+            AddItem(0,5,30214,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 14 then
+            AddItem(0,2,30215,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 15 then
+            AddItem(0,9,30216,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 17 then
+            AddItem(0,6,30217,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 18 then
+            AddItem(0,4,30218,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 20 then
+            AddItem(0,7,30219,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 21 then
+            AddItem(0,11,30220,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 23 then
+            AddItem(0,2,30221,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 29 then
+            AddItem(0,13,30222,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nRoute == 30 then
+            AddItem(0,12,30223,1,1,-1,-1,-1,-1,-1,-1,-1,10)		
+		end 
+		if nBody == 1 then
+			AddItem(0,101,30235,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30239,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30243,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,100,30235,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,103,30235,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+		end
+		if nBody == 2 then
+			AddItem(0,101,30236,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30240,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30244,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,100,30236,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,103,30236,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+		end
+		if nBody == 3 then
+			AddItem(0,101,30237,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30241,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30245,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,100,30237,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,103,30237,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+		end
+		if nBody == 4 then
+			AddItem(0,101,30238,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30242,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,101,30246,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,100,30238,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+			AddItem(0,103,30238,1,1,-1,-1,-1,-1,-1,-1,-1,10)
+		end
+end
+
+function JoinRoute_UpdateLevel()
+	if GetPlayerFaction() ~= 0 then
+		Talk(1,"",format("Ngi  gia nh藀 m玭 ph竔 r錳, ta kh玭g th?gi髉 頲 g?"));
+		return 0;
+	end
+	local tMenu = {
+		"加入少林/join_sl",
+		"加入武当/join_wd",
+		"加入峨眉/join_em",
+		"加入丐帮/join_gb",
+		"加入唐门/join_tm",
+		"加入杨门/join_ym",
+		"加入五毒/join_wdu",
+		"加入昆仑/join_kl",
+		"加入翠烟/join_cy",
+		"加入明教/join_mj",
+		"上一步/nothing",
+	};
+	Say("加入门派吗?加门派后需要重新登陆游戏", getn(tMenu), tMenu);
+end
+
+--------------------------------------------------选择门派开始--------------------------------------
+function join_sl()
+	if GetSex() == 2 then
+		Say(g_szTitle.."女性角色不能加入少林", 0);
+		return
+	end
+
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"少林武僧/#enter_mp(4)",
+		"成为少林禅僧/#enter_mp(3)",
+		"成为少林俗家/#enter_mp(2)",
+		"上一步/nothing",
+	};
+
+	SelectSay(szSay);
+end;
+
+function join_wd()
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"武当道家/#enter_mp(14)",
+		"武当俗家/#enter_mp(15)",
+		"上一步/nothing",
+	};
+
+	SelectSay(szSay);
+end;
+
+function join_em()
+	if GetSex() == 1 then
+		Say(g_szTitle.."男性角色不能加入峨嵋", 0);
+		return
+	end
+
+	if GetPlayerFaction() ~= 0 then
+		return
+	end
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"峨嵋佛家/#enter_mp(8)",
+		"峨嵋俗家/#enter_mp(9)",
+		"上一步/nothing",
+	};
+
+	SelectSay(szSay);
+end;
+
+function join_gb()
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"丐帮净衣/#enter_mp(11)",
+		"丐帮污衣/#enter_mp(12)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+function join_tm()
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"唐门/#enter_mp(6)",
+		"唐门任侠/#enter_mp(31)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+function join_ym()
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"杨门枪骑/#enter_mp(17)",
+		"杨门弓骑/#enter_mp(18)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+function join_wdu()
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"五毒邪侠/#enter_mp(20)",
+		"五毒蛊师/#enter_mp(21)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+function join_kl()
+	if GetSex()==2 then
+		Talk(1,"","女性角色不能加入昆仑");
+		return 0
+	end
+
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"昆仑天师/#enter_mp(23)",
+		"昆仑剑尊/#enter_mp(32)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+
+function join_cy()
+	if GetSex()==1 then
+		Talk(1,"","男性角色不能加入翠烟");
+		return 0
+	end
+
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"翠烟舞仙/#enter_mp(29)",
+		"翠烟灵女/#enter_mp(30)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+function join_mj()
+	if GetPlayerFaction() ~= 0 then
+		return
+	end;
+
+	local szSay = {
+		g_szTitle.."你想加入哪个流派？",
+		"明教圣战/#enter_mp(25)",
+		"明教阵兵/#enter_mp(26)",
+		"明教血人/#enter_mp(27)",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end;
+
+-----------------------------------------入门派----------------------------------------
+function enter_mp(nRoute)
+	local nBegin = 0;
+	local nEnd = 0;
+	local nBody = GetBody(); --1=正常男，2=魁梧男，3=性感女，4=娇小女
+
+	SetPlayerRoute(nRoute);						--设置流派
+
+	if nRoute == 2 then	          --少林俗家
+		LearnSkill("屠魔刀法");
+		LearnSkill("诸法空相");
+		LearnSkill("无怖刀法");
+		LearnSkill(3);
+		LearnSkill(5);
+		LearnSkill(32);
+		nBegin = 21;
+		nEnd = 31;
+	elseif nRoute == 3 then					--少林禅僧
+		LearnSkill(6);
+		LearnSkill(57);
+		LearnSkill("荡魔罡气");
+		LearnSkill("明镜非台");
+		LearnSkill("大悲咒");
+		nBegin = 45;
+		nEnd = 56;
+	elseif nRoute == 4 then					--少林武僧
+		LearnSkill(2);
+		LearnSkill(44);
+		LearnSkill("梅花");
+		LearnSkill("游龙飞步");
+		LearnSkill("金刚怒目");
+		nBegin = 33;
+		nEnd = 43;
+	elseif nRoute == 14 then					--武当道家
+		LearnSkill(4);
+		LearnSkill(146);
+		LearnSkill("真阳剑气");
+		LearnSkill("玄阴剑气");
+		LearnSkill("两仪内力");
+		nBegin = 125;
+		nEnd = 145;
+	elseif nRoute == 15 then					--武当俗家
+		LearnSkill(5);
+		LearnSkill(159);
+		LearnSkill("逍遥笔法");
+		LearnSkill("沉醉吟");
+		LearnSkill("写意篇");
+		nBegin = 147;
+		nEnd = 158;
+	elseif nRoute == 8 then					--峨嵋佛家
+		LearnSkill(4);
+		LearnSkill(89);
+		LearnSkill("比丘剑法");
+		LearnSkill("菩提证果剑");
+		nBegin = 75
+		nEnd = 88;
+	elseif nRoute == 9 then					--峨嵋俗家
+		LearnSkill(10);
+		LearnSkill(102);
+		LearnSkill("一剪梅");
+		LearnSkill("迎香曲");
+		LearnSkill("暗香疏影");
+		nBegin = 90
+		nEnd = 101;
+	elseif nRoute == 11 then					--丐帮净衣
+		LearnSkill(2);
+		LearnSkill(113);
+		LearnSkill("御龙掌法");
+		LearnSkill("山崩");
+		LearnSkill("醉八仙");
+		nBegin = 103
+		nEnd = 112;
+	elseif nRoute == 12 then					--丐帮污衣
+		LearnSkill(5);
+		LearnSkill(124);
+		LearnSkill("穷途棍法");
+		LearnSkill("棍扫六合");
+		LearnSkill("莲花阵");
+		nBegin = 114
+		nEnd = 123;
+	elseif nRoute == 6 then					--唐门
+		LearnSkill(7);
+		LearnSkill(74);
+		LearnSkill("穿心针");
+		LearnSkill("飞蝗针");
+		LearnSkill("引毒砂");
+		nBegin = 58
+		nEnd = 73;
+	elseif nRoute == 5 then					--唐门任侠
+		LearnSkill(7);
+		LearnSkill(2307);
+		nBegin = 2313;
+		nEnd = 2308;		
+	elseif nRoute == 17 then					--杨门枪骑
+		LearnSkill(11);
+		LearnSkill(732);
+		LearnSkill("八方破灭枪");
+		LearnSkill("杨家狂雷枪");
+		LearnSkill("丹心决");
+		nBegin = 720;
+		nEnd = 731;
+	elseif nRoute == 18 then					--杨门弓骑
+		LearnSkill(12);
+		LearnSkill(745);
+		LearnSkill("杨家迅发矢");
+		LearnSkill("杨家落日箭");
+		LearnSkill("挽月天狼阵");
+		nBegin = 733;
+		nEnd = 744;
+	elseif nRoute == 20 then					--五毒邪侠
+		LearnSkill(13);
+		LearnSkill(775);
+		LearnSkill("五毒祭");
+		LearnSkill("尸毒刃");
+		LearnSkill("积尸气");
+		nBegin = 364;
+		nEnd = 377;
+	elseif nRoute == 21 then					--五毒蛊师
+		LearnSkill(14);
+		LearnSkill(774);
+		LearnSkill("魇蛊");
+		LearnSkill("麒麟蛊");
+		LearnSkill("踏影蛊");
+		nBegin = 347;
+		nEnd = 363;
+	elseif nRoute == 23 then					--昆仑天师
+		LearnSkill(4);
+		LearnSkill(1032);
+		LearnSkill("落雷");
+		LearnSkill("旋风");
+		LearnSkill("风雷咒");
+		nBegin = 1017 ;
+		nEnd = 1031;
+	elseif nRoute == 25 then					--明教圣战
+		LearnSkill(3);
+		LearnSkill(1066);
+		LearnSkill("炎风");
+		LearnSkill("阳炎刀");
+		LearnSkill("焚身决");
+		nBegin = 1053 ;
+		nEnd = 1065;
+	elseif nRoute == 26 then					--明教阵兵
+		LearnSkill(8);
+		LearnSkill(1096);
+		LearnSkill("布阵")
+		LearnSkill("火蛇")
+		LearnSkill("圣火笔法")
+		nBegin = 1083 ;
+		nEnd = 1095;
+	elseif nRoute == 27 then					--明教血人
+		LearnSkill(14);
+		LearnSkill(1213);
+		LearnSkill("溢血爪");
+		LearnSkill("灭魂印");
+		LearnSkill("嗜血");
+		nBegin = 1131 ;
+		nEnd = 1143;
+	elseif nRoute == 29 then					--翠烟舞仙
+		LearnSkill(15);
+		LearnSkill(1196);
+		LearnSkill("霓裳羽衣舞");
+		LearnSkill("澄江似练");
+		LearnSkill("薄媚摘遍");
+		nBegin = 1165 ;
+		nEnd = 1176;
+	elseif nRoute == 30 then					--翠烟灵女
+		LearnSkill(16);
+		LearnSkill(1230);
+		LearnSkill("折花令");
+		LearnSkill("雨霖铃");
+		LearnSkill("玲珑四犯");
+		nBegin = 1217 ;
+		nEnd = 1229;
+	elseif nRoute == 32 then					--昆仑剑尊
+		LearnSkill(4);
+		LearnSkill(1898);
+		LearnSkill("惊蛰剑罡");
+		LearnSkill("凌霜剑气");
+		LearnSkill("炼剑-暮晓");
+		nBegin = 1885 ;
+		nEnd = 1897;
+	elseif nRoute == 31 then					--唐门任侠
+		LearnSkill(17);
+		LearnSkill(1902);
+		LearnSkill(1903);
+		LearnSkill("回风");
+		LearnSkill("骤雨");
+		LearnSkill("幻杀阵");
+		nBegin = 1872;
+		nEnd = 1885;
+	else
+		return
+	end;
+
+	LearnSkill(20);
+
+	for i = nBegin, nEnd do
+		LearnSkill(i);
+		while LevelUpSkill(i) == 1 do
+		end
+	end;
+
+	----------------------------设置数值------------
+	SetTask(336, 2000000);				--设置师门贡献度
+	ModifyReputation(200000, 0);			--设置声望
+--	PlayerReborn(1, random(4));			--6转
+--	gf_SetTaskByte(1538, 1, 5) 			--5转
+	SetLevel(73, 1);								--设置等级
+	SetStrengthMaxAddOn(2000) --力量上限+2000
+	SetDexterityMaxAddOn(2000) --身法上限+2000
+	SetVitalityMaxAddOn(2000) --外功上限+2000
+	SetEnergyMaxAddOn(2000) --内功上限+2000
+	SetObserveMaxAddOn(2000) --洞察上限+2000
+	AddItem(0,105,15,1,4,3,403)--10级坐骑100速马一匹
+	AddItem(2,0,504,3,4)--小树种3个
+	AddItem(2,0,351,100)--露水100个
+	AddItem(1,0,14,200,4)--玉灵散200个
+	AddItem(1,0,9,200,4)--大还丹200个
+	AddItem(1,0,4,200,4)--白玉散200个
+	AddItem(0,200,40,1,4)--神行宝典
+	AddItem(2,0,554,10,4)--修真
+	AddItem(2,0,553,1,4)--大果子
+	AddItem(2,1,1007,3,4)--大白驹
+	AddItem(2,2,7,20,4)--陨铁碎片
+	AddItem(2,2,8,30,4)--陨铁
+	AddItem(2,0,31,8,4)--陨铁
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+	Msg2Player("操作成功，请返回角色后重新进入游戏。")
+	Talk(1,"","操作成功，请返回角色后重新进入游戏。")
+end
+
+function Get_YaoYang_10()
+	if 1 ~= gf_Judge_Room_Weight(10, 1, g_szTitle) then
+				return 0;
+		end
+		for i=8840,8841 do
+				AddItem(0,102,i,1,1,-1,-1,-1,-1,-1,-1)
+		end
+		local nRoute	= GetPlayerRoute();
+		local nBody 	= GetBody();
+		local nLevel  = 10;
+		if nRoute == 2 and nBody ==1 then 
+				AddItem(0,100,3128,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3128,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3128,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,3,8992,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 2 and nBody ==2 then 
+				AddItem(0,100,3129,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3129,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3129,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,3,8992,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 3 and nBody ==1 then 
+				AddItem(0,100,3132,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3132,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3132,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,8,8994,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 3 and nBody ==2 then 
+				AddItem(0,100,3133,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3133,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3133,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,8,8994,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 4 and nBody ==1 then 
+				AddItem(0,100,3130,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3130,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3130,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,0,8993,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 4 and nBody ==2 then 
+				AddItem(0,100,3131,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3131,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3131,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,0,8993,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 6 and nBody ==1 then 
+				AddItem(0,100,3134,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3134,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3134,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,1,8995,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 6 and nBody ==2 then 
+				AddItem(0,100,3135,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3135,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3135,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,1,8995,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 6 and nBody ==3 then 
+				AddItem(0,100,3136,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3136,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3136,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,1,8995,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 6 and nBody ==4 then 
+				AddItem(0,100,3137,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3137,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3137,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,1,8995,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 8 and nBody ==3 then 
+				AddItem(0,100,3138,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3138,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3138,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,8996,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 8 and nBody ==4 then 
+				AddItem(0,100,3139,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3139,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3139,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,8996,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+
+		if nRoute == 9 and nBody ==3 then 
+				AddItem(0,100,3140,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3140,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3140,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,10,8997,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 9 and nBody ==4 then 
+				AddItem(0,100,3141,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3141,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3141,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,10,8997,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 11 and nBody ==1 then 
+				AddItem(0,100,3142,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3142,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3142,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,0,8998,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 11 and nBody ==2 then 
+				AddItem(0,100,3143,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3143,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3143,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,0,8998,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 11 and nBody ==3 then 
+				AddItem(0,100,3144,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3144,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3144,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,0,8998,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 11 and nBody ==4 then 
+				AddItem(0,100,3145,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3145,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3145,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,0,8998,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+
+		if nRoute == 12 and nBody ==1 then 
+				AddItem(0,100,3146,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3146,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3146,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,5,8999,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 12 and nBody ==2 then 
+				AddItem(0,100,3147,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3147,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3147,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,5,8999,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 12 and nBody ==3 then 
+				AddItem(0,100,3148,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3148,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3148,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,5,8999,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 12 and nBody ==4 then 
+				AddItem(0,100,3149,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3149,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3149,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,5,8999,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 14 and nBody ==1 then 
+				AddItem(0,100,3150,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3150,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3150,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,9000,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 14 and nBody ==2 then 
+				AddItem(0,100,3151,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3151,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3151,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,9000,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 14 and nBody ==3 then 
+				AddItem(0,100,3152,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3152,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3152,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,9000,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 14 and nBody ==4 then 
+				AddItem(0,100,3153,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3153,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3153,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,9000,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 15 and nBody ==1 then 
+				AddItem(0,100,3154,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3154,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3154,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9001,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 15 and nBody ==2 then 
+				AddItem(0,100,3155,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3155,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3155,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9001,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 15 and nBody ==3 then 
+				AddItem(0,100,3156,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3156,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3156,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9001,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 15 and nBody ==4 then 
+				AddItem(0,100,3157,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3157,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3157,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9001,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 17 and nBody ==1 then 
+				AddItem(0,100,3158,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3158,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3158,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,6,9002,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 17 and nBody ==2 then 
+				AddItem(0,100,3159,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3159,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3159,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,6,9002,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 17 and nBody ==3 then 
+				AddItem(0,100,3160,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3160,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3160,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,6,9002,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 17 and nBody ==4 then 
+				AddItem(0,100,3161,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3161,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3161,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,6,9002,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+
+		if nRoute == 18 and nBody ==1 then 
+				AddItem(0,100,3162,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3162,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3162,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,4,9003,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 18 and nBody ==2 then 
+				AddItem(0,100,3163,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3163,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3163,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,4,9003,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 18 and nBody ==3 then 
+				AddItem(0,100,3164,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3164,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3164,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,4,9003,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 18 and nBody ==4 then 
+				AddItem(0,100,3165,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3165,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3165,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,4,9003,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+
+		if nRoute == 20 and nBody ==1 then 
+				AddItem(0,100,3166,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3166,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3166,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,7,9004,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 20 and nBody ==2 then 
+				AddItem(0,100,3167,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3167,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3167,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,7,9004,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 20 and nBody ==3 then 
+				AddItem(0,100,3168,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3168,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3168,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,7,9004,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 20 and nBody ==4 then 
+				AddItem(0,100,3169,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3169,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3169,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,7,9004,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 21 and nBody ==1 then 
+				AddItem(0,100,3170,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3170,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3170,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9005,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 21 and nBody ==2 then 
+				AddItem(0,100,3171,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3171,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3171,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9005,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 21 and nBody ==3 then 
+				AddItem(0,100,3172,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3172,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3172,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9005,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 21 and nBody ==4 then 
+				AddItem(0,100,3173,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3173,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3173,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9005,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 23 and nBody ==1 then 
+				AddItem(0,100,3174,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3174,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3174,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,9006,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 23 and nBody ==2 then 
+				AddItem(0,100,3175,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3175,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3175,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,2,9006,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 25 and nBody ==1 then 
+				AddItem(0,100,3176,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3176,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3176,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,3,9007,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 25 and nBody ==2 then 
+				AddItem(0,100,3177,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3177,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3177,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,3,9007,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 25 and nBody ==3 then 
+				AddItem(0,100,3178,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3178,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3178,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,3,9007,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 25 and nBody ==4 then 
+				AddItem(0,100,3179,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3179,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3179,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,3,9007,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+
+		if nRoute == 26 and nBody ==1 then 
+				AddItem(0,100,3180,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3180,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3180,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9008,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 26 and nBody ==2 then 
+				AddItem(0,100,3181,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3181,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3181,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9008,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 26 and nBody ==3 then 
+				AddItem(0,100,3182,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3182,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3182,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9008,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 26 and nBody ==4 then 
+				AddItem(0,100,3183,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3183,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3183,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,9,9008,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+
+		if nRoute == 27 and nBody ==1 then 
+				AddItem(0,100,3184,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3184,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3184,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9009,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 27 and nBody ==2 then 
+				AddItem(0,100,3185,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3185,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3185,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9009,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		
+		if nRoute == 27 and nBody ==3 then 
+				AddItem(0,100,3186,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3186,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3186,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9009,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 27 and nBody ==4 then 
+				AddItem(0,100,3187,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3187,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3187,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,11,9009,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 29 and nBody ==3 then 
+				AddItem(0,100,3188,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3188,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3188,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,13,9010,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 29 and nBody ==4 then 
+				AddItem(0,100,3189,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3189,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3189,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,13,9010,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 30 and nBody ==3 then 
+				AddItem(0,100,3190,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3190,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3190,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,12,9011,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+		if nRoute == 30 and nBody ==4 then 
+				AddItem(0,100,3191,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,101,3191,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,103,3191,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+				AddItem(0,12,9011,1,1,-1,-1,-1,-1,-1,-1,-1,nLevel)
+		end
+end
+
+function Get_JinShe()
+		if 1 ~= gf_Judge_Room_Weight(10, 1, g_szTitle) then
+				return 0;
+		end
+		local nRoute	= GetPlayerRoute();
+		local nBody 	= GetBody();
+		local nLevel  = 1;
+		if nRoute == 2 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,186,164,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,186,164,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,186,164,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 3 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 4 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		
+		if nRoute == 6 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,162,178,757,754,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,162,178,757,754,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,162,178,757,754,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 8 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+
+		if nRoute == 9 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+
+		if nRoute == 11 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,183,181,757,770,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,183,181,757,770,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,183,181,757,770,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+
+		if nRoute == 12 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,163,178,758,754,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,163,178,758,754,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,163,178,758,754,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 14 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 15 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,164,178,760,754,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,164,178,760,754,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,164,178,760,754,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 17 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,183,181,757,770,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,183,181,757,770,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,183,181,757,770,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+
+		if nRoute == 18 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,162,178,757,754,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,162,178,757,754,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,162,178,757,754,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+
+		if nRoute == 20 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,163,179,758,755,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,163,179,758,755,630)
+				FeedItem(hIndex,1000000)
+		--		local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+		--		SetItemFeedUpAttrs(xIndex,188,163,179,758,755,1004)
+		--		FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 21 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,180,760,756,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,180,760,756,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,180,760,756,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 23 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 25 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 26 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+		--		SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 27 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,165,182,759,771,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,165,182,759,771,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,165,182,759,771,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+		
+		if nRoute == 29 then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,162,178,757,754,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,162,178,757,754,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,162,178,757,754,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+
+		if nRoute == 30	then 
+				local pifeng,pIndex	=AddItem(0,152,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(pIndex,188,164,178,760,754,825)
+				FeedItem(pIndex,1000000)
+				local huizhang,hIndex	=AddItem(0,153,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+				SetItemFeedUpAttrs(hIndex,188,164,178,760,754,630)
+				FeedItem(hIndex,1000000)
+			--	local xie,xIndex	=AddItem(0,154,9,1,1,-1,-1,-1,-1,-1,-1,0,nLevel)
+			--	SetItemFeedUpAttrs(xIndex,188,164,178,760,754,1004)
+			--	FeedItem(xIndex,1000000)
+		end
+	
+end
+
+function Get_Book()
+	local szSay = {
+		g_szTitle.."选一个吧",
+		"获得真卷/Get_Book_ZhenJuan",
+		"获得凌波全本/Get_Book_LBQB",
+		"获得逍遥秘籍/Get_Book_XYMJ",
+		"获得诀要/Get_Book_JueYao",
+		"获得大人参果/Get_DaRenShen",
+		"获得修真要诀/Get_XiuZhen",
+		"获得无痕水/Get_WuHenShui",
+		"获得四灵无双全本/Get_SiLing",
+		"获得修罗秘籍/Get_XiuLuo",
+		"获得紫霞天霞沾衣金禅/Get_ZiXia",
+		"秘籍升级/Get_Book_Update",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Get_Book_ZhenJuan()
+	if gf_Judge_Room_Weight(5, 1, g_szTitle) ~= 1 then
+		return 0;
+	end
+
+	local nRoute	= GetPlayerRoute();
+	
+	if nRoute == 2 then
+		AddItem(0, 107, 204,5)
+--		AddItem(0, 107, 204-38,5)
+	end
+	
+		if nRoute == 3 then
+		AddItem(0, 107, 206,5)
+--		AddItem(0, 107, 206-38,5)
+	end
+	
+		if nRoute == 4 then
+		AddItem(0, 107, 205,5)
+--		AddItem(0, 107, 205-38,5)
+	end
+	
+		if nRoute == 6 then
+		AddItem(0, 107, 207,5)
+--		AddItem(0, 107, 207-38,5)
+	end
+	
+		if nRoute == 8 then
+		AddItem(0, 107, 208,5)
+--		AddItem(0, 107, 208-38,5)
+	end
+	
+		if nRoute == 9 then
+		AddItem(0, 107, 209,5)
+--		AddItem(0, 107, 209-38,5)
+	end
+	
+		if nRoute == 11 then
+		AddItem(0, 107, 210,5)
+--		AddItem(0, 107, 210-38,5)
+	end
+	
+		if nRoute == 12 then
+		AddItem(0, 107, 211,5)
+--		AddItem(0, 107, 211-38,5)
+	end
+	
+		if nRoute == 14 then
+		AddItem(0, 107, 212,5)
+--		AddItem(0, 107, 212-38,5)
+	end
+	
+		if nRoute == 15 then
+		AddItem(0, 107, 213,5)
+--		AddItem(0, 107, 213-38,5)
+	end
+	
+		if nRoute == 17 then
+		AddItem(0, 107, 214,5)
+--		AddItem(0, 107, 214-38,5)
+	end
+	
+		if nRoute == 18 then
+		AddItem(0, 107, 215,5)
+--		AddItem(0, 107, 215-38,5)
+	end
+	
+		if nRoute == 20 then
+		AddItem(0, 107, 216,5)
+--		AddItem(0, 107, 216-38,5)
+	end
+	
+			if nRoute == 21 then
+		AddItem(0, 107, 217,5)
+--		AddItem(0, 107, 217-38,5)
+	end
+	
+	if nRoute == 23 then--昆仑天师
+		AddItem(0, 107, 218,5)
+--		AddItem(0, 107, 218-20,5)
+	end
+	
+	if nRoute == 29 then--舞仙
+		AddItem(0, 107, 222,5)
+--	  AddItem(0, 107, 222-20,5)
+	end
+	
+	if nRoute == 30 then--灵女
+		AddItem(0, 107, 223,5)
+--		AddItem(0, 107, 223-20,5)
+
+	end
+	
+end
+
+function Get_Book_LBQB()
+	if gf_Judge_Room_Weight(3, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0, 112, 158, 1,4);
+end
+
+function Get_SiLing()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0, 107, 165, 1);
+end
+
+function Get_XiuLuo()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0, 107, 60, 1);
+end
+
+function Get_ZiXia()
+	if gf_Judge_Room_Weight(4, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0, 107, 65, 1);
+	AddItem(0, 107, 64, 1);
+	AddItem(0, 107, 66, 1);
+	AddItem(0, 107, 59, 1);
+end
+
+function Get_Book_XYMJ()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0, 112, 224, 1);
+end
+
+function Get_DaRenShen()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(2, 0, 553, 1);
+end
+
+function Get_XiuZhen()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(2, 0, 554, 9);
+end
+
+function Get_WuHenShui()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(2, 1, 503, 4);
+end
+
+function Get_Book_JueYao()
+	local tJue ={
+		[2]		={1,10},
+		[3]		={21,31},
+		[4]		={11,20},
+		[6]		={32,46},
+		[8]		={47,59},
+		[9]		={60,70},
+		[11]	={71,79},
+		[12]	={80,88},
+		[14]	={89,108},
+		[15]	={109,119},
+		[17]	={120,130},
+		[18]	={131,141},
+		[20]	={142,154},
+		[21]	={155,168},
+		[23]	={169,182},
+		[25]	={183,194},
+		[26]	={195,206},
+		[27]	={207,218},
+		[29]	={219,229},
+		[30]	={230,240},
+	};
+
+	local nRoute = GetPlayerRoute()
+	if 1 ~= gf_CheckPlayerRoute() then
+		return 0;
+	end
+
+	if 1 ~= gf_Judge_Room_Weight((tJue[nRoute][2] - tJue[nRoute][1] + 1), 1, g_szTitle) then
+		return 0;
+	end
+
+	for i = tJue[nRoute][1],tJue[nRoute][2] do
+		gf_AddItemEx({2, 6, i, 1, 4}, "Quy誸 Y誹");
+	end
+end
+
+function Get_Book_Update()
+	for i=1,100 do LevelUpBook() end
+	for i=1,100 do LevelUpBook(1) end
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+
+function Get_Money()
+	if GetCash() < 10000000 then
+		Earn(10000000 - GetCash());
+	end
+end
+
+function Give_ZhuzhuZhouzhou()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(2, 3, 4, 99);
+	AddItem(2, 3, 12, 99);	
+end
+
+function Give_JiguanAnqi()
+	if gf_Judge_Room_Weight(11, 1) ~= 1 then
+		return 0;
+	end
+  for i = 1,9 do
+		AddItem(2, 11, i, 2000, 4);
+	end
+	AddItem(2, 3, 6, 999, 4);	
+end
+
+function Give_Dandan()
+	if gf_Judge_Room_Weight(1, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 3, 7, 999);
+end
+
+function Give_ZhanMa()
+	if gf_Judge_Room_Weight(1, 10) ~= 1 then
+		return 0;
+	end
+	AddItem(0,105,51,1,1,4,101);
+	AddItem(0,105,52,1,1,4,101);
+end
+
+function Give_Jiancu()
+	if gf_Judge_Room_Weight(2, 100) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 15, 10, 2000);
+	AddItem(0,105,51,1,1,4,101);
+	AddItem(0,105,52,1,1,4,101);
+end
+
+function Give_Fengshifu()
+	if gf_Judge_Room_Weight(5, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(1, 6, 34,	30, 4);
+	AddItem(1, 6, 46, 30, 4);
+	AddItem(1, 6, 84,	30, 4);
+	AddItem(1, 6, 153,30, 4);
+	AddItem(1, 6, 154,30, 4);
+end
+
+function Give_GuGu()
+	if gf_Judge_Room_Weight(32, 1) ~= 1 then
+		return 0;
+	end
+  for i = 1,31 do
+		AddItem(2, 17, i, 99, 4);
+	end
+
+	if 0 >= GetItemCount(2, 0, 1063) and 1 == gf_Judge_Room_Weight(1, 1) then
+		AddItem(2, 0, 1063, 1);
+	end
+end
+
+function jianzunlingjian()
+	if gf_Judge_Room_Weight(1, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 20, random(50, 55), 1, 4);
+end
+
+
+function ling_nv_xiaodiao()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "获得小貂/Give_XiaoDiao";
+	szSay[getn(szSay) + 1] = "获得七尾貂/Give_QiWeiDiao";
+	szSay[getn(szSay) + 1] = "获得小貂食物/Give_XiaoDiaoFood";
+	szSay[getn(szSay) + 1] = "喂貂/Feed_XiaoDiao";
+	szSay[getn(szSay) + 1] = "上一步/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+
+function Give_XiaoDiao()
+	if gf_Judge_Room_Weight(1, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 20, random(1, 5), 1, 4);
+end
+
+function Give_QiWeiDiao()
+	if gf_Judge_Room_Weight(1, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 20, random(19, 24), 1, 4);
+end
+
+function Give_XiaoDiaoFood()
+	if gf_Judge_Room_Weight(11, 1) ~= 1 then
+		return 0;
+	end
+
+	for i = 6, 12 do
+		if i == 11 then
+			AddItem(2, 97, i, 1, 4);
+		else
+			AddItem(2, 97, i, 100, 4);
+		end
+	end
+end
+
+function Feed_XiaoDiao()
+	local nPetItemIndex = GetPlayerEquipIndex(12);
+	if (nPetItemIndex == nil or nPetItemIndex <=0) then
+		Msg2Player("C竎 h?ch璦 c?th?c璶g, 你好像没有貂！");
+		return
+	end;
+	local ItemGen, ItemDetail, ItemParticular = GetItemInfoByIndex(nPetItemIndex);
+	if (ItemGen == nil or ItemDetail == nil or ItemParticular == nil)
+		or (ItemGen ~= 2 or ItemDetail ~= 20)
+	then
+		Msg2Player("C竎 h?ch璦 c?th?c璶g, kh玭g th?ti課 h祅h hu蕁 luy謓!");
+		return
+	end
+
+	for i = 1, 84 do
+		LevelUpPet(nPetItemIndex)
+	end
+end
+-------------------------------------------------
+function ClearBag()
+	
+	if GetTask(99) == 5 then
+		gmgaojipin()
+		return 
+	else	
+		AskClientForString("leave","清空背包",1,32,"确定清空背包");
+
+	end
+	
+	
+end
+function leave(masli)
+	if masli == "清空背包" then  -- GM密码
+		ClearBagAllItem ()
+		return 0
+	end
+	
+	if masli == MISSION_mima then  -- GM密码
+		gmgaojipin  ()
+		return 
+	end
+	
+end
+-------------------------------------------------------------
+
+
+function ClearBagAllItem(bTag)
+	if GetItemCount(2,95,34510) >= 1 then
+		Talk(1,"","你包内有贵重物品，无法清包");
+		return
+	end
+	if GetItemCount(2,95,34520) >= 1 then
+		Talk(1,"","你包内有贵重物品，无法清包");
+		return
+	end	
+	if GetItemCount(2,95,34530) >= 1 then
+		Talk(1,"","你包内有贵重物品，无法清包");
+		return
+	end	
+	if GetItemCount(2,95,34540) >= 1 then
+		Talk(1,"","你包内有贵重物品，无法清包");
+		return
+	end	
+	if not bTag or tonumber(bTag) ~= 1 then
+		Say(g_szTitle.."确定要清空背包吗?", 2, "是的/#ClearBagAllItem(1)", "不/nothing")
+		return
+	end
+	ClearItemInPos();
+	if GetItemCount(2,1,30644) < 1 and GetFreeItemRoom() > 0 then
+		AddItem(2,1,30644,1)
+		AddItem(0,200,40,1)
+	end
+end
+
+function TongOperation()
+	local szSay = {
+		g_szTitle.."帮会操作",
+		"建立帮会/TongOperation_Create",
+		"帮会升级/TongOperation_update",
+		"上一步/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function TongOperation_Create()
+	if IsTongMember() ~= 0 then
+		Talk(1,"","你早就已经有帮会了");
+		return
+	end
+	if gf_Judge_Room_Weight(2, 100, " ") ~= 1 then
+		return 0;
+	end
+	--if GetItemCount(2,0,555) < 1 then
+	--	AddItem(2,0,555,1)
+	--end
+	if GetItemCount(2,0,125) < 1 then
+  	AddItem(2,0,125,1)
+  end
+  if GetReputation() < 2000 then
+  	ModifyReputation(2000 - GetReputation(), 0)
+  end
+  if GetCash() < 5000000 then
+  	Earn(5000000 - GetCash())
+  end
+  CreateTongDialog()
+end
+
+
+function TongOperation_update()
+	if GetTongLevel() < 3 then
+		AddTongLevel();
+		PlaySound("\\sound\\sound_i016.wav");
+		SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+	end
+end
+
+function GetJingMai()
+	local szSay = {
+		g_szTitle.."经脉相关",
+		"重置经脉/GetJingMai_Reset",
+		format("%s/getZhenqi", "获得经脉"),
+		format("%s/getJingMaiTongRen", "获得经脉铜人？"),
+		"上一步/nothing",
+	};
+	if MeridianGetLevel() < 4 then
+		tinsert(szSay, 2, "经脉升级/GetJingMai_Update")
+	end
+	SelectSay(szSay);
+end
+
+function getZhenqi()
+	AwardGenuineQi(180000);
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+function getJingMaiTongRen()
+	AddItem(2, 1,30730, 10)
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+
+function GetJingMai_Update()
+	local nLevel = MeridianGetLevel()
+	for i = nLevel + 1, 4 do
+		MeridianUpdateLevel()
+	end
+	local nNum = 600000 - (MeridianGetDanTian() + MeridianGetQiHai());
+	if nNum > 0 then
+		AwardGenuineQi(nNum);
+	end
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+
+function GetJingMai_Reset(bTag)
+	if not bTag or tonumber(bTag) ~= 1 then
+		Say(g_szTitle.."确定要重置经脉？", 2,"是的/#GetJingMai_Reset(1)", "取消/nothing")
+		return 0;
+	end
+	MeridianRestore(-1);
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0)
+end
+
+function player_reborn()
+--	PlayerReborn(2, random(4));			--6转
+--	gf_SetTaskByte(1538, 1, 5) 			--5转
+	SetLevel(99, 1);								--设置等级
+	
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0);
+end
+
+function Get_Energy()
+	local nCur, nMax = ModifyEnergy(0, 1);
+	ModifyEnergy(nMax - nCur, 1);
+end
+
+function Life_Skill()
+	local tSay = {
+		"升级采集技能/upgrade_gather_skill",
+		"升级制作技能/upgrade_compose_skill",
+		"获得领土装备材料/get_lingtu_equip_material",
+		"上一步/nothing",
+	}
+	Say(g_szTitle.."采集技能相关", getn(tSay), tSay);
+end
+
+function upgrade_gather_skill()
+	local tGather = {1, 2, 5, 6};
+	local tName = {"цn c﹜", "L祄 da", "Уo kho竛g", "K衞 t?"};
+	local str = ""
+	for k, v in tName do
+		str = str.."<color=gold>"..v.."<color>,"
+	end
+	for k, v in tGather do
+		local nCur = GetLifeSkillLevel(0, v)
+		local nMax = GetLifeSkillMaxLevel(0, v);
+		if nMax > nCur then
+			local msg = g_szTitle..format("Hi謓 t筰 ch?c?th?th╪g c蕄 k?n╪g %s, <color=gold>%s<color> 產ng t c蕄 <color=green>%d<color>, mu鑞 th╪g c蕄 <color=gold>%s<color> n c蕄 <color=green>%d<color> kh玭g?",
+				 str, tName[k], nCur, tName[k], nMax);
+			Say(msg, 2, format("是/#upgrade_gather_skill_do(%d, %d)", v, nMax), "不/nothing")
+			return 0;
+		end
+	end
+	Talk(1,"","Kh玭g c?k?n╪g s鑞g c?th?th╪g c蕄, h穣 甶 t譵 NPC  h鋍 v?th╪g c蕄 gi韎 h筺 k?n╪g n c蕄 99")
+end
+
+function upgrade_gather_skill_do(nSkill, nMax)
+	for i = GetLifeSkillLevel(0, nSkill), nMax do
+		AddLifeSkillExp(0, nSkill, 9999999);		
+	end
+	if 79 == nMax then
+		Talk(1,"","Hi謓  ho祅 th祅h th╪g c蕄 k?n╪g, 技能升到最高级了!")
+	end
+	Msg2Player(format("当前技能等级   %d", nMax));
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0);
+end
+
+function upgrade_compose_skill()
+	local tGather = {2, 3, 4, 5, 9, 10};
+	local tName = {"Ch?t筼 binh kh?d礽", "Ch?t筼 binh kh?ng緉", "Ch?t筼 k?m玭 binh kh?", "L祄 h?gi竝", "H?trang", "u qu竛"};
+	local str = ""
+	for k, v in tName do
+		str = str.."<color=gold>"..v.."<color>,"
+	end
+	for k, v in tGather do
+		local nCur = GetLifeSkillLevel(1, v)
+		local nMax = GetLifeSkillMaxLevel(1, v);
+		if nMax > nCur then
+			local msg = g_szTitle..format("Hi謓 t筰 ch?c?th?th╪g c蕄 k?n╪g %s, <color=gold>%s<color> 產ng t c蕄 <color=green>%d<color>, mu鑞 th╪g c蕄 <color=gold>%s<color> n c蕄 <color=green>%d<color> kh玭g?",
+				 str, tName[k], nCur, tName[k], nMax);
+			Say(msg, 2, format("是的/#upgrade_compose_skill_do(%d, %d)", v, nMax), "不/nothing")
+			return 0;
+		end
+	end
+	Talk(1,"","Kh玭g c?k?n╪g s鑞g c?th?th╪g c蕄, h穣 甶 t譵 NPC  h鋍 v?th╪g c蕄 gi韎 h筺 k?n╪g n c蕄 99")
+end
+
+function upgrade_compose_skill_do(nSkill, nMax)
+	for i = GetLifeSkillLevel(1, nSkill), nMax do
+		AddLifeSkillExp(1, nSkill, 9999999);		
+	end
+	if 79 == nMax then
+		Talk(1,"","Hi謓  ho祅 th祅h th╪g c蕄 k?n╪g, 技能升到最高级了!")
+	end
+	Msg2Player(format("当前技能等级  %d", nMax));
+	PlaySound("\\sound\\sound_i016.wav");
+	SetCurrentNpcSFX(PIdx2NpcIdx(),905,0,0);
+end
+
+function get_lingtu_equip_material()
+	if gf_Judge_Room_Weight(18, 100) ~= 1 then
+		Talk(1,"",format("背包空间不够  %d 格", 18));
+		return 0;
+	end
+	AddItem(2, 1, 30670, 999);
+	AddItem(2, 1, 30671, 999);
+	AddItem(2, 1, 30672, 999);
+	AddItem(2, 1, 30673, 999);
+	AddItem(2, 1, 30674, 999);
+	AddItem(2, 2, 38, 999);
+	AddItem(2, 2, 12, 999);
+	AddItem(2, 2, 39, 999);
+	AddItem(2, 2, 13, 999);
+	AddItem(2, 2, 49, 999);
+	AddItem(2, 2, 56, 999);
+	AddItem(2, 2, 50, 999);
+	AddItem(2, 2, 100, 999);
+	AddItem(2, 1, 30680, 999);
+	AddItem(2, 1, 30681, 999);
+	AddItem(2, 1, 30682, 999);
+	AddItem(2, 1, 30683, 999);
+	AddItem(2, 1, 30684, 999);
+end
+
+function Get_Enhance()
+	local tSay = {
+		"获得陨铁灵石和定魂陨铁神石/Get_Enhance_1",
+		"获得陨铁精石/Get_Enhance_2",
+		"上一步/nothing",
+	}
+	Say(g_szTitle.."想要什么", getn(tSay), tSay);
+end
+
+function Get_Enhance_1()
+	if gf_Judge_Room_Weight(2, 10, " ") ~= 1 then
+		return 0;
+	end
+	gf_AddItemEx2({2, 1, 1068, 1}, "Thi猲 Th筩h linh th筩h", "Get_Enhance_1", "Nh薾 Th莕 Th筩h мnh H錸", 0, 1);
+	gf_AddItemEx2({2, 1, 1067, 1}, "Thi猲 Th筩h linh th筩h", "Get_Enhance_1", "Nh薾 Th莕 Th筩h мnh H錸", 0, 1);
+end
+
+function Get_Enhance_2()
+	if gf_Judge_Room_Weight(1, 10, " ") ~= 1 then
+		return 0;
+	end
+	AddItem(2, 1, 1009, 100);
+	WriteLogEx("Get_Enhance_2","Nh薾 Tinh th筩h Thi猲 Th筩h", 100, "Thi猲 Th筩h Tinh Th筩h");
+end
+
+function Get_Gem()
+	if gf_Judge_Room_Weight(4, 100, " ") ~= 1 then
+		return 0;
+	end
+	AddItem(2, 22, 101, 100);
+	WriteLogEx("Get_Gem","Nh薾  qu?", 100, "Huy誸Tr輈hTh筩h Lv5");
+	AddItem(2, 22, 201, 100);
+	WriteLogEx("Get_Gem","Nh薾  qu?", 100, "Nguy謙B筩hTh筩h Lv5");
+	AddItem(2, 22, 301, 100);
+	WriteLogEx("Get_Gem","Nh薾  qu?", 100, "H?Ph竎h Th筩h C蕄 5");
+	AddItem(2, 22, 401, 100);	
+	WriteLogEx("Get_Gem","Nh薾  qu?", 100, "H綾 Di謚 Th筩h C蕄 5");
+end
+
+function Get_Yigui()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(2, 1, 30494, 1);
+	
+end
+
+
+function Get_Qianbian()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(2, 1, 30491, 100);
+	
+end
+
+function Get_Yaopin()
+	if gf_Judge_Room_Weight(6, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(1, 0, 6, 1000);
+	AddItem(1, 0, 11, 1000);
+	AddItem(1, 0, 16, 1000);
+--	AddItem(1, 0, 21, 1000);
+--	AddItem(1, 0, 26, 1000);
+end
+
+function Get_ZuoQi()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "获得飞剑/Get_Feijian";
+	--szSay[getn(szSay) + 1] = "获得莲花/Get_LianHua";
+	--szSay[getn(szSay) + 1] = "获得大兔子/Get_Tuzi";
+	--szSay[getn(szSay) + 1] = "获得羊驼/Get_YangTuo";
+	--szSay[getn(szSay) + 1] = "获得金丝银被/Get_MengMao";
+	---szSay[getn(szSay) + 1] = "获得战象/Get_ZhanXiang";
+---	szSay[getn(szSay) + 1] = "获得鹿车/Get_LuChe";
+	---szSay[getn(szSay) + 1] = "获得其他坐骑/Get_QTZQ";
+	---szSay[getn(szSay) + 1] = "上一步/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function Get_Feijian()
+	if gf_Judge_Room_Weight(14, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,10110,1,4,5,403);
+	--AddItem(0,105,10111,1,4,7,403);
+	--AddItem(0,105,10109,1,4,7,403);
+	--AddItem(0,105,10112,1,4,7,403);
+	---AddItem(0,105,180,1,4,7,403);
+	---AddItem(0,105,181,1,4,7,403);
+	---AddItem(0,105,182,1,4,7,403);
+	--AddItem(0,105,196,1,4,7,403);
+	---AddItem(0,105,197,1,4,7,403);
+	--AddItem(0,105,208,1,4,7,403);
+	--AddItem(0,105,209,1,4,7,403);
+---	AddItem(0,105,216,1,4,7,403);
+----	AddItem(0,105,217,1,4,7,403);
+---	AddItem(0,105,218,1,4,7,403);
+end
+
+function Get_LianHua()
+	if gf_Judge_Room_Weight(4, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,144,1,4,7,403);
+	AddItem(0,105,145,1,4,7,403);
+	AddItem(0,105,146,1,4,7,403);
+	AddItem(0,105,147,1,4,7,403);
+
+end
+
+function Get_Tuzi()
+	if gf_Judge_Room_Weight(3, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,30041,1,4,7,403);
+	AddItem(0,105,30042,1,4,7,403);
+	AddItem(0,105,30043,1,4,7,403);
+
+end
+
+function Get_YangTuo()
+	if gf_Judge_Room_Weight(4, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,184,1,4,7,403);
+	AddItem(0,105,185,1,4,7,403);
+	AddItem(0,105,186,1,4,7,403);
+	AddItem(0,105,187,1,4,7,403);
+
+end
+
+function Get_MengMao()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,210,1,4,7,403);
+end
+
+function Get_ZhanXiang()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,127,1,4,7,403);
+end
+
+function Get_LuChe()
+	if gf_Judge_Room_Weight(3, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,131,1,4,7,403);
+	AddItem(0,105,132,1,4,7,403);
+	AddItem(0,105,133,1,4,7,403);
+
+end
+
+function Get_QTZQ()
+	if gf_Judge_Room_Weight(15, 1) ~= 1 then
+		return 0;
+	end
+
+	AddItem(0,105,211,1,4,7,403);
+	AddItem(0,105,212,1,4,7,403);
+	AddItem(0,105,213,1,4,7,403);
+	AddItem(0,105,214,1,4,7,403);
+	AddItem(0,105,174,1,4,7,403);
+	AddItem(0,105,172,1,4,7,403);
+	AddItem(0,105,168,1,4,7,403);
+	AddItem(0,105,169,1,4,7,403);
+	AddItem(0,105,170,1,4,7,403);
+	AddItem(0,105,171,1,4,7,403);
+	AddItem(0,105,150,1,4,7,403);
+	AddItem(0,105,151,1,4,7,403);
+	AddItem(0,105,152,1,4,7,403);
+	AddItem(0,105,153,1,4,7,403);
+	AddItem(0,105,154,1,4,7,403);
+end
+
+function Get_CJZB()
+	if gf_Judge_Room_Weight(5, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(0, 103, 96, 5);
+end
+
+
+function Get_JinXi()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 1, 149, 10);
+end
+
+function Get_HeShiBi()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 1, 1001, 5);
+end
+
+function Get_XiSuiDan()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 0, 138, 1);
+end
+
+function Get_XiaoJieSan()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 0, 141, 20);
+end
+
+function Get_ZhanShenWan()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(2, 1, 1005, 1);
+end
+
+function Get_FuZhu()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "获得娇小体型/Get_JiaoXiao";
+	szSay[getn(szSay) + 1] = "获得性感体型/Get_XingGan";
+	szSay[getn(szSay) + 1] = "上一步/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function Get_JiaoXiao()
+	if gf_Judge_Room_Weight(4, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(0, 2, 8996, 1,1,7,852,7,484,6,390,-1,15);
+	AddItem(0, 103, 3139, 1,1,7,852,7,484,6,841,-1,15);
+	AddItem(0, 100, 3139, 1,1,7,852,7,484,6,485,-1,15);
+	AddItem(0, 101, 3139, 1,1,7,852,7,484,6,483,-1,15);
+	
+end
+
+function Get_XingGan()
+	if gf_Judge_Room_Weight(4, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(0, 2, 8996, 1,1,7,852,7,484,6,390,-1,15);
+	AddItem(0, 103, 3138, 1,1,7,852,7,484,6,841,-1,15);
+	AddItem(0, 100, 3138, 1,1,7,852,7,484,6,485,-1,15);
+	AddItem(0, 101, 3138, 1,1,7,852,7,484,6,483,-1,15);
+end
+
+function Get_ShenXing()
+	if gf_Judge_Room_Weight(2, 1) ~= 1 then
+		return 0;
+	end
+	AddItem(0, 200, 40, 1);
+end
+
+function Want_ShengJi()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "普通升级/Want_PuTong";
+	szSay[getn(szSay) + 1] = "高级升级/Want_GaoJi";
+	szSay[getn(szSay) + 1] = "属性重铸/Want_ChongZhu";
+	szSay[getn(szSay) + 1] = "九天如意分解返还如意/Want_FenJieRuYi";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧", getn(szSay), szSay)
+end
+
+function Want_PuTong()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "吉祥升级九天吉祥/Want_JiXiang";
+	szSay[getn(szSay) + 1] = "如意升级九天如意/Want_RuYi";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧", getn(szSay), szSay)
+end
+
+function Want_ChongZhu()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "九天舞带属性重铸/Want_CZWD";
+	szSay[getn(szSay) + 1] = "九天璀璨属性重铸/Want_CZCC";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function Want_FenJieRuYi()
+	local szSay = {
+		g_szTitle.."分解需要消耗九天如意1个，仅返还如意1个！",
+		"确认分解/Want_FenJieRuYiQ",
+		"不分解退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_FenJieRuYiQ()
+	if GetItemCount(0,102,128) < 1 then
+		Talk(1,"","你并没有九天如意!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,128,1) == 1 then
+		AddItem(0,102,23,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天如意分解兑换如意");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天如意分解兑换如意");
+	end
+end
+
+function Want_CZWD()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "重铸降防九天舞带/Want_CZJiangFangC";
+	szSay[getn(szSay) + 1] = "重铸生命九天舞带/Want_CZShengMingC";
+	szSay[getn(szSay) + 1] = "重铸承受九天舞带/Want_CZChengShouC";
+	szSay[getn(szSay) + 1] = "重铸伤害九天舞带/Want_CZShangHaiC";
+	szSay[getn(szSay) + 1] = "重铸攻击九天舞带/Want_CZDuShangC";
+	szSay[getn(szSay) + 1] = "重铸发招九天舞带/Want_CZFaZhaoC";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function Want_CZCC()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "重铸降防九天璀璨/Want_CZJiangFangD";
+	szSay[getn(szSay) + 1] = "重铸生命九天璀璨/Want_CZShengMingD";
+	szSay[getn(szSay) + 1] = "重铸伤害九天璀璨/Want_CZShangHaiD";
+	szSay[getn(szSay) + 1] = "重铸攻击九天璀璨/Want_CZDuShangD";
+	szSay[getn(szSay) + 1] = "重铸发招九天璀璨/Want_CZFaZhaoD";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function Want_GaoJi()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "如意嫦娥升级九天舞带/Want_WuDai";
+	szSay[getn(szSay) + 1] = "如意璀璨升级九天璀璨/Want_CuiCan";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧", getn(szSay), szSay)
+end
+
+function Want_JiXiang()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "升级降防九天吉祥/Want_JiangFangA";
+	szSay[getn(szSay) + 1] = "升级生命九天吉祥/Want_ShengMingA";
+	szSay[getn(szSay) + 1] = "升级承受九天吉祥/Want_ChengShouA";
+	szSay[getn(szSay) + 1] = "升级伤害九天吉祥/Want_ShangHaiA";
+	szSay[getn(szSay) + 1] = "升级攻击九天吉祥/Want_DuShangA";
+	szSay[getn(szSay) + 1] = "升级发招九天吉祥/Want_FaZhaoA";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧（九天如意没有承受减半属性）", getn(szSay), szSay)
+end
+
+function Want_RuYi()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "升级降防九天如意/Want_JiangFangB";
+	szSay[getn(szSay) + 1] = "升级生命九天如意/Want_ShengMingB";
+	szSay[getn(szSay) + 1] = "升级伤害九天如意/Want_ShangHaiB";
+	szSay[getn(szSay) + 1] = "升级攻击九天如意/Want_DuShangB";
+	szSay[getn(szSay) + 1] = "升级发招九天如意/Want_FaZhaoB";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧（九天如意没有承受减半属性）", getn(szSay), szSay)
+end
+
+function Want_WuDai()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "升级降防九天舞带/Want_JiangFangC";
+	szSay[getn(szSay) + 1] = "升级生命九天舞带/Want_ShengMingC";
+	szSay[getn(szSay) + 1] = "升级承受九天舞带/Want_ChengShouC";
+	szSay[getn(szSay) + 1] = "升级伤害九天舞带/Want_ShangHaiC";
+	szSay[getn(szSay) + 1] = "升级攻击九天舞带/Want_DuShangC";
+	szSay[getn(szSay) + 1] = "升级发招九天舞带/Want_FaZhaoC";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧（九天璀璨没有承受减半属性）", getn(szSay), szSay)
+end
+
+function Want_CuiCan()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "升级降防九天璀璨/Want_JiangFangD";
+	szSay[getn(szSay) + 1] = "升级生命九天璀璨/Want_ShengMingD";
+	szSay[getn(szSay) + 1] = "升级伤害九天璀璨/Want_ShangHaiD";
+	szSay[getn(szSay) + 1] = "升级攻击九天璀璨/Want_DuShangD";
+	szSay[getn(szSay) + 1] = "升级发招九天璀璨/Want_FaZhaoD";
+	szSay[getn(szSay) + 1] = "不升级退出/nothing";
+	Say(g_szTitle.."选一个升级方式吧（九天璀璨没有承受减半属性）", getn(szSay), szSay)
+end
+
+function Want_JiangFangA()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄戒5个，吉祥1个，不会失败",
+		"确认升级/Want_JiangFangAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_JiangFangAQ()
+	if GetItemCount(0,102,22) < 1 then
+		Talk(1,"","你并没有吉祥!!!")
+		return 0
+	end
+	if GetItemCount(0,102,133) < 5 then
+		Talk(1,"","你并没有5个九天玄戒!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,1) == 1 and DelItem(0,102,133,5) == 1 then
+		AddItem(0,102,127,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-降防");
+		AddLocalNews("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-降防");
+	end
+end
+
+function Want_ShengMingA()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄玉5个，吉祥1个，不会失败",
+		"确认升级/Want_ShengMingAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShengMingAQ()
+	if GetItemCount(0,102,22) < 1 then
+		Talk(1,"","你并没有吉祥!!!")
+		return 0
+	end
+	if GetItemCount(0,102,129) < 5 then
+		Talk(1,"","你并没有5个九天玄玉!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,1) == 1 and DelItem(0,102,129,5) == 1 then
+		AddItem(0,102,127,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-生命");
+		AddLocalNews("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-生命");
+	end
+end
+
+function Want_ChengShouA()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄佩5个，吉祥1个，不会失败",
+		"确认升级/Want_ChengShouAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ChengShouAQ()
+	if GetItemCount(0,102,22) < 1 then
+		Talk(1,"","你并没有吉祥!!!")
+		return 0
+	end
+	if GetItemCount(0,102,132) < 5 then
+		Talk(1,"","你并没有5个九天玄佩!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,1) == 1 and DelItem(0,102,132,5) == 1 then
+		AddItem(0,102,127,1,1,3,675,4,842,3,483)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-承受");
+		AddLocalNews("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-承受");
+	end
+end
+
+function Want_ShangHaiA()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄石5个，吉祥1个，不会失败",
+		"确认升级/Want_ShangHaiAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShangHaiAQ()
+	if GetItemCount(0,102,22) < 1 then
+		Talk(1,"","你并没有吉祥!!!")
+		return 0
+	end
+	if GetItemCount(0,102,135) < 5 then
+		Talk(1,"","你并没有5个九天玄石!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,1) == 1 and DelItem(0,102,135,5) == 1 then
+		AddItem(0,102,127,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-伤害");
+		AddLocalNews("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-伤害");
+	end
+end
+
+function Want_DuShangA()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄袋5个，吉祥1个，不会失败",
+		"确认升级/Want_DuShangAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_DuShangAQ()
+	if GetItemCount(0,102,22) < 1 then
+		Talk(1,"","你并没有吉祥!!!")
+		return 0
+	end
+	if GetItemCount(0,102,134) < 5 then
+		Talk(1,"","你并没有5个九天玄袋!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,1) == 1 and DelItem(0,102,134,5) == 1 then
+		AddItem(0,102,127,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-攻击");
+		AddLocalNews("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-攻击");
+	end
+end
+
+function Want_FaZhaoA()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄环5个，吉祥1个，不会失败",
+		"确认升级/Want_FaZhaoAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_FaZhaoAQ()
+	if GetItemCount(0,102,22) < 1 then
+		Talk(1,"","你并没有吉祥!!!")
+		return 0
+	end
+	if GetItemCount(0,102,131) < 5 then
+		Talk(1,"","你并没有5个九天玄环!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,1) == 1 and DelItem(0,102,131,5) == 1 then
+		AddItem(0,102,127,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-发招");
+		AddLocalNews("恭喜玩家:"..GetName().." 吉祥升级兑换九天吉祥-发招");
+	end
+end
+
+function Want_JiangFangB()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄戒5个，如意1个，不会失败",
+		"确认升级/Want_JiangFangBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_JiangFangBQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,133) < 5 then
+		Talk(1,"","你并没有5个九天玄戒!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,133,5) == 1 then
+		AddItem(0,102,128,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意升级兑换九天如意-降防");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意升级兑换九天如意-降防");
+	end
+end
+
+function Want_ShengMingB()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄玉5个，如意1个，不会失败",
+		"确认升级/Want_ShengMingBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShengMingBQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,129) < 5 then
+		Talk(1,"","你并没有5个九天玄玉!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,129,5) == 1 then
+		AddItem(0,102,128,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意升级兑换九天如意-生命");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意升级兑换九天如意-生命");
+	end
+end
+
+
+function Want_ShangHaiB()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄石5个，如意1个，不会失败",
+		"确认升级/Want_ShangHaiBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShangHaiBQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,135) < 5 then
+		Talk(1,"","你并没有5个九天玄石!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,135,5) == 1 then
+		AddItem(0,102,128,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意升级兑换九天如意-伤害");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意升级兑换九天如意-伤害");
+	end
+end
+
+function Want_DuShangB()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄袋5个，如意1个，不会失败",
+		"确认升级/Want_DuShangBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_DuShangBQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,134) < 5 then
+		Talk(1,"","你并没有5个九天玄袋!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,134,5) == 1 then
+		AddItem(0,102,128,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意升级兑换九天如意-攻击");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意升级兑换九天如意-攻击");
+	end
+end
+
+function Want_FaZhaoB()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄环5个，如意1个，不会失败",
+		"确认升级/Want_FaZhaoBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_FaZhaoBQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,131) < 5 then
+		Talk(1,"","你并没有5个九天玄环!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,131,5) == 1 then
+		AddItem(0,102,128,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意升级兑换九天如意-发招");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意升级兑换九天如意-发招");
+	end
+end
+
+function Want_ChengShouC()--高级升级
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄佩5个，如意1个，嫦娥月舞带1个，不会失败",
+		"确认升级/Want_ChengShouCQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ChengShouCQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,42) < 1 then
+		Talk(1,"","你并没有嫦娥月舞带!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,132) < 5 then
+		Talk(1,"","你并没有5个九天玄佩!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,132,5) == 1 and DelItem(0,102,42,1) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,3,483)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-承受");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-承受");
+	end
+end
+
+function Want_ShangHaiC()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄石5个，如意1个，嫦娥月舞带1个，不会失败",
+		"确认升级/Want_ShangHaiCQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShangHaiCQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,42) < 1 then
+		Talk(1,"","你并没有嫦娥月舞带!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,135) < 5 then
+		Talk(1,"","你并没有5个九天玄石!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,135,5) == 1 and DelItem(0,102,42,1) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-伤害");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-伤害");
+	end
+end
+
+function Want_DuShangC()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄袋5个，如意1个，嫦娥月舞带1个，不会失败",
+		"确认升级/Want_DuShangCQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_DuShangCQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,42) < 1 then
+		Talk(1,"","你并没有嫦娥月舞带!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,134) < 5 then
+		Talk(1,"","你并没有5个九天玄袋!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,134,5) == 1 and DelItem(0,102,42,1) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-攻击");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-攻击");
+	end
+end
+
+function Want_FaZhaoC()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄环5个，如意1个，嫦娥月舞带1个，不会失败",
+		"确认升级/Want_FaZhaoCQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_FaZhaoCQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,42) < 1 then
+		Talk(1,"","你并没有嫦娥月舞带!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,131) < 5 then
+		Talk(1,"","你并没有5个九天玄环!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,131,5) == 1 and DelItem(0,102,42,1) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-发招");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-发招");
+	end
+end
+
+function Want_JiangFangC()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄戒5个，如意1个，嫦娥月舞带1个，不会失败",
+		"确认升级/Want_JiangFangCQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_JiangFangCQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,42) < 1 then
+		Talk(1,"","你并没有嫦娥月舞带!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,133) < 5 then
+		Talk(1,"","你并没有5个九天玄戒!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,133,5) == 1 and DelItem(0,102,42,1) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-降防");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-降防");
+	end
+end
+
+function Want_ShengMingC()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄玉5个，如意1个，嫦娥月舞带1个，不会失败",
+		"确认升级/Want_ShengMingCQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShengMingCQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,42) < 1 then
+		Talk(1,"","你并没有嫦娥月舞带!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,129) < 5 then
+		Talk(1,"","你并没有5个九天玄玉!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,129,5) == 1 and DelItem(0,102,42,1) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-生命");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天舞带-生命");
+	end
+end
+
+
+
+function Want_ShangHaiD() --高级升级
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄石5个，如意1个，璀璨之星1个，不会失败",
+		"确认升级/Want_ShangHaiDQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShangHaiDQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,44) < 1 then
+		Talk(1,"","你并没有璀璨之星!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,135) < 5 then
+		Talk(1,"","你并没有5个九天玄石!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,135,5) == 1 and DelItem(0,102,44,1) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-伤害");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-伤害");
+	end
+end
+
+function Want_DuShangD()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄袋5个，如意1个，璀璨之星1个，不会失败",
+		"确认升级/Want_DuShangDQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_DuShangDQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,44) < 1 then
+		Talk(1,"","你并没有璀璨之星!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,134) < 5 then
+		Talk(1,"","你并没有5个九天玄袋!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,134,5) == 1 and DelItem(0,102,44,1) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-攻击");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-攻击");
+	end
+end
+
+function Want_FaZhaoD()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄环5个，如意1个，璀璨之星1个，不会失败",
+		"确认升级/Want_FaZhaoDQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_FaZhaoDQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,44) < 1 then
+		Talk(1,"","你并没有璀璨之星!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,131) < 5 then
+		Talk(1,"","你并没有5个九天玄环!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,131,5) == 1 and DelItem(0,102,44,1) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-发招");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-发招");
+	end
+end
+
+function Want_JiangFangD()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄戒5个，如意1个，璀璨之星1个，不会失败",
+		"确认升级/Want_JiangFangDQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_JiangFangDQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,44) < 1 then
+		Talk(1,"","你并没有璀璨之星!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,133) < 5 then
+		Talk(1,"","你并没有5个九天玄戒!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,133,5) == 1 and DelItem(0,102,44,1) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-降防");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-降防");
+	end
+end
+
+function Want_ShengMingD()
+	local szSay = {
+		g_szTitle.."升级需要消耗九天玄玉5个，如意1个，璀璨之星1个，不会失败",
+		"确认升级/Want_ShengMingDQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShengMingDQ()
+	if GetItemCount(0,102,23) < 1 then
+		Talk(1,"","你并没有如意!!!")
+		return 0
+	end
+	if GetItemCount(0,102,44) < 1 then
+		Talk(1,"","你并没有璀璨之星!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,129) < 5 then
+		Talk(1,"","你并没有5个九天玄玉!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,23,1) == 1 and DelItem(0,102,129,5) == 1 and DelItem(0,102,44,1) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-生命");
+		AddLocalNews("恭喜玩家:"..GetName().." 如意高级升级兑换九天璀璨-生命");
+	end
+end
+
+function Want_CZChengShouC()--高级升级
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄佩5个，九天舞带1个，不会失败",
+		"确认重铸/Want_CZChengShouCQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZChengShouCQ()
+	if GetItemCount(0,102,130) < 1 then
+		Talk(1,"","你并没有九天舞带!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,132) < 5 then
+		Talk(1,"","你并没有5个九天玄佩!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,130,1) == 1 and DelItem(0,102,132,5) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,3,483)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-承受");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-承受");
+	end
+end
+
+function Want_CZShangHaiC()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄石5个，九天舞带1个，不会失败",
+		"确认重铸/Want_CZShangHaiCQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZShangHaiCQ()
+	if GetItemCount(0,102,130) < 1 then
+		Talk(1,"","你并没有九天舞带!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,135) < 5 then
+		Talk(1,"","你并没有5个九天玄石!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,130,1) == 1 and DelItem(0,102,135,5) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-伤害");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-伤害");
+	end
+end
+
+function Want_CZDuShangC()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄袋5个，九天舞带1个，不会失败",
+		"确认重铸/Want_CZDuShangCQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZDuShangCQ()
+	if GetItemCount(0,102,130) < 1 then
+		Talk(1,"","你并没有九天舞带!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,134) < 5 then
+		Talk(1,"","你并没有5个九天玄袋!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,130,1) == 1 and DelItem(0,102,134,5) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-攻击");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-攻击");
+	end
+end
+
+function Want_CZFaZhaoC()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄环5个，九天舞带1个，不会失败",
+		"确认重铸/Want_CZFaZhaoCQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZFaZhaoCQ()
+	if GetItemCount(0,102,130) < 1 then
+		Talk(1,"","你并没有九天舞带!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,131) < 5 then
+		Talk(1,"","你并没有5个九天玄环!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,130,1) == 1 and DelItem(0,102,131,5) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-发招");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-发招");
+	end
+end
+
+function Want_CZJiangFangC()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄戒5个，九天舞带1个，不会失败",
+		"确认重铸/Want_CZJiangFangCQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZJiangFangCQ()
+	if GetItemCount(0,102,130) < 1 then
+		Talk(1,"","你并没有九天舞带!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,133) < 5 then
+		Talk(1,"","你并没有5个九天玄戒!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,130,1) == 1 and DelItem(0,102,133,5) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-降防");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-降防");
+	end
+end
+
+function Want_CZShengMingC()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄玉5个，九天舞带1个，不会失败",
+		"确认重铸/Want_CZShengMingCQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZShengMingCQ()
+	if GetItemCount(0,102,130) < 1 then
+		Talk(1,"","你并没有九天舞带!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,129) < 5 then
+		Talk(1,"","你并没有5个九天玄玉!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,130,1) == 1 and DelItem(0,102,129,5) == 1 then
+		AddItem(0,102,130,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-生命");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天舞带重铸属性兑换九天舞带-生命");
+	end
+end
+
+
+
+function Want_CZShangHaiD() --高级升级
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄石5个，九天璀璨1个，不会失败",
+		"确认重铸/Want_CZShangHaiDQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZShangHaiDQ()
+	if GetItemCount(0,102,136) < 1 then
+		Talk(1,"","你并没有九天璀璨!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,135) < 5 then
+		Talk(1,"","你并没有5个九天玄石!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,136,1) == 1 and DelItem(0,102,135,5) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-伤害");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-伤害");
+	end
+end
+
+function Want_CZDuShangD()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄袋5个，九天璀璨1个，不会失败",
+		"确认重铸/Want_CZDuShangDQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZDuShangDQ()
+	if GetItemCount(0,102,136) < 1 then
+		Talk(1,"","你并没有九天璀璨之星!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,134) < 5 then
+		Talk(1,"","你并没有5个九天玄袋!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,136,1) == 1 and DelItem(0,102,134,5) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-攻击");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-攻击");
+	end
+end
+
+function Want_CZFaZhaoD()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄环5个，九天璀璨1个，不会失败",
+		"确认重铸/Want_CZFaZhaoDQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZFaZhaoDQ()
+	if GetItemCount(0,102,136) < 1 then
+		Talk(1,"","你并没有九天璀璨!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,131) < 5 then
+		Talk(1,"","你并没有5个九天玄环!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,136,1) == 1 and DelItem(0,102,131,5) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-发招");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-发招");
+	end
+end
+
+function Want_CZJiangFangD()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄戒5个，九天璀璨1个，不会失败",
+		"确认重铸/Want_CZJiangFangDQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZJiangFangDQ()
+	if GetItemCount(0,102,136) < 1 then
+		Talk(1,"","你并没有九天璀璨!!!")
+		return 0
+	end	
+	if GetItemCount(0,102,133) < 5 then
+		Talk(1,"","你并没有5个九天玄戒!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,136,1) == 1 and DelItem(0,102,133,5) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-降防");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-降防");
+	end
+end
+
+function Want_CZShengMingD()
+	local szSay = {
+		g_szTitle.."重铸需要消耗九天玄玉5个，九天璀璨1个，不会失败",
+		"确认重铸/Want_CZShengMingDQ",
+		"不重铸退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_CZShengMingDQ()
+	if GetItemCount(0,102,136) < 1 then
+		Talk(1,"","你并没有九天璀璨!!!")
+		return 0
+	end		
+	if GetItemCount(0,102,129) < 5 then
+		Talk(1,"","你并没有5个九天玄玉!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,136,1) == 1 and DelItem(0,102,129,5) == 1 then
+		AddItem(0,102,136,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-生命");
+		AddLocalNews("恭喜玩家:"..GetName().." 九天璀璨重铸属性兑换九天璀璨-生命");
+	end
+end
+
+function BuXueZhuXie()
+	LearnSkill("梅花");
+	LearnSkill("游龙飞步");
+	LearnSkill("金刚怒目");
+end
+
+function Want_HuiShou()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "天地武器回收树种/HuiShouWuQi";
+	szSay[getn(szSay) + 1] = "藏剑首饰回收树种/HuiShouShouShi";
+	szSay[getn(szSay) + 1] = "不回收退出/nothing";
+	Say(g_szTitle.."选一个回收吧", getn(szSay), szSay)
+end
+
+function HuiShouWuQi()
+	local szSay = {
+		g_szTitle.."一个天地武器可回收一个般若树种",
+		"确认回收/HuiShouWuQiQ",
+		"不回收退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function HuiShouShouShi()
+	local szSay = {
+		g_szTitle.."一个藏剑首饰可回收两个般若树种",
+		"确认回收/HuiShouShouShiQ",
+		"不回收退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function HuiShouWuQiQ()
+	
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,0,17,1) == 1 or DelItem(0,2,39,1) == 1 or DelItem(0,5,43,1) == 1 or DelItem(0,1,56,1) == 1 or DelItem(0,3,67,1) == 1 or DelItem(0,10,78,1) == 1 or DelItem(0,9,89,1) == 1 or DelItem(0,8,100,1) == 1 or DelItem(0,6,111,1) == 1 or DelItem(0,4,122,1) == 1 or DelItem(0,11,15,1) == 1 or DelItem(0,7,15,1) == 1 or DelItem(0,12,15,1) == 1 or DelItem(0,13,15,1) == 1 then
+		AddItem(2,0,398,1)
+	end
+end
+
+function HuiShouShouShiQ()
+	
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,38,1) == 1 or DelItem(0,102,39,1) == 1 or DelItem(0,102,40,1) == 1  then
+		AddItem(2,0,398,2)
+	end
+end
+
+function JiXiangDuiHuan()
+	local szSay = {
+		g_szTitle.."2个吉祥首饰可兑换1个随机的九天首饰（不含降防）",
+		"确认兑换/JiXiangDuiHuanQ",
+		"不兑换退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function JiXiangDuiHuanQ()
+	if GetItemCount(0,102,22) < 2 then
+		Talk(1,"","你并没有2个吉祥!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,22,2) == 1 then
+		local nRand = random(1,1000);
+		if nRand <= 200 then
+		AddItem(0,102,134,1,1,3,675,4,842,1,485);--玄袋
+		elseif nRand <= 400 then
+		AddItem(0,102,135,1,1,3,675,4,842,5,268);--玄石
+		elseif nRand <= 600 then
+		AddItem(0,102,131,1,1,3,675,4,842,3,390);--玄环
+		elseif nRand <= 800 then
+		AddItem(0,102,132,1,1,3,675,4,842,3,483,-1,0);--玄佩
+		elseif nRand <= 1000 then
+		AddItem(0,102,129,1,1,3,675,4,842,4,486,-1,0);--玄玉
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用2个吉祥兑换九天系列首饰一个");
+end
+end
+
+function Want_DuiHuan()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "吉祥如意升级/Want_ShengJi";
+	szSay[getn(szSay) + 1] = "吉祥兑换九天系列首饰/JiXiangDuiHuan";
+	szSay[getn(szSay) + 1] = "九天系列首饰属性互换/JiuTianHuHuan";
+	szSay[getn(szSay) + 1] = "老天罡换坐骑/DuiHuanZuoQi";
+	szSay[getn(szSay) + 1] = "高级天罡换坐骑/DuiHuanZuoQiXin";
+	szSay[getn(szSay) + 1] = "高级天罡换轩辕武器/DuiHuanXuYuan";
+	szSay[getn(szSay) + 1] = "天地玄黄上三件升级炎帝/ShengJiYanDi";
+	szSay[getn(szSay) + 1] = "炎黄铁魂兑换轩辕武器VIP发光/DuiHuanFaGuang";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function DuiHuanFaGuang()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "炎黄铁魂1个兑换至尊精华/Want_ZhiZunJingHua";
+	szSay[getn(szSay) + 1] = "炎黄铁魂5个兑换王者精华/Want_WangZheJingHua";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function Want_ZhiZunJingHua()
+	local szSay = {
+		g_szTitle.."兑换至尊精华需要消耗炎黄铁魂1个！",
+		"确认兑换/Want_ZhiZunJingHuaQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ZhiZunJingHuaQ()
+	if GetItemCount(2,1,1146) < 1 then
+		Talk(1,"","你并没有1个炎黄铁魂!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,1,1146,1) == 1 then
+		local nRoute	= GetPlayerRoute();
+		if nRoute == 4 then
+		AddItem(2,95,2227,1);--至尊精华(武少)
+		end
+		if nRoute == 11 then
+		AddItem(2,95,2231,1);--至尊精华(掌丐)
+		end
+		if nRoute == 2 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 3 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 6 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 8 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 9 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 12 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 14 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 15 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 17 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 18 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 20 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 21 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 23 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 25 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 26 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 27 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 29 then
+		AddItem(2,95,2223,1);--至尊精华
+		end
+		if nRoute == 30 then
+		AddItem(2,95,2223,1);--至尊精华
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用炎黄铁魂兑换至尊精华VIP武器发光一个!!!");
+end
+end
+
+function Want_WangZheJingHua()
+	local szSay = {
+		g_szTitle.."兑换王者精华需要消耗炎黄铁魂5个！",
+		"确认兑换/Want_WangZheJingHuaQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_WangZheJingHuaQ()
+	if GetItemCount(2,1,1146) < 5 then
+		Talk(1,"","你并没有5个炎黄铁魂!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,1,1146,5) == 1 then
+		local nRoute	= GetPlayerRoute();
+		if nRoute == 4 then
+		AddItem(2,95,2228,1);--王者精华(武少)
+		end
+		if nRoute == 11 then
+		AddItem(2,95,2232,1);--王者精华(掌丐)
+		end
+		if nRoute == 2 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 3 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 6 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 8 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 9 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 12 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 14 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 15 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 17 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 18 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 20 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 21 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 23 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 25 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 26 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 27 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 29 then
+		AddItem(2,95,2224,1);
+		end
+		if nRoute == 30 then
+		AddItem(2,95,2224,1);
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用炎黄铁魂兑换王者精华VIP武器发光一个!!!");
+end
+end
+
+function JiuTianHuHuan()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "兑换降防九天玄戒/Want_JiangFangE";
+	szSay[getn(szSay) + 1] = "兑换生命九天玄玉/Want_ShengMingE";
+	szSay[getn(szSay) + 1] = "兑换承受九天玄佩/Want_ChengShouE";
+	szSay[getn(szSay) + 1] = "兑换伤害九天玄石/Want_ShangHaiE";
+	szSay[getn(szSay) + 1] = "兑换攻击九天玄袋/Want_DuShangE";
+	szSay[getn(szSay) + 1] = "兑换发招九天玄环/Want_FaZhaoE";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个吧", getn(szSay), szSay)
+end
+
+function DuiHuanXuYuan()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "兑换破防轩辕武器/Want_PoFangWQ";
+	szSay[getn(szSay) + 1] = "兑换发招轩辕武器/Want_FaZhaoWQ";
+	szSay[getn(szSay) + 1] = "兑换峨眉佛家辅助武器/Want_FuZhuWQ";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."兑换轩辕武器需要消耗高级天罡令一个", getn(szSay), szSay)
+end
+
+function Want_ChengShouE()--高级升级
+	local szSay = {
+		g_szTitle.."兑换需要消耗九天系列任意相同首饰2个（温馨提示：先把有用的九天首饰存仓库，合一个存一个，否则会当材料合掉！）",
+		"确认兑换/Want_ChengShouEQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ChengShouEQ()
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,129,2) == 1 or DelItem(0,102,131,2) == 1 or DelItem(0,102,132,2) == 1 or DelItem(0,102,133,2) == 1 or DelItem(0,102,134,2) == 1 or DelItem(0,102,135,2) == 1 then
+		AddItem(0,102,132,1,1,3,675,4,842,3,483)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用九天系列首饰2个兑换九天玄佩-承受");
+	end
+end
+
+function Want_ShangHaiE()
+	local szSay = {
+		g_szTitle.."兑换需要消耗九天系列任意相同首饰2个（温馨提示：先把有用的九天首饰存仓库，合一个存一个，否则会当材料合掉！）",
+		"确认兑换/Want_ShangHaiEQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShangHaiEQ()
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,129,2) == 1 or DelItem(0,102,131,2) == 1 or DelItem(0,102,132,2) == 1 or DelItem(0,102,133,2) == 1 or DelItem(0,102,134,2) == 1 or DelItem(0,102,135,2) == 1 then
+		AddItem(0,102,135,1,1,3,675,4,842,5,268)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用九天系列首饰2个兑换九天玄石-伤害");
+	end
+end
+
+function Want_DuShangE()
+	local szSay = {
+		g_szTitle.."兑换需要消耗九天系列任意相同首饰2个（温馨提示：先把有用的九天首饰存仓库，合一个存一个，否则会当材料合掉！）",
+		"确认兑换/Want_DuShangEQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_DuShangEQ()
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,129,2) == 1 or DelItem(0,102,131,2) == 1 or DelItem(0,102,132,2) == 1 or DelItem(0,102,133,2) == 1 or DelItem(0,102,134,2) == 1 or DelItem(0,102,135,2) == 1 then
+		AddItem(0,102,134,1,1,3,675,4,842,1,485)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用九天系列首饰2个兑换九天玄袋-攻击");
+	end
+end
+
+function Want_FaZhaoE()
+	local szSay = {
+		g_szTitle.."兑换需要消耗九天系列任意相同首饰2个（温馨提示：先把有用的九天首饰存仓库，合一个存一个，否则会当材料合掉！）",
+		"确认兑换/Want_FaZhaoEQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_FaZhaoEQ()
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,129,2) == 1 or DelItem(0,102,131,2) == 1 or DelItem(0,102,132,2) == 1 or DelItem(0,102,133,2) == 1 or DelItem(0,102,134,2) == 1 or DelItem(0,102,135,2) == 1 then
+		AddItem(0,102,131,1,1,3,675,4,842,3,390)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用九天系列首饰2个兑换九天玄环-发招");
+	end
+end
+
+function Want_JiangFangE()
+	local szSay = {
+		g_szTitle.."兑换需要消耗九天系列任意相同首饰2个（温馨提示：先把有用的九天首饰存仓库，合一个存一个，否则会当材料合掉！）",
+		"确认兑换/Want_JiangFangEQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_JiangFangEQ()
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,129,2) == 1 or DelItem(0,102,131,2) == 1 or DelItem(0,102,132,2) == 1 or DelItem(0,102,133,2) == 1 or DelItem(0,102,134,2) == 1 or DelItem(0,102,135,2) == 1 then
+		AddItem(0,102,133,1,1,3,675,4,842,4,90)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用九天系列首饰2个兑换九天玄戒-降防");
+	end
+end
+
+function Want_ShengMingE()
+	local szSay = {
+		g_szTitle.."兑换需要消耗九天系列任意相同首饰2个（温馨提示：先把有用的九天首饰存仓库，合一个存一个，否则会当材料合掉！）",
+		"确认兑换/Want_ShengMingEQ",
+		"不兑换了退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_ShengMingEQ()
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(0,102,129,2) == 1 or DelItem(0,102,131,2) == 1 or DelItem(0,102,132,2) == 1 or DelItem(0,102,133,2) == 1 or DelItem(0,102,134,2) == 1 or DelItem(0,102,135,2) == 1 then
+		AddItem(0,102,129,1,1,3,675,4,842,4,486)
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用九天系列首饰2个兑换九天玄玉-生命");
+	end
+end
+
+function DuiHuanZuoQi()
+	local szSay = {
+		g_szTitle.."老的天罡令可以在这里1比1兑换随机的几种坐骑哦！",
+		"确认兑换/DuiHuanZuoQiQ",
+		"不兑换退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function DuiHuanZuoQiQ()
+	if GetItemCount(2,95,204) < 1 then
+		Talk(1,"","你并没有1个天罡令!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,95,204,1) == 1 then
+		local nRand = random(1,2400);
+		if nRand <= 200 then
+		AddItem(0,105,15,1,1,7,403);--翻羽
+		elseif nRand <= 400 then
+		AddItem(0,105,19,1,1,7,403);--超光
+		elseif nRand <= 600 then
+		AddItem(0,105,16,1,1,7,403);--奔宵
+		elseif nRand <= 800 then
+		AddItem(0,105,33,1,1,7,403);--年兽
+		elseif nRand <= 1000 then
+		AddItem(0,105,38,1,1,4,101);--流云麒麟兽
+		elseif nRand <= 1200 then
+		AddItem(0,105,10116,1,1,7,403);--吉祥黄金虎（黄）
+		elseif nRand <= 1400 then
+		AddItem(0,105,10118,1,1,7,403);--吉祥黄金虎（白）
+		elseif nRand <= 1600 then
+		AddItem(0,105,36,1,1,7,403);--万里烟云罩
+		elseif nRand <= 1800 then
+		AddItem(0,105,206,1,1,7,403);--白狼
+		elseif nRand <= 2000 then
+		AddItem(0,105,199,1,1,7,403);--雪猊
+		elseif nRand <= 2200 then
+		AddItem(0,105,192,1,1,7,403);--吉祥仙鹤
+		elseif nRand <= 2400 then
+		AddItem(0,105,164,1,1,7,403);--火狐
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用天罡令兑换随机坐骑一个");
+end
+end
+
+function DuiHuanZuoQiXin()
+	local szSay = {
+		g_szTitle.."高级天罡令可以在这里1比1兑换坐骑哦",
+		"兑换拂晓（140速）/DuiHuanZuoQiXinQ1",
+		"兑换拂晓（40速4000血杨门战马）/DuiHuanZuoQiXinQ2",
+		"不兑换退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function DuiHuanZuoQiXinQ1()
+	if GetItemCount(2,95,20400) < 1 then
+		Talk(1,"","你并没有1个高级天罡令!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,95,20400,1) == 1 then
+	AddItem(0,105,136,1,1,7,403);--拂晓
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用高级天罡令兑换拂晓坐骑一个");
+end
+
+function DuiHuanZuoQiXinQ2()
+	if GetItemCount(2,95,20400) < 1 then
+		Talk(1,"","你并没有1个高级天罡令!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,95,20400,1) == 1 then
+	AddItem(0,105,140,1,1,4,101,2,486);--拂晓
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用高级天罡令兑换拂晓战马一个");
+end
+
+function Want_PoFangWQ()
+	local szSay = {
+		g_szTitle.."大侠你确认要兑换破防属性的轩辕武器吗？",
+		"确认兑换/Want_PoFangWQ1",
+		"不兑换退出/nothing",
+	};
+	SelectSay(szSay);
+end
+function Want_PoFangWQ1()
+	if GetItemCount(2,95,20400) < 1 then
+		Talk(1,"","你并没有1个高级天罡令!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,95,20400,1) == 1 then
+		local nRoute	= GetPlayerRoute();
+		if nRoute == 2 then
+		AddItem(0,3,19070,1,1,7,485,3,845,7,50,-1,10);--刀少武器
+		end
+		if nRoute == 4 then
+		AddItem(0,0,19071,1,1,7,485,3,846,7,50,-1,10);--武少武器
+		end
+		if nRoute == 3 then
+		AddItem(0,8,19072,1,1,7,485,3,846,7,50,-1,10);--禅少武器
+		end
+		if nRoute == 6 then
+		AddItem(0,1,19073,1,1,7,485,3,845,7,50,-1,10);--唐门武器
+		end
+		if nRoute == 8 then
+		AddItem(0,2,19074,1,1,7,485,3,846,7,50,-1,10);--佛峨眉武器
+		end
+		if nRoute == 9 then
+		AddItem(0,10,19075,1,1,7,485,3,846,7,50,-1,10);--琴峨眉武器
+		end
+		if nRoute == 11 then
+		AddItem(0,0,19076,1,1,7,485,3,845,7,50,-1,10);--掌丐武器
+		end
+		if nRoute == 12 then
+		AddItem(0,5,19077,1,1,7,485,3,845,7,50,-1,10);--棍丐武器
+		end
+		if nRoute == 14 then
+		AddItem(0,2,19078,1,1,7,485,3,846,7,50,-1,10);--剑武当武器
+		end
+		if nRoute == 15 then
+		AddItem(0,9,19079,1,1,7,485,3,845,7,50,-1,10);--笔武当武器
+		end
+		if nRoute == 17 then
+		AddItem(0,6,19080,1,1,7,485,3,845,7,50,-1,10);--枪武器
+		end
+		if nRoute == 18 then
+		AddItem(0,4,19081,1,1,7,485,3,845,7,50,-1,10);--弓武器
+		end
+		if nRoute == 20 then
+		AddItem(0,7,19082,1,1,7,485,3,845,7,50,-1,10);--邪侠武器
+		end
+		if nRoute == 21 then
+		AddItem(0,11,19083,1,1,7,485,3,846,7,50,-1,10);--蛊武器
+		end
+		if nRoute == 23 then
+		AddItem(0,2,19084,1,1,7,485,3,846,7,50,-1,10);--天师武器
+		end
+		if nRoute == 25 then
+		AddItem(0,3,19085,1,1,7,485,3,845,7,50,-1,10);--明刀武器
+		end
+		if nRoute == 26 then
+		AddItem(0,9,19086,1,1,7,485,3,845,7,50,-1,10);--阵兵武器
+		end
+		if nRoute == 27 then
+		AddItem(0,11,19087,1,1,7,485,3,846,7,50,-1,10);--血人武器
+		end
+		if nRoute == 29 then
+		AddItem(0,13,19088,1,1,7,485,3,845,7,50,-1,10);--舞女武器
+		end
+		if nRoute == 30 then
+		AddItem(0,12,19089,1,1,7,485,3,845,7,50,-1,10);--灵女武器
+		end
+	
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用高级天罡令兑换轩辕武器一个");
+end
+end
+
+function Want_FaZhaoWQ()
+	local szSay = {
+		g_szTitle.."大侠你确认要兑换发招属性的轩辕武器吗？",
+		"确认兑换/Want_FaZhaoWQ1",
+		"不兑换退出/nothing",
+	};
+	SelectSay(szSay);
+end
+function Want_FaZhaoWQ1()
+	if GetItemCount(2,95,20400) < 1 then
+		Talk(1,"","你并没有1个高级天罡令!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,95,20400,1) == 1 then
+		local nRoute	= GetPlayerRoute();
+		if nRoute == 2 then
+		AddItem(0,3,19070,1,1,7,485,3,845,6,390,-1,10);--刀少武器
+		end
+		if nRoute == 4 then
+		AddItem(0,0,19071,1,1,7,485,3,846,6,390,-1,10);--武少武器
+		end
+		if nRoute == 3 then
+		AddItem(0,8,19072,1,1,7,485,3,846,6,390,-1,10);--禅少武器
+		end
+		if nRoute == 6 then
+		AddItem(0,1,19073,1,1,7,485,3,845,6,390,-1,10);--唐门武器
+		end
+		if nRoute == 8 then
+		AddItem(0,2,19074,1,1,7,485,3,846,6,390,-1,10);--佛峨眉武器
+		end
+		if nRoute == 9 then
+		AddItem(0,10,19075,1,1,7,485,3,846,6,390,-1,10);--琴峨眉武器
+		end
+		if nRoute == 11 then
+		AddItem(0,0,19076,1,1,7,485,3,845,6,390,-1,10);--掌丐武器
+		end
+		if nRoute == 12 then
+		AddItem(0,5,19077,1,1,7,485,3,845,6,390,-1,10);--棍丐武器
+		end
+		if nRoute == 14 then
+		AddItem(0,2,19078,1,1,7,485,3,846,6,390,-1,10);--剑武当武器
+		end
+		if nRoute == 15 then
+		AddItem(0,9,19079,1,1,7,485,3,845,6,390,-1,10);--笔武当武器
+		end
+		if nRoute == 17 then
+		AddItem(0,6,19080,1,1,7,485,3,845,6,390,-1,10);--枪武器
+		end
+		if nRoute == 18 then
+		AddItem(0,4,19081,1,1,7,485,3,845,6,390,-1,10);--弓武器
+		end
+		if nRoute == 20 then
+		AddItem(0,7,19082,1,1,7,485,3,845,6,390,-1,10);--邪侠武器
+		end
+		if nRoute == 21 then
+		AddItem(0,11,19083,1,1,7,485,3,846,6,390,-1,10);--蛊武器
+		end
+		if nRoute == 23 then
+		AddItem(0,2,19084,1,1,7,485,3,846,6,390,-1,10);--天师武器
+		end
+		if nRoute == 25 then
+		AddItem(0,3,19085,1,1,7,485,3,845,6,390,-1,10);--明刀武器
+		end
+		if nRoute == 26 then
+		AddItem(0,9,19086,1,1,7,485,3,845,6,390,-1,10);--阵兵武器
+		end
+		if nRoute == 27 then
+		AddItem(0,11,19087,1,1,7,485,3,846,6,390,-1,10);--血人武器
+		end
+		if nRoute == 29 then
+		AddItem(0,13,19088,1,1,7,485,3,845,6,390,-1,10);--舞女武器
+		end
+		if nRoute == 30 then
+		AddItem(0,12,19089,1,1,7,485,3,845,6,390,-1,10);--灵女武器
+		end
+	
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用高级天罡令兑换轩辕武器一个");
+end
+end
+
+function Want_FuZhuWQ()
+	local szSay = {
+		g_szTitle.."大侠你确认要兑换峨眉佛家辅助属性的轩辕武器吗？",
+		"确认兑换/Want_FuZhuWQ1",
+		"不兑换退出/nothing",
+	};
+	SelectSay(szSay);
+end
+function Want_FuZhuWQ1()
+	if GetItemCount(2,95,20400) < 1 then
+		Talk(1,"","你并没有1个高级天罡令!!!")
+		return 0
+	end
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if DelItem(2,95,20400,1) == 1 then
+	AddItem(0,2,19074,1,1,7,485,3,846,7,852,-1,10);--峨眉辅助武器
+	end
+	Msg2SubWorld("恭喜玩家:"..GetName().." 使用高级天罡令兑换轩辕武器一个");
+end
+
+function ShengJiYanDi()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "1.炎黄铁魂3个+天地装备升级/Want_ShengJiYanDiA";
+	szSay[getn(szSay) + 1] = "2.炎黄铁魂1个+天地装备升级/Want_ShengJiYanDiB";
+	szSay[getn(szSay) + 1] = "3.退出/nothing";
+	Say(g_szTitle.."选一个吧！（选项一是必定成功，选项二是33%概率成功、失败扣除炎黄铁魂只返还当前体型天地装备无保底！）", getn(szSay), szSay)
+end
+
+function Want_ShengJiYanDiA()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "炎黄铁魂3个+天地玄黄盔升级炎帝盔/Want_YanDiKuiA";
+	szSay[getn(szSay) + 1] = "炎黄铁魂3个+天地玄黄甲升级炎帝甲/Want_YanDiJiaA";
+	szSay[getn(szSay) + 1] = "炎黄铁魂3个+天地玄黄装升级炎帝装/Want_YanDiZhuangA";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个部位吧（此页面必定成功）", getn(szSay), szSay)
+end
+
+function Want_ShengJiYanDiB()
+	local szSay = {};
+	szSay[getn(szSay) + 1] = "炎黄铁魂1个+天地玄黄盔升级炎帝盔/Want_YanDiKuiB";
+	szSay[getn(szSay) + 1] = "炎黄铁魂1个+天地玄黄甲升级炎帝甲/Want_YanDiJiaB";
+	szSay[getn(szSay) + 1] = "炎黄铁魂1个+天地玄黄装升级炎帝装/Want_YanDiZhuangB";
+	szSay[getn(szSay) + 1] = "退出/nothing";
+	Say(g_szTitle.."选一个部位吧（此页面升级只有33%成功率，失败扣除炎黄铁魂，返还当前体型天地玄黄装备）", getn(szSay), szSay)
+end
+
+
+function Want_YanDiKuiA()
+	local szSay = {
+		g_szTitle.."升级需要消耗炎黄铁魂3个+天地玄黄盔1个，不会失败",
+		"确认升级/Want_YanDiKuiAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+function Want_YanDiKuiAQ()
+	if GetItemCount(2,1,1146) < 3 then
+		Talk(1,"","你并没有3个炎黄铁魂!!!")
+		return 0
+	end		
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if ask_DELL3() ~= 1 then 
+		return
+	end
+		local nBody 	= GetBody();
+		if nBody ==1 then 
+		AddItem(0,103,8001,1,1,7,675,4,483,7,847,-1,10)
+		elseif nBody ==2 then 
+		AddItem(0,103,8002,1,1,7,675,4,483,7,847,-1,10)
+		elseif nBody ==3 then 
+		AddItem(0,103,8003,1,1,7,675,4,483,7,847,-1,10)
+		elseif nBody ==4 then 
+		AddItem(0,103,8004,1,1,7,675,4,483,7,847,-1,10)
+		end
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用一梦桃源升级功能将天地玄黄盔升级到炎帝盔");
+		AddLocalNews("恭喜玩家:"..GetName().." 使用一梦桃源升级功能将天地玄黄盔升级到炎帝盔");	
+
+	end	
+
+function ask_DELL3() --随机删除天地装备
+	local tdzjmbiao = GetItemCount(0,103,85)
+	local tdzjmkuiw = GetItemCount(0,103,86)
+	local tdzjmjiaox = GetItemCount(0,103,88)
+	local tdzjmxingan = GetItemCount(0,103,87)
+	local tiehun = GetItemCount(2,1,1146)
+	i1 = tdzjmbiao
+	i2 = tdzjmkuiw
+	i3 = tdzjmjiaox
+	i4 = tdzjmxingan
+	i5 = tiehun
+if i1 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,103,85,1)
+	return 1
+end	
+if i2 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,103,86,1)
+	return 1
+end	
+if i3 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,103,88,1)
+	return 1
+end	
+if i4 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,103,87,1)
+	return 1
+end
+end
+
+function Want_YanDiJiaA()
+	local szSay = {
+		g_szTitle.."升级需要消耗炎黄铁魂3个+天地玄黄甲1个，不会失败",
+		"确认升级/Want_YanDiJiaAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+function Want_YanDiJiaAQ()
+	if GetItemCount(2,1,1146) < 3 then
+		Talk(1,"","你并没有3个炎黄铁魂!!!")
+		return 0
+	end		
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if ask_DELL4() ~= 1 then 
+		return
+	end
+		local nBody 	= GetBody();
+		if nBody ==1 then 
+		AddItem(0,100,8001,1,1,5,286,7,848,7,485,-1,10)
+		elseif nBody ==2 then 
+		AddItem(0,100,8002,1,1,5,286,7,848,7,485,-1,10)
+		elseif nBody ==3 then 
+		AddItem(0,100,8003,1,1,5,286,7,848,7,485,-1,10)
+		elseif nBody ==4 then 
+		AddItem(0,100,8004,1,1,5,286,7,848,7,485,-1,10)
+		end
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用一梦桃源升级功能将天地玄黄甲升级到炎帝甲");
+		AddLocalNews("恭喜玩家:"..GetName().." 使用一梦桃源升级功能将天地玄黄甲升级到炎帝甲");	
+
+	end	
+
+function ask_DELL4() --随机删除天地装备
+	local tdzjybiao = GetItemCount(0,100,85)
+	local tdzjykuiw = GetItemCount(0,100,86)
+	local tdzjyjiaox = GetItemCount(0,100,88)
+	local tdzjyxingan = GetItemCount(0,100,87)
+	local tiehun = GetItemCount(2,1,1146)
+	i11 = tdzjybiao
+	i12 = tdzjykuiw
+	i13 = tdzjyjiaox
+	i14 = tdzjyxingan
+	i5 = tiehun
+if i11 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,100,85,1)
+	return 1
+end	
+if i12 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,100,86,1)
+	return 1
+end	
+if i13 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,100,88,1)
+	return 1
+end	
+if i14 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,100,87,1)
+	return 1
+end
+end
+
+function Want_YanDiZhuangA()
+	local szSay = {
+		g_szTitle.."升级需要消耗炎黄铁魂3个+天地玄黄装1个，不会失败",
+		"确认升级/Want_YanDiZhuangAQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+function Want_YanDiZhuangAQ()
+	if GetItemCount(2,1,1146) < 3 then
+		Talk(1,"","你并没有3个炎黄铁魂!!!")
+		return 0
+	end		
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if ask_DELL5() ~= 1 then 
+		return
+	end
+		local nBody 	= GetBody();
+		if nBody ==1 then 
+		AddItem(0,101,8001,1,1,2,2203,7,483,7,580,-1,10)
+		elseif nBody ==2 then 
+		AddItem(0,101,8002,1,1,2,2203,7,483,7,580,-1,10)
+		elseif nBody ==3 then 
+		AddItem(0,101,8003,1,1,2,2203,7,483,7,580,-1,10)
+		elseif nBody ==4 then 
+		AddItem(0,101,8004,1,1,2,2203,7,483,7,580,-1,10)
+		end
+		Msg2SubWorld("恭喜玩家:"..GetName().." 使用一梦桃源升级功能将天地玄黄装升级到炎帝装");
+		AddLocalNews("恭喜玩家:"..GetName().." 使用一梦桃源升级功能将天地玄黄装升级到炎帝装");	
+
+	end	
+
+function ask_DELL5() --随机删除天地装备
+	local tdzjzbiao = GetItemCount(0,101,85)
+	local tdzjzkuiw = GetItemCount(0,101,86)
+	local tdzjzjiaox = GetItemCount(0,101,88)
+	local tdzjzxingan = GetItemCount(0,101,87)
+	local tiehun = GetItemCount(2,1,1146)
+	i21 = tdzjzbiao
+	i22 = tdzjzkuiw
+	i23 = tdzjzjiaox
+	i24 = tdzjzxingan
+	i5 = tiehun
+if i21 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,101,85,1)
+	return 1
+end	
+if i22 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,101,86,1)
+	return 1
+end	
+if i23 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,101,88,1)
+	return 1
+end	
+if i24 >= 1 and i5 >= 3  then   
+    DelItem(2,1,1146,1)
+    DelItem(2,1,1146,1)
+	DelItem(2,1,1146,1)
+	DelItem(0,101,87,1)
+	return 1
+end
+end
+
+
+
+
+function Want_YanDiKuiB() --33%概率合成
+	local szSay = {
+		g_szTitle.."升级需要消耗炎黄铁魂1个+天地玄黄盔1个，33%概率成功，失败扣除炎黄铁魂返还天地装备<enter><color=yellow>本选项有风险升级需谨慎！<color>",
+		"确认升级/Want_YanDiKuiBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_YanDiKuiBQ()
+	if GetItemCount(2,1,1146) < 1 then
+		Talk(1,"","你并没有1个炎黄铁魂!!!")
+		return 0
+	end		
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if ask_DELL6() ~= 1 then 
+		return
+	end
+		local nRand = random(1,100);
+		if nRand <= 33 then
+			local nBody 	= GetBody();
+			if nBody ==1 then 
+			AddItem(0,103,8001,1,1,7,675,4,483,7,847,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			elseif nBody ==2 then 
+			AddItem(0,103,8002,1,1,7,675,4,483,7,847,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			elseif nBody ==3 then 
+			AddItem(0,103,8003,1,1,7,675,4,483,7,847,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			elseif nBody ==4 then 
+			AddItem(0,103,8004,1,1,7,675,4,483,7,847,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄盔33%概率成功升级炎帝盔");
+			end
+			return
+		elseif nRand >33 then
+			local nBody 	= GetBody();
+			if nBody ==1 then 
+			AddItem(0,103,85,1,1,7,675,3,483,7,847,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄盔33%概率升级炎帝盔失败");
+			elseif nBody ==2 then 
+			AddItem(0,103,86,1,1,7,675,3,483,7,847,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄盔33%概率升级炎帝盔失败");
+			elseif nBody ==3 then 
+			AddItem(0,103,87,1,1,7,675,3,483,7,847,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄盔33%概率升级炎帝盔失败");
+			elseif nBody ==4 then 
+			AddItem(0,103,88,1,1,7,675,3,483,7,847,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄盔33%概率升级炎帝盔失败");
+			end
+		end	
+	end
+function ask_DELL6() --随机删除天地装备
+	local tdzjmbiao = GetItemCount(0,103,85)
+	local tdzjmkuiw = GetItemCount(0,103,86)
+	local tdzjmjiaox = GetItemCount(0,103,88)
+	local tdzjmxingan = GetItemCount(0,103,87)
+	local tiehun = GetItemCount(2,1,1146)
+	i1 = tdzjmbiao
+	i2 = tdzjmkuiw
+	i3 = tdzjmjiaox
+	i4 = tdzjmxingan
+	i5 = tiehun
+if i1 >= 1 and i5 >= 1  then   
+    DelItem(2,1,1146,1)
+	DelItem(0,103,85,1)
+	return 1
+end	
+if i2 >= 1 and i5 >= 1  then   
+    DelItem(2,1,1146,1)
+	DelItem(0,103,86,1)
+	return 1
+end	
+if i3 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,103,88,1)
+	return 1
+end	
+if i4 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,103,87,1)
+	return 1
+end
+end
+
+function Want_YanDiJiaB() --33%概率合成
+	local szSay = {
+		g_szTitle.."升级需要消耗炎黄铁魂1个+天地玄黄甲1个，33%概率成功，失败扣除炎黄铁魂返还天地装备<enter><color=yellow>本选项有风险升级需谨慎！<color>",
+		"确认升级/Want_YanDiJiaBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_YanDiJiaBQ()
+	if GetItemCount(2,1,1146) < 1 then
+		Talk(1,"","你并没有1个炎黄铁魂!!!")
+		return 0
+	end		
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if ask_DELL7() ~= 1 then 
+		return
+	end
+		local nRand = random(1,100);
+		if nRand <= 33 then
+			local nBody 	= GetBody();
+			if nBody ==1 then 
+			AddItem(0,100,8001,1,1,5,286,7,848,7,485,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			elseif nBody ==2 then 
+			AddItem(0,100,8002,1,1,5,286,7,848,7,485,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			elseif nBody ==3 then 
+			AddItem(0,100,8003,1,1,5,286,7,848,7,485,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			elseif nBody ==4 then 
+			AddItem(0,100,8004,1,1,5,286,7,848,7,485,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄甲33%概率成功升级炎帝甲");
+			end
+			return
+		elseif nRand >33 then
+			local nBody 	= GetBody();
+			if nBody ==1 then 
+			AddItem(0,100,85,1,1,5,286,7,848,7,485,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄甲33%概率升级炎帝甲失败");
+			elseif nBody ==2 then 
+			AddItem(0,100,86,1,1,5,286,7,848,7,485,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄甲33%概率升级炎帝甲失败");
+			elseif nBody ==3 then 
+			AddItem(0,100,87,1,1,5,286,7,848,7,485,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄甲33%概率升级炎帝甲失败");
+			elseif nBody ==4 then 
+			AddItem(0,100,88,1,1,5,286,7,848,7,485,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄甲33%概率升级炎帝甲失败");
+			end
+		end	
+	end
+function ask_DELL7() --随机删除天地装备
+	local tdzjybiao = GetItemCount(0,100,85)
+	local tdzjykuiw = GetItemCount(0,100,86)
+	local tdzjyjiaox = GetItemCount(0,100,88)
+	local tdzjyxingan = GetItemCount(0,100,87)
+	local tiehun = GetItemCount(2,1,1146)
+	i11 = tdzjybiao
+	i12 = tdzjykuiw
+	i13 = tdzjyjiaox
+	i14 = tdzjyxingan
+	i5 = tiehun
+if i11 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,100,85,1)
+	return 1
+end	
+if i12 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,100,86,1)
+	return 1
+end	
+if i13 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,100,88,1)
+	return 1
+end	
+if i14 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,100,87,1)
+	return 1
+end
+end
+
+function Want_YanDiZhuangB() --33%概率合成
+	local szSay = {
+		g_szTitle.."升级需要消耗炎黄铁魂1个+天地玄黄装1个，33%概率成功，失败扣除炎黄铁魂返还天地装备<enter><color=yellow>本选项有风险升级需谨慎！<color>",
+		"确认升级/Want_YanDiZhuangBQ",
+		"不升级退出/nothing",
+	};
+	SelectSay(szSay);
+end
+
+function Want_YanDiZhuangBQ()
+	if GetItemCount(2,1,1146) < 1 then
+		Talk(1,"","你并没有1个炎黄铁魂!!!")
+		return 0
+	end		
+	if gf_Judge_Room_Weight(1,10," ") ~= 1 then
+		Talk(1,"","你负重不够或者包裹已满!!!")
+        	return 0
+	end
+	if ask_DELL8() ~= 1 then 
+		return
+	end
+		local nRand = random(1,100);
+		if nRand <= 33 then
+			local nBody 	= GetBody();
+			if nBody ==1 then 
+			AddItem(0,101,8001,1,1,2,2203,7,483,7,580,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			elseif nBody ==2 then 
+			AddItem(0,101,8002,1,1,2,2203,7,483,7,580,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			elseif nBody ==3 then 
+			AddItem(0,101,8003,1,1,2,2203,7,483,7,580,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			elseif nBody ==4 then 
+			AddItem(0,101,8004,1,1,2,2203,7,483,7,580,-1,10)
+			Msg2SubWorld("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			AddLocalNews("恭喜玩家:"..GetName().." 天地玄黄装33%概率成功升级炎帝装");
+			end
+			return
+		elseif nRand >33 then
+			local nBody 	= GetBody();
+			if nBody ==1 then 
+			AddItem(0,101,85,1,1,7,484,7,483,7,580,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄装33%概率升级炎帝装失败");
+			elseif nBody ==2 then 
+			AddItem(0,101,86,1,1,7,484,7,483,7,580,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄装33%概率升级炎帝装失败");
+			elseif nBody ==3 then 
+			AddItem(0,101,87,1,1,7,484,7,483,7,580,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄装33%概率升级炎帝装失败");
+			elseif nBody ==4 then 
+			AddItem(0,101,88,1,1,7,484,7,483,7,580,-1,15)
+			Msg2SubWorld("玩家:"..GetName().."运气不好，天地玄黄装33%概率升级炎帝装失败");
+			end
+		end	
+	end
+function ask_DELL8() --随机删除天地装备
+	local tdzjzbiao = GetItemCount(0,101,85)
+	local tdzjzkuiw = GetItemCount(0,101,86)
+	local tdzjzjiaox = GetItemCount(0,101,88)
+	local tdzjzxingan = GetItemCount(0,101,87)
+	local tiehun = GetItemCount(2,1,1146)
+	i21 = tdzjzbiao
+	i22 = tdzjzkuiw
+	i23 = tdzjzjiaox
+	i24 = tdzjzxingan
+	i5 = tiehun
+if i21 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,101,85,1)
+	return 1
+end	
+if i22 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,101,86,1)
+	return 1
+end	
+if i23 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,101,88,1)
+	return 1
+end	
+if i24 >= 1 and i5 >= 1  then   
+	DelItem(2,1,1146,1)
+	DelItem(0,101,87,1)
+	return 1
+end
+end
+
+function suishensd()--随身商店
+	local szSay = {
+		g_szTitle.."随身商店仓库,方便你我他!!!",
+		"杂货店/ask_zahuod",
+		"储物箱/ask_chuwux",
+	};
+	SelectSay(szSay);
+end
+
+function ask_zahuod()
+	Sale(35)
+end
+
+function ask_chuwux()
+	OpenBox()
+end
+
+function ask_liewu1()
+	local tSay = {}
+	tSay = {
+			"少林俗家标准/#xuanliewu1(1)",
+			"少林俗家魁梧/#xuanliewu1(2)",
+			"少林禅僧标准/#xuanliewu1(3)",
+			"少林禅僧魁梧/#xuanliewu1(4)",
+			"少林武僧标准/#xuanliewu1(5)",
+			"少林武僧魁梧/#xuanliewu1(6)",
+			"唐门标准/#xuanliewu1(7)",
+			"唐门魁梧/#xuanliewu1(8)",
+			"唐门性感/#xuanliewu1(9)",
+			"唐门娇小/#xuanliewu1(10)",
+			"峨眉佛家性感/#xuanliewu1(11)",
+			"峨眉佛家娇小/#xuanliewu1(12)",
+			"峨眉俗家性感/#xuanliewu1(13)",
+			"峨眉俗家娇小/#xuanliewu1(14)",
+			"丐帮净衣标准/#xuanliewu1(15)",
+			"丐帮净衣魁梧/#xuanliewu1(16)",
+			"丐帮净衣性感/#xuanliewu1(17)",
+			"丐帮净衣娇小/#xuanliewu1(18)",
+			"丐帮污衣标准/#xuanliewu1(19)",
+			"丐帮污衣魁梧/#xuanliewu1(20)",
+			"丐帮污衣性感/#xuanliewu1(21)",
+			"丐帮污衣娇小/#xuanliewu1(22)",
+			"武当道家标准/#xuanliewu1(23)",
+			"武当道家魁梧/#xuanliewu1(24)",
+			"武当道家性感/#xuanliewu1(25)",
+			"武当道家娇小/#xuanliewu1(26)",
+			"武当俗家标准/#xuanliewu1(27)",
+			"武当俗家魁梧/#xuanliewu1(28)",
+			"武当俗家性感/#xuanliewu1(29)",
+			"武当俗家娇小/#xuanliewu1(30)",
+			"杨门枪骑标准/#xuanliewu1(31)",
+			"杨门枪骑魁梧/#xuanliewu1(32)",
+			"杨门枪骑性感/#xuanliewu1(33)",
+			"杨门枪骑娇小/#xuanliewu1(34)",
+			"杨门弓骑标准/#xuanliewu1(35)",
+			"杨门弓骑魁梧/#xuanliewu1(36)",
+			"杨门弓骑性感/#xuanliewu1(37)",
+			"杨门弓骑娇小/#xuanliewu1(38)",
+			"五毒邪侠标准/#xuanliewu1(39)",
+			"五毒邪侠魁梧/#xuanliewu1(40)",
+			"五毒邪侠性感/#xuanliewu1(41)",
+			"五毒邪侠娇小/#xuanliewu1(42)",
+			"五毒蛊师标准/#xuanliewu1(43)",
+			"五毒蛊师魁梧/#xuanliewu1(44)",
+			"五毒蛊师性感/#xuanliewu1(45)",
+			"五毒蛊师娇小/#xuanliewu1(46)",
+			"昆仑天师标准/#xuanliewu1(47)",
+			"昆仑天师魁梧/#xuanliewu1(48)",
+			"翠烟舞仙性感/#xuanliewu1(49)",
+			"翠烟舞仙娇小/#xuanliewu1(50)",
+			"翠烟灵女性感/#xuanliewu1(51)",
+			"翠烟灵女娇小/#xuanliewu1(52)",
+			
+		}
+	tinsert(tSay, "退出/nothing");
+	Say("GM卡：很高兴你来到这个世界，当这个世界的主宰。你当前的地图编号:["..GetWorldPos().."]", getn(tSay), tSay);
+end
+
+function xuanliewu1(nWz)
+		if nWz ==1 then 
+				AddItem(0,100,22410,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22410,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22410,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,3,22410,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==2 then 
+				AddItem(0,100,22411,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22411,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22411,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,3,22411,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==3 then 
+				AddItem(0,100,22412,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22412,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22412,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,8,22412,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==4 then 
+				AddItem(0,100,22413,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22413,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22413,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,8,22413,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==5 then 
+				AddItem(0,100,22414,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22414,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22414,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,0,22414,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==6 then 
+				AddItem(0,100,22415,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22415,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22415,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,0,22415,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==7 then 
+				AddItem(0,100,22416,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22416,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22416,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,1,22416,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==8 then 
+				AddItem(0,100,22417,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22417,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22417,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,1,22417,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==9 then 
+				AddItem(0,100,22418,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22418,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22418,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,1,22418,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==10 then 
+				AddItem(0,100,22419,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22419,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22419,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,1,22419,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==11 then 
+				AddItem(0,100,22420,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22420,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22420,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22420,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==12 then 
+				AddItem(0,100,22421,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22421,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22421,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22421,1,1,0,0,0,0,0,0,0,10,120)
+		end
+
+		if nWz ==13 then 
+				AddItem(0,100,22422,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22422,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22422,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,10,22422,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==14 then 
+				AddItem(0,100,22423,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22423,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22423,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,10,22423,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==15 then 
+				AddItem(0,100,22424,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22424,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22424,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,0,22424,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==16 then 
+				AddItem(0,100,22425,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22425,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22425,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,0,22425,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==17 then 
+				AddItem(0,100,22426,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22426,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22426,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,0,22426,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==18 then 
+				AddItem(0,100,22427,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22427,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22427,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,0,22427,1,1,0,0,0,0,0,0,0,10,120)
+		end
+
+		if nWz ==19 then 
+				AddItem(0,100,22428,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22428,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22428,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,5,22428,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==20 then 
+				AddItem(0,100,22429,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22429,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22429,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,5,22429,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==21 then 
+				AddItem(0,100,22430,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22430,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22430,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,5,22430,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==22 then 
+				AddItem(0,100,22431,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22431,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22431,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,5,22431,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==23 then 
+				AddItem(0,100,22432,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22432,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22432,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22432,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==24 then 
+				AddItem(0,100,22433,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22433,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22433,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22433,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==25 then 
+				AddItem(0,100,22434,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22434,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22434,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22434,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==25 then 
+				AddItem(0,100,22435,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22435,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22435,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22435,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==27 then 
+				AddItem(0,100,22436,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22436,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22436,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,9,22436,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==28 then 
+				AddItem(0,100,22437,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22437,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22437,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,9,22437,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==29 then 
+				AddItem(0,100,22438,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22438,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22438,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,9,22438,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==30 then 
+				AddItem(0,100,22439,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22439,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22439,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,9,22439,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==31 then 
+				AddItem(0,100,22440,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22440,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22440,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,6,22440,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==32 then 
+				AddItem(0,100,22441,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22441,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22441,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,6,22441,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==33 then 
+				AddItem(0,100,22442,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22442,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22442,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,6,22442,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==34 then 
+				AddItem(0,100,22443,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22443,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22443,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,6,22443,1,1,0,0,0,0,0,0,0,10,120)
+		end
+
+		if nWz ==35 then 
+				AddItem(0,100,22444,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22444,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22444,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,4,22444,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==36 then 
+				AddItem(0,100,22445,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22445,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22445,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,4,22445,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==37 then 
+				AddItem(0,100,22446,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22446,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22446,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,4,22446,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==38 then 
+				AddItem(0,100,22447,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22447,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22447,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,4,22447,1,1,0,0,0,0,0,0,0,10,120)
+		end
+
+		if nWz ==39 then 
+				AddItem(0,100,22448,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22448,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22448,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,7,22448,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==40 then 
+				AddItem(0,100,22449,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22449,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22449,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,7,22449,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==41 then 
+				AddItem(0,100,22450,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22450,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22450,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,7,22450,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==42 then 
+				AddItem(0,100,22451,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22451,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22451,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,7,22451,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==43 then 
+				AddItem(0,100,22452,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22452,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22452,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,11,22452,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==44 then 
+				AddItem(0,100,22453,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22453,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22453,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,11,22453,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==45 then 
+				AddItem(0,100,22454,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22454,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22454,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,11,22454,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==46 then 
+				AddItem(0,100,22455,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22455,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22455,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,11,22455,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==47 then 
+				AddItem(0,100,22456,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22456,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22456,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22456,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==48 then 
+				AddItem(0,100,22457,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22457,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22457,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,2,22457,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		
+		if nWz ==49 then 
+				AddItem(0,100,22470,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22470,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22470,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,13,22470,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==50 then 
+				AddItem(0,100,22471,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22471,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22471,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,13,22471,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==51 then 
+				AddItem(0,100,22472,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22472,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22472,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,12,22472,1,1,0,0,0,0,0,0,0,10,120)
+		end
+		if nWz ==52 then 
+				AddItem(0,100,22473,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,101,22473,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,103,22473,1,1,0,0,0,0,0,0,0,10,120)
+				AddItem(0,12,22473,1,1,0,0,0,0,0,0,0,10,120)
+		end
+end

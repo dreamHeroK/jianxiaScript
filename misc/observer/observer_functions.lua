@@ -1,0 +1,97 @@
+error("invalid file")
+--此文件作废 
+--this file invalid
+
+
+--Include("\\script\\misc\\observer\\observer_head.lua")
+--Include("\\script\\system_switch_config.lua")
+--
+----脚本回调-----------------------------------------------
+--
+----添加体服指引
+--function add_tifyzhiyin(id, data)
+--	if IsExpSvrSystemOpen() == 1 then
+--		--体服指引（正式版本要删除）---------------------------
+--  	if GetItemCount(2,1,30644) < 1 and GetFreeItemRoom() > 0 then
+--  		AddItem(2,1,30644,1)
+--  	end
+--	end
+--end
+--
+----消耗IB Item
+--function _on_cost_ib_item(id, data)
+--	local nG, nD, nP, nNum = data[1],data[2],data[3],data[4]
+--	nNum = nNum or 1
+--	if nG == 2 and nD == 97 and nP == 236 then --天骄令
+--		--CDKey消耗的天骄令计数
+--		SendScript2VM("\\script\\function\\cdkey\\ck_head.lua", format("_ck_SetCostIB(%d)", nNum))
+--	end
+--end
+--
+--
+----程序回调------------------------------------------------------
+--
+----触发任务变量回收事件
+--function on_task_recycle(nTaskId, nNewVersion)
+--	Observer:onEvent(SYSEVENT_TASK_RECYCLE, {nTaskId, nNewVersion})
+--end
+--
+----触发在线时间事件
+--function on_player_online_time(nTime)
+--	Observer:onEvent(SYSEVENT_PLAYER_ONLINE, nTime);
+--end
+--
+--
+-------------------------------------------------------------------------------------------
+----事件列表-------------------------------------------------------------------------------
+----g_tEventsList = {
+----	[eventid] = --事件类别，参考head文件
+----	{
+----		{"description", "szScript", "szfunc"},
+----		{"description", function},
+----		{"description", "szfunc"},
+----	},
+----}
+----事件新增遵循谁使用谁注册的原则，除非十分必要，否则不要再在此新增事件-------------------
+-------------------------------------------------------------------------------------------
+--
+--g_tEventsList = {
+--	--gs启动事件
+--	[SYSEVENT_GAMESERVER_START] = {
+--		{"huofentask_svr_start", "\\script\\task\\huofengtask\\server_start.lua", "on_server_start"},
+--		{"catch_fish_svr_start", "\\script\\online\\201504_catch_fish\\server_start.lua", "on_server_start"},
+--		{"pop_svr_start", "\\script\\missions\\yp\\vn\\server_start.lua", "on_server_start"},
+--	},
+--	--login事件
+--	[SYSEVENT_PLAYER_LOGIN] = {
+--		{"add_tifyzhiyin", add_tifyzhiyin},
+--		{"res_protect_login", "\\script\\gongcheng\\npc\\conf_res_protect.lua", "on_player_login"},
+--		{"catch_fish_login", "\\script\\online\\201504_catch_fish\\server_start.lua", "on_player_login"},
+--		{"pop_login", "\\script\\missions\\yp\\vn\\player_login.lua", "on_player_login"},
+--	},
+--	--logout事件
+--	[SYSEVENT_PLAYER_LOGOUT] = {
+--	},
+--	--每日清理
+--	[SYSEVENT_DAILY_CLEAR] = {
+--		{"itemfushengdan_daily_clear", "\\settings\\static_script\\item\\item_fushengdan_impl.lua", "on_daily_clear"},
+--		--{"catch_fish_daily_clear", "\\script\\online\\201504_catch_fish\\server_start.lua", "on_daily_clear"},
+--		{"1505activity_daily_clear", "\\script\\online_activites\\201505feedpet\\main.lua", "on_daily_clear"},
+--	},
+--	--每周清理
+--	[SYSEVENT_WEEKLY_CLEAR] = {
+--		{"equipshop_clear", "\\script\\equip_shop\\equip_shop.lua", "on_weekly_clear"},
+--	},
+--	--任务系统
+--	[SYSEVENT_GTASK] = {
+--		{"gtask_event", "\\script\\task\\global_task\\gtask_event.lua", "GtaskOnEvent"},
+--	},
+--	--任务变量回收
+--	[SYSEVENT_TASK_RECYCLE] = {
+--		{"task_recycle", "\\script\\item\\skill_app_box.lua", "on_task_recycle"},
+--	},
+--	--IB道具消耗
+--	[SYSEVENT_GLOBAL_COST_IB] = {
+--		{"_on_cost_ib_item", "_on_cost_ib_item"},
+--	},
+--};

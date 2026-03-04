@@ -1,0 +1,169 @@
+L­u Thñy HiÖu	Tr¹ng th¸i (1 m?0 ®ãng)	Script ban ®Çu cña ho¹t ®éng	Server run function	Gamer login run of function	Ngµy b¾t ®Çu ho¹t ®éng (ho¹t ®éng bao gåm thêi gian nµy)	Ngµy kÕt thóc ho¹t ®éng (ho¹t ®éng kh«ng bao gåm thêi gian nµy)	L­u ?
+1	0	\script\online_activites\2010_01\activites_01\init.lua	ServerStartUp	PlayerLogin	2010012900	2010012900	Ho¹t ®éng 1 tÕt 01/2010
+2	0	\script\online_activites\2010_01\activites_02\init.lua	ServerStartUp	PlayerLogin	2010020500	2010020500	Ho¹t ®éng 2, tÕt 01/2010
+3	0	\script\online_activites\2010_03\activites_01\init.lua	ServerStartUp	PlayerLogin	2010030500	2010030500	Ho¹t ®éng 1, 03/2010
+4	0	\script\online_activites\2010_03\activites_02\init.lua	ServerStartUp	PlayerLogin	2010012900	2010012900	
+5	0	\script\online_activites\2010_04\activities_01\init.lua	ServerStartUp	PlayerLogin	2010020500	2010020500	Ho¹t ®éng mét ,4/2010
+6	0	\script\online_activites\2010_04\activities_02\init.lua	ServerStartUp	PlayerLogin	2010030500	2010030500	Ho¹t ®éng hai, 04/2010 (kÐo dµi)
+7	0	\script\online_activites\2010_06\activites_01\init.lua	ServerStartUp	PlayerLogin	2010052800	2010052800	Ho¹t ®éng 1 06/2010
+8	0	\script\online_activites\2010_06\activites_02\init.lua	ServerStartUp	PlayerLogin	2010044329	2010044329	Ho¹t ®éng n©ng cÊp mËt tÞch th¸ng 6
+9	0	\script\online_activites\reborn\task\init.lua	ServerStartUp	PlayerLogin	2010048961	2010048961	NhiÖm v?chuyÓn sinh
+10	0	\script\online_activites\2010_07\activites_01\init.lua	ServerStartUp	PlayerLogin	2010053593	2010053593	Ho¹t ®éng th¸ng 7
+11	0	\script\online_activites\2010_08\activites_01\init.lua	ServerStartUp	PlayerLogin	2010058225	2010058225	Ho¹t ®éng th¸ng 8
+12	0	\script\online_activites\tiaozhansilingboss\init.lua	ServerStartUp	PlayerLogin	2010062857	2010062857	Ho¹t ®éng khiªu chiÕn t?linh
+13	0	\script\online_activites\2010_09\activites_01\init.lua	ServerStartUp	PlayerLogin	2010067489	2010067489	Event Trung Thu th¸ng 9
+14	0	\script\online_activites\2010_09\activites_02\init.lua	ServerStartUp	PlayerLogin	2010072121	2010072121	Ho¹t ®éng Héi §Ìn T?Linh th¸ng 9
+15	0	\script\online_activites\xinshouzhiyin\init.lua	ServerStartUp	PlayerLogin	2010076754	2010076754	Ho¹t ®éng h­íng dÉn t©n th?
+16	0	\script\online_activites\2010_11\activity_01\init.lua	ServerStartUp	PlayerLogin	2010081386	2010081386	Ho¹t ®éng danh hiÖu
+17	0	\script\online_activites\2010_11\activity_02\init.lua	ServerStartUp	PlayerLogin	2010086018	2010086018	Ho¹t ®éng Hoa H­íng D­¬ng
+18	0	\script\online_activites\2010_11\activity_03\init.lua	ServerStartUp	PlayerLogin	2010090650	2010090650	Ho¹t ®éng thu thËp
+19	0	\script\online_activites\2010_12\activites_01\init.lua	ServerStartUp	PlayerLogin	2010095282	2010095282	Ho¹t ®éng gi¸ng sinh th¸ng 12
+20	0	\script\online_activites\2010_12\activites_02\init.lua	ServerStartUp	PlayerLogin	2010099914	2010099914	Ho¹t ®éng ngo¹i trang gi¸ng sinh th¸ng 12
+21	0	\script\online_activites\2010_12\activites_03\init.lua	ServerStartUp	PlayerLogin	2010104546	2010104546	Ho¹t ®éng s­ëi Êm ®ªm ®«ng
+22	0	\script\online_activites\2010_12\activites_04\init.lua	ServerStartUp	PlayerLogin	2010109179	2010109179	Ho¹t ®éng c©y t?linh, thêi gian ®­îc ghi nhËn t¹i head
+23	0	\script\online_activites\2010_12\activity_05\init.lua	ServerStartUp	PlayerLogin	2010113811	2010113811	Ho¹t ®éng khiªu chiÕn nÐm tuyÕt BOSS
+24	0	\script\online_activites\2010_12\activity_06\init.lua	ServerStartUp	PlayerLogin	2010118443	2010118443	Ho¹t ®éng H¸i Qu?Bèn Mïa, thêi gian event ®· ®­îc ghi nhËn t¹i head
+25	0	\script\online_activites\2011_01\activity_01\init.lua	ServerStartUp	PlayerLogin	2010123075	2010123075	Ho¹t ®éng tÕt 2011
+26	0	\script\online_activites\silingmount\init.lua	ServerStartUp	PlayerLogin	2010127707	2010127707	Th?c­ìi T?Linh
+27	0	\script\online_activites\ipbonus\init.lua	ServerStartUp	PlayerLogin	2010132339	2010132339	ipbonus
+28	0	\script\online_activites\2011_02\operating\init.lua	ServerStartUp	PlayerLogin	2010136971	2010136971	Event th¸ng 2 n¨m 2011
+29	0	\script\online_activites\shimen_tier4\init.lua	ServerStartUp	PlayerLogin	2010141604	2010141604	B?trang b?S?M«n 4
+30	0	\script\online_activites\2011_02\plant\init.lua	ServerStartUp	PlayerLogin	2010146236	2010146236	Event trång c©y Hoa Hång th¸ng 2 n¨m 2011
+31	0	\script\online_activites\2011_03\operating\init.lua	ServerStartUp	PlayerLogin	2010150868	2010150868	Event Gi?T?Hïng V­¬ng
+32	0	\script\online_activites\2011_03\boss\init.lua	ServerStartUp	PlayerLogin	2010155500	2010155500	EventBoss_201103
+33	0	\script\online_activites\2011_04\liberation\init.lua	ServerStartUp	PlayerLogin	2010160132	2010160132	Event ngµy gi¶i phãng 
+34	0	\script\online_activites\2011_04\liberation\init.lua	ServerStartUp	PlayerLogin	2010164764	2010164764	Event mïa h?2011 
+35	0	\script\online_activites\head\activity_normal_head.lua	ServerStartUp	PlayerLogin	2010169396	2010169396	Event mïa h?th¸ng 7 n¨m 2011 
+36	0	\script\online_activites\2011_07\head.lua	ServerStartUp	PlayerLogin	2010174029	2010174029	Summmer colors
+37	0	\script\online_activites\2011_08\activity_01\init.lua	ServerStartUp	PlayerLogin	2010178661	2010178661	Ho¹t ®éng trung thu
+38	0	\script\online_activites\2011_08\activity_02\baked_cakes_main.lua	ServerStartUp	PlayerLogin	2011082600	2010012900	Trung Thu n­íng b¸nh
+39	0	\script\online_activites\2011_08\activity_03\lamp_npc_script.lua	ServerStartUp	PlayerLogin	2010012900	2010020500	Héi §Ìn Hoa Trung Thu
+40	0	\script\online_activites\2011_09\activity_01\init.lua	ServerStartUp	PlayerLogin	2010020500	2010030500	event th¸ng 10
+41	0	\script\online_activites\2011_09\activity_02\init.lua	ServerStartUp	PlayerLogin	2010030500	2010012900	S¨c th¸i mïa h?th¸ng 10
+42	0	\script\online_activites\2011_10\activity_01\init.lua	ServerStartUp	PlayerLogin	2010012900	2010020500	Event tÆng hoa th¸ng 11
+43	0	\script\online_activites\2011_10\activity_02\init.lua	ServerStartUp	PlayerLogin	2010020500	2010030500	Event tÆng hoa th¸ng 11
+44	0	\script\online_activites\2011_10\activity_03\init.lua	ServerStartUp	PlayerLogin	2010030500	2010052800	L?nh?gi¸o th¸ng 11
+45	0	\script\online_activites\2011_10\activity_04\init.lua	ServerStartUp	PlayerLogin	2010052800	2010044329	Event trång hoa th¸ng 11
+46	0	\script\online_activites\treasure_box\init.lua	ServerStartUp	PlayerLogin	2010044329	2010048961	ThÇn Tµi B¶o R­¬ng
+47	0	\script\online_activites\2011_11\activity_01\init.lua	ServerStartUp	PlayerLogin	2010048961	2010053593	Event Nguyªn §¸n th¸ng 12
+48	0	\script\online_activites\2011_11\activity_02\init.lua	ServerStartUp	PlayerLogin	2010053593	2010058225	Event Gi¸ng Sinh th¸ng 12
+49	0	\script\online_activites\2011_11\activity_03\init.lua	ServerStartUp	PlayerLogin	2010058225	2010062857	Event tÆng qu?noel th¸ng 12
+50	0	\script\online_activites\2011_11\activity_04\init.lua	ServerStartUp	PlayerLogin	2010062857	2010067489	C©y th«ng noel th¸ng 12
+51	0	\script\online_activites\2011_12\chunjie\init.lua	ServerStartUp	PlayerLogin	2010067489	2010072121	Event tÕt xu©n 2012
+52	0	\script\online_activites\2011_12\lilishishi\init.lua	ServerStartUp	PlayerLogin	2010072121	2010076754	L?x?tÕt xu©n 2012
+53	0	\script\online_activites\2011_12\qingrenjie\init.lua	ServerStartUp	PlayerLogin	2010076754	2010081386	Valentine 2012
+54	0	\script\online_activites\2011_12\wupanguo\init.lua	ServerStartUp	PlayerLogin	2010081386	2010086018	M©m ng?qu?2012
+55	0	\script\online_activites\201201\qingrenjie\init.lua	ServerStartUp	PlayerLogin	2010086018	2010090650	Event th¸ng 2 n¨m 2012
+56	0	\script\online_activites\201202\guojifunvjie\init.lua	ServerStartUp	PlayerLogin	2010090650	2010095282	Event quèc t?ph?n?th¸ng 3/2012
+57	0	\script\online_activites\201202\zengsongpifeng\init.lua	ServerStartUp	PlayerLogin	2010095282	2010099914	Event ph?th¸ng 3 n¨m 2012
+58	0	\script\online_activites\201203\kaiyandaijun\init.lua	ServerStartUp	PlayerLogin	2010099914	2010104546	Ho¹t ®éng M?TiÖc Khao Qu©n th¸ng 4 n¨m 2012
+59	0	\script\online_activites\201203\gongli\init.lua	ServerStartUp	PlayerLogin	2010104546	2010109179	Ho¹t ®éng Chung Søc th¸ng 4 n¨m 2012
+60	0	\script\online_activites\201203\kuizheng\init.lua	ServerStartUp	PlayerLogin	2010109179	2010113811	Ho¹t ®éng Phong TÆng th¸ng 4 n¨m 2012
+61	0	\script\online_activites\201204\qingliangshujia\init.lua	ServerStartUp	PlayerLogin	2010113811	2010118443	Ho¹t ®éng Mïa H?M¸t L¹nh th¸ng 5 n¨m 2012 
+62	0	\script\online_activites\201204\changkuaishujia\init.lua	ServerStartUp	PlayerLogin	2010118443	2010123075	Mïa H?S¶ng Kho¸i th¸ng 5 n¨m 2012 
+63	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010123075	2010127707	Ho¹t ®éng th¸ng 6 n¨m 2012
+64	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010127707	2010132339	Ho¹t ®éng ®æi phÇn th­ëng th¸ng 6 n¨m 2012
+65	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010132339	2010136971	Ho¹t ®éng Tr¸i C©y th¸ng 6 n¨m 2012
+66	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010136971	2010141604	Ho¹t ®éng BiÓn Xanh th¸ng 7 n¨m 2012
+67	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010141604	2010146236	Ho¹t ®éng Buæi TiÖc Ven BiÓn th¸ng 6 n¨m 2012
+68	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010146236	2010150868	Ho¹t ®éng Vu Lan B¸o HiÕu th¸ng 8 n¨m 2012
+69	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010150868	2010155500	Ho¹t ®éng M©m C?Chay th¸ng 8 n¨m 2012
+70	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010155500	2010160132	Ho¹t ®éng tÕt Trung Thu th¸ng 09 n¨m 2012
+71	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010160132	2010164764	Ho¹t ®éng ph?tÕt Trung Thu th¸ng 09 n¨m 2012
+72	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010164764	2010169396	Ho¹t ®éng mõng ngµy Ph?N?ViÖt Nam th¸ng 10 n¨m 2012
+73	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010169396	2010174029	Ho¹t ®éng ph?mõng ngµy Ph?N?ViÖt Nam th¸ng 10 n¨m 2012
+74	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010174029	2010178661	Event l?nh?gi¸o VN 2012
+75	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2010178661	2012121700	Event ph?l?nh?gi¸o VN 2012
+76	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2012122100	2013012100	Ho¹t ®éng Gi¸ng Sinh th¸ng 11 n¨m 2012
+77	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2012122100	2013012100	Ho¹t ®éng ph?Gi¸ng Sinh th¸ng 11 n¨m 2012
+78	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2012122100	2013012100	Ho¹t ®éng th?c­ìi th¸ng 11 n¨m 2012
+79	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2012122100	2013012100	Ho¹t ®éng c©y Noel th¸ng 11 n¨m 2012
+80	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013012500	2013022500	Event tÕt n¨m 2013
+81	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013012500	2013022500	Event Mai Vµng Nghinh Xu©n 2013
+82	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013021400	2013022900	Event l?t×nh nh©n 2013
+83	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013030800	2013041500	Event quèc t?ph?n?2013
+84	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013030800	2013041500	Event tÆng qu?quèc t?ph?n?2013
+85	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013041900	2013051300	Event quèc t?lao ®éng 2013
+86	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013041900	2013051300	Event h©u ph­¬n v÷ng ch¾c 2013
+87	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013051700	2013061000	Event m¸t l¹nh mïa h?n¨m 2013
+88	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013051700	2013061500	Event hoa hång th¸ng 5 n¨m 2013
+89	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013051700	2013061500	Event que kem m¸t l¹nh n¨m 2013
+90	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013051700	2013061500	Event luyÖn thÇn ®¬n n¨m 2013
+91	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013052400	2013061400	Event trång c©y n¨m 2013
+92	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013061400	2013071500	Ho¹t ®éng L?Héi Tr¨ng R»m n¨m 2013
+93	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013061400	2013071500	Ho¹t ®éng Quèc T?ThiÕu Nhi n¨m 2013
+94	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013071900	2013081900	Ho¹t ®éng th¸ng 7
+95	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013071900	2013081900	Ho¹t ®éng ph?th¸ng 7
+96	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013082300	2013091600	Ho¹t ®éng th¸ng 8 n¨m 2013
+97	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013082300	2013091600	Ho¹t ®éng ph?th¸ng 8 n¨m 2013
+98	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013091900	2013101400	Event chÝnh th¸ng 9
+99	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013091900	2013101400	Event ph?th¸ng 9
+100	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013091900	2013101400	Event ph?th¸ng 9
+101	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013101800	2013111100	Evnet chÝnh th¸ng 10 n¨m 2013
+102	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013101800	2013111800	Event ph?th¸ng 10 n¨m 2013
+103	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013111500	2013121600	Event chÝnh th¸ng 11 n¨m 2013
+104	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013111500	2013121600	Event ph?th¸ng 11 n¨m 2014
+105	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013122000	2014011300	Event chÝnh th¸ng 12 n¨m 2013
+106	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2013122000	2014011300	Event ph?th¸ng 12 n¨m 2013
+107	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014011700	2014021700	Event chÝnh th¸ng 1 n¨m 2014
+108	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014011700	2014021700	Event ph?1 th¸ng 1 n¨m 2014
+109	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014012500	2014020900	Event ph?2 th¸ng 1 n¨m 2014
+110	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014021300	2014021600	Event ph?3 th¸ng 1 n¨m 2014
+111	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014013000	2014020700	Event ph?4 th¸ng 1 n¨m 2014
+112	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014022100	2014031700	Ho¹t ®éng th¸ng 2 n¨m 2014
+113	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014022100	2014032100	Ho¹t ®éng ph?1 th¸ng 2 n¨m 2014
+114	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014022100	2014032100	Event ph?2 th¸ng 2 n¨m 2014
+115	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014032100	2014041400	Ho¹t ®éng th¸ng 3 n¨m 2014
+116	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014032100	2014041400	event ph?th¸ng 3 n¨m 2014
+117	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014032100	2014041400	event ph?1 th¸ng 3 n¨m 2014
+118	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014032100	2014041400	event ph?2 th¸ng 3 n¨m 2014
+119	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014041800	2014050900	ho¹t ®éng th¸ng 4 n¨m 2014
+120	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014041800	2014050900	event ph?th¸ng 4 n¨m 2014 
+121	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014041800	2014050900	event ph?th¸ng 4 n¨m 2014 1
+122	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014041800	2014050900	event ph?2 th¸ng 4 n¨m 2014
+123	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014050900	2014060100	Ho¹t ®éng th¸ng 5 n¨m 2014
+124	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014050900	2014060100	Ho¹t ®éng ph?event th¸ng 5 n¨m 2014
+125	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014050900	2014060100	Ho¹t ®éng ph?event th¸ng 5 n¨m 2014
+126	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014060600	2014070100	Event th¸ng 6 n¨m 2014
+127	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014060600	2014070100	Ho¹t ®éng ph?th¸ng 06/2014
+128	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014060600	2014070100	Ho¹t ®éng ph?th¸ng 06/2014
+129	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014070400	2014080100	Ho¹t ®éng 07/2014
+130	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014070400	2014080100	Ho¹t ®éng ph?07/2014
+131	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014080800	2014090100	Ho¹t ®éng 08/2014
+132	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014080800	2014090100	Ho¹t ®éng ph?08/2014
+133	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014090500	2014100100	Ho¹t ®éng 09/2014
+134	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014090500	2014100100	Ho¹t ®éng ph?09/2014
+135	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014100400	2014110100	Ho¹t ®éng th¸ng 10/2014
+136	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014100400	2014110100	Ho¹t ®éng ph?th¸ng 10/2014
+137	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014100500	2014110100	Ho¹t ®éng ph?th¸ng 10/2014
+138	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014110700	2014120100	Ho¹t ®éng 11/2014
+139	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014110700	2014120100	Ho¹t ®éng ph?11/2014
+140	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014110700	2014120100	Ho¹t ®éng ph?11/2014
+141	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014121700	2015010100	C©y Gi¸ng Sinh Bang Ph¸i 12/2014
+142	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014120500	2015010100	Ho¹t ®éng chÝnh 12/2014
+143	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2014120500	2015010100	Ho¹t ®éng ph?12/2014
+144	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015010800	2015020100	Ho¹t ®éng th¸ng 1 n¨m 2015
+145	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015010800	2015020100	Ho¹t ®éng ph?th¸ng 1 n¨m 2015
+146	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015010800	2015020100	Ho¹t ®éng ph?th¸ng 1 n¨m 2015
+147	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015020300	2015030100	Ho¹t ®éng n¨m míi 2015
+148	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015021100	2015030100	Ho¹t ®éng n¨m míi 2015
+149	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015030600	2015040100	Ho¹t ®éng th¸ng 3/2015
+150	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015031100	2015040100	Ho¹t ®éng th¸ng 3/2015
+151	0	\script\online_activites\201503\women_day.lua	ServerStartUp	PlayerLogin	2015030800	2015031000	Ho¹t ®éng chµo mõng 8/3 n¨m 2015
+152	0	\script\online_activites\201504\kill_npc_daily.lua	KillNpcDailyServerStartUp	KillNpcDailyPlayerLogin	2015040800	2015050100	Ho¹t ®éng thu thËp ph¸o hoa ngµy th­êng 04/2015
+153	0	\script\online_activites\201504\kill_npc_weekly.lua	KillNpcWeeklyServerStartUp	KillNpcWeeklyPlayerLogin	2015040800	2015050100	Ho¹t ®éng thu thËp ph¸o hoa ngµy vµng 04/2015
+154	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015030800	2015050100	Ho¹t ®éng thu thËp ph¸o hoa 04/2015
+155	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015050700	2015060100	Ho¹t ®éng Kem D©u T©y 05/2015
+156	0	\script\online_activites\201508\kill_npc_daily.lua	KillNpcDailyServerStartUp	KillNpcDailyPlayerLogin	2015080600	2015090100	Ho¹t ®éng ngµy th­êng 08/2015
+157	0	\script\online_activites\201508\kill_npc_weekly.lua	KillNpcWeeklyServerStartUp	KillNpcWeeklyPlayerLogin	2015080600	2015090100	Ho¹t ®éng cuèi tuÇn 08/2015
+158	0	\script\online_activites\201505feedpet\main.lua	on_server_start	on_player_login	2015051500	2015060100	Ho¹t ®éng LuyÖn Th?§¹i T¸c ChiÕn 05/2015
+159	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015060500	2015070100	Ho¹t ®éng chÝnh 06/2015
+160	0	\script\online_activites\201506cn\main.lua	on_server_start	on_player_login	2015061500	2015070100	Ho¹t ®éng §oan Ng?06/2015
+161	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015070900	2015080100	Ho¹t ®éng chÝnh 07/2015
+162	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015080600	2015090100	Ho¹t ®éng chÝnh 08/2015
+163	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015090300	2015100100	Ho¹t ®éng chÝnh th¸ng 9 n¨m 2015
+164	0	\script\online_activites\201509\kill_npc_daily.lua	KillNpcDailyServerStartUp	KillNpcDailyPlayerLogin	2015090300	2015100100	Ngµy th­êng ho¹t ®éng th¸ng 9 n¨m 2015
+165	0	\script\online_activites\201509\kill_npc_weekly.lua	KillNpcWeeklyServerStartUp	KillNpcWeeklyPlayerLogin	2015090300	2015100100	Cuèi tuÇn ho¹t ®éng th¸ng 9 n¨m 2015
+166	0	\script\online_activites\head\init.lua	ServerStartUp	PlayerLogin	2015100800	2015110100	Ho¹t ®éng chÝnh th¸ng 10/2015
+167	0	\script\online_activites\201510\kill_npc_daily.lua	KillNpcDailyServerStartUp	KillNpcDailyPlayerLogin	2015100800	2015110100	Ho¹t ®éng ph?th¸ng 10/2015
+168	0	\script\online_activites\201510\kill_npc_weekly.lua	KillNpcWeeklyServerStartUp	KillNpcWeeklyPlayerLogin	2015100800	2015110100	Ho¹t ®éng ph?th¸ng 10/2015

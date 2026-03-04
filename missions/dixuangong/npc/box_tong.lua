@@ -1,0 +1,144 @@
+Import("\\script\\lib\\globalfunctions.lua")
+Include("\\script\\missions\\dixuangong\\mission_head.lua")
+Include("\\script\\online_activites\\head\\activity_normal_head.lua")
+
+T_BoxScript = {
+	"\\script\\missions\\dixuangong\\npc\\box_tong1.lua",
+	"\\script\\missions\\dixuangong\\npc\\box_tong2.lua",
+	nil,
+	"\\script\\missions\\dixuangong\\npc\\box_tong4.lua",
+	"\\script\\missions\\dixuangong\\npc\\box_tong5.lua",
+	"\\script\\missions\\dixuangong\\npc\\box_tong6.lua",
+	nil,
+}
+
+T_TONG_BOX_IDX = {}
+function remove_tong_box()
+	for i,v in T_TONG_BOX_IDX do
+		if GetNpcName(i) == "铜宝箱" then
+			SetNpcLifeTime(i, 0);
+		end
+	end
+	T_TONG_BOX_IDX = {}
+end
+
+function create_box_tong(nNpcIdx, nBoxId)
+	if not T_BoxScript[nBoxId] then
+		return
+	end
+	local m, x, y = GetNpcWorldPos(nNpcIdx);
+	--天阴密箱1个
+	local x2, y2 = x + random(-5, 5), y + random(-5, 5);
+	local npc = CreateNpc("tongbaoxiang", "铜宝箱", m, x2, y2);
+	if npc and npc > 0 then
+		T_TONG_BOX_IDX[npc]  = 1
+		--SetNpcLifeTime(npc, 180);
+		SetNpcScript(npc, T_BoxScript[nBoxId]);
+	else
+		print("create tongbaoxiang fail")
+	end
+end
+        
+tClause1 = {
+    {{"星辉石一级",{2,1,30533,1,1}},20},
+    {{"星辉石二级",{2,1,30534,1,1}},10},
+    {{"星辉石三级",{2,1,30535,1,1}},10},
+    {{"战神披风",{0,152,1,1}},10},
+    {{"武学秘籍",{2,1,30071,1,1}},38},
+    {{"珍品武学卷一",{2,1,30998,1,1}},7},
+    {{"铜币武学",{2,1,30730,1,1}},5},
+}
+tClause2 = {
+    {{"星辉石一级",{2,1,30533,1,1}},10},
+    {{"星辉石二级",{2,1,30534,1,1}},10},
+    {{"星辉石三级",{2,1,30535,1,1}},5},
+    {{"九天战袍",{0,152,2,1}},15},
+    {{"战神披风",{0,152,1,1}},15},
+    {{"武学秘籍",{2,1,30071,1,1}},33},
+    {{"珍品武学卷一",{2,1,30998,1,1}},7},
+    {{"铜币武学",{2,1,30730,1,1}},5},
+
+}
+
+tClause3 = {
+    -- 丹药类(5%概率)
+    {{"灵兽归元丹", {2,1,30352,1,1}}, 5},  -- 灵兽回血丹
+    {{"暴气丹", {2,1,30351,1,1}}, 5},      -- 临时提升爆发力
+    
+    -- 披风类(各10%概率)
+    {{"战神披风", {0,152,1,1}}, 10},       -- 攻击型披风
+    {{"九天战袍", {0,152,2,1}}, 10},       -- 防御型披风 
+    {{"幻影战衣", {0,152,3,1}}, 10},       -- 闪避型披风
+    
+    -- 武学类
+    {{"初级武学秘籍", {2,1,30071,1,1}}, 40},  -- 基础武学(40%概率)
+    
+    -- 珍品武学
+    {{"珍品武学卷一", {2,1,30998,1,1}}, 12},  -- 中级武学(12%概率)
+    {{"珍品武学卷二", {2,1,30999,1,1}}, 3},   -- 高级武学(3%概率)
+    
+    -- 特殊物品(5%概率)
+    {{"铜人武学", {2,1,30730,1,1}}, 5}     -- 特殊修炼道具
+} 
+
+tClause4 = {
+    {{"灵石回气丹",{2,1,30352,1,1}},50},
+    {{"元气丹",{2,1,30351,1,1}},50},
+    {{"游侠披风",{0,152,26,1}},5},
+    {{"铁血披风",{0,152,27,1}},5},
+    {{"云游披风",{0,152,28,1}},5},
+    {{"战神披风",{0,152,1,1}},150},
+    {{"九天战袍",{0,152,2,1}},70},
+    {{"幻影战衣",{0,152,3,1}},141},
+    {{"武学秘籍",{2,1,30071,1,1}},350},
+    {{"珍品武学卷一",{2,1,30998,1,1}},100},
+    {{"珍品武学卷二",{2,1,30999,1,1}},24},
+    {{"铜币武学(7天)",{2,1,30730,1,7*24*3600}},50},
+} 
+
+tClause5 = {
+    {{"游侠披风",{0,152,26,1}},5},
+    {{"铁血披风",{0,152,27,1}},5},
+    {{"云游披风",{0,152,28,1}},5},
+    {{"战神披风",{0,152,1,1}},150},
+    {{"九天战袍",{0,152,2,1}},70},
+    {{"幻影战衣",{0,152,3,1}},141},
+    {{"武学秘籍",{2,1,30071,1,1}},400},
+    {{"珍品武学卷一",{2,1,30998,1,1}},150},
+    {{"珍品武学卷二",{2,1,30999,1,1}},24},
+    {{"铜币武学(7天)",{2,1,30730,1,7*24*3600}},50}
+}
+
+tClause6 = {
+    {{"游侠披风",{0,152,26,1}},5},
+    {{"铁血披风",{0,152,27,1}},5},
+    {{"云游披风",{0,152,28,1}},5},
+    {{"战神披风",{0,152,1,1}},150},
+    {{"九天战袍",{0,152,2,1}},60},
+    {{"幻影战衣",{0,152,3,1}},141},
+    {{"武学秘籍",{2,1,30071,1,1}},400},
+    {{"珍品武学卷一x4",{2,1,30998,1,4}},150},
+    {{"珍品武学卷二x4",{2,1,30999,1,4}},24},
+    {{"珍品武学卷三x4",{2,1,31000,1,4}},10},
+    {{"铜币武学(7天)",{2,1,30730,1,7*24*3600}},50},
+}                              
+
+tClause = {
+	tClause1,
+	tClause2,
+    nil,-- tClause3,
+	tClause4,
+	tClause5,
+	tClause6,
+	nil,--tClause7,
+}
+
+function on_open(nStage)
+	local tItem = gf_RandRate(tClause[nStage], nil, 2)[1];
+	gf_ThrowDice(tItem[2], nil, nil, nil, nil, GetTargetNpc());
+	SetNpcLifeTime(GetTargetNpc(), 0);
+	SetNpcScript(GetTargetNpc(), "");
+	gf_TeamOperateEX(vaf_award_api, "tDXGTongBox")
+	FireEvent("event_mission_box_award", "dixuangong", "copper", nStage)
+end
+

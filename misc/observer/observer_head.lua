@@ -1,0 +1,114 @@
+error("invalid file")
+--此文件作废 
+--this file invalid
+
+-----------------------------------------------------------------------
+--旧事件系统已经作废 请使用\settings\static_script\isolate\event_center\
+--所有事件由FireEvent() API发出
+-----------------------------------------------------------------------
+----------------------------------------------------------------
+
+
+---- observer 事件模式
+---- by windle
+----
+---- 目的: 封装变化, 把各种经常出现的插入式修改集中起来
+---- 使用:
+----	1. 定义事件: 在head文件的EVENTID中定义一个数字宏, 以统一事件标识
+----	2. 注册事件回调，在fucntions中g_tEventsList中添加
+--
+--Import("\\script\\lib\\string.lua")
+--
+---- usage：
+---- 一、脚本触发事件
+---- Include("\\script\\misc\\observer\\observer_head.lua")
+---- Observer:onEvent(SYSEVENT_PLAYER_LOGIN, ExchangeComing)
+---- Observer:onTeamEvent(SYSEVENT_PLAYER_LOGIN, ExchangeComing)
+---- 二、程序触发事件
+---- 在function中新增，如on_player_online_time(nTime)
+---- g_GlobalFunction.ExecuteScript(m_pPlayer, g_FileNameHash(EVENTS_SYSTEM_SCRIPT), "on_player_online_time", time, 1);
+---- 三、事件注册
+---- 1，Include("\\script\\misc\\observer\\observer_head.lua")
+---- 调用Observer:rigster(id, name, script, szfunc)
+---- 2，填写observer_functions中g_tEventsList表
+---- 四、回调函数原型
+---- functioncb(id, data) id为SYSEVENT，data为事件参数
+--
+--
+---- 事件类型定义 --------------------------------------------------
+---- 基础系统
+--SYSEVENT_GAMESERVER_START							= 1		--gs启动事件							--data=0
+--SYSEVENT_PLAYER_LOGIN									= 2		--login事件								--data=ExchangeComing
+--SYSEVENT_PLAYER_LOGOUT								= 3		--logout事件							--data=0
+--SYSEVENT_DAILY_CLEAR									= 4		--每日清理事件						--data={LastDate,CurDate}
+--SYSEVENT_WEEKLY_CLEAR									= 5		--每周清理事件						--data={LastWeek,CurWeek}
+--SYSEVENT_MONTHLY_CLEAR								= 6		--每月清理事件						--data={LastMonth,CurMonth}
+--SYSEVENT_GTASK												= 7		--gtask事件								--data={name, category}
+--SYSEVENT_TASK_RECYCLE									= 8		--task recycle事件				--data={TaskId, TaskNewVersion}
+--SYSEVENT_PLAYER_ONLINE								= 9		--角色在线时间						--data=time(s) {10 min/per}
+--
+----关卡事件
+--SYSEVENT_LIANGSHAN_STAGE_FINISH				= 101		--梁山									--data=nStage {1..8}
+--SYSEVENT_LIANGSHAN_TASK_AWARD					= 102														--data=nTaskIdx {1..3}
+--SYSEVENT_DIXUANGONG_STAGE_FINISH			= 201		--地玄宫								--data=nStage {1..7}
+--SYSEVENT_DIXUANGONG_TASK_AWARD				= 202														--data=nTaskIndex {1..3}
+--SYSEVENT_WANJIANZHONG_STAGE_FINISH		= 301		--万剑冢								--data=nStage {1..4}
+--SYSEVENT_WANJIANZHONG_TASK_AWARD			= 302														--data=nTaskIndex {1..4} {daily_pass,daily_fanpai,weekly_pass,weekly_fanpai}
+--SYSEVENT_CANGJIAN_STAGE_FINISH				= 401		--藏剑山庄							--data=nStage {1..9}
+--SYSEVENT_TAIYI_NOR_STAGE_FINISH				= 501		--太一塔								--data=nStage {1..6}
+--SYSEVENT_TAIYI_HARD_STAGE_FINISH			= 502														--data=nStage {1..6}
+--SYSEVENT_TAIXU_STAGE_FINISH						= 601		--太虚幻境							--data=nStage {1..8}
+--SYSEVENT_NEWBATTLE_YMGZC_AWARD				= 701		--雁门关领奖						--data={nBattleType,nType} {1..4}军功章类型
+--SYSEVENT_NEWBATTLE_BHCC_AWARD					= 702		--保护城池战场领奖			--data={nBattleType,nType} {1..4}
+--SYSEVENT_NEWBATTLE_LSZC_AWARD					= 703		--粮食战场领奖					--data={nBattleType,nType} {1..4}
+--SYSEVENT_NEWBATTLE_CZZC_AWARD					= 704		--村庄战场领奖					--data={nBattleType,nType} {1..4}
+--SYSEVENT_KF_KFBATTLE_ONCE_FINISH			= 801		--完成一次跨服战场			--data=result {2胜利，3失败，4平局}
+--
+----三方势力
+--SYSEVENT_YP_YUNBIAO										= 1001		--完成1次运镖					--data=镖车类型
+--SYSEVENT_YP_DUOBIAO										= 1002		--完成1次夺镖					--data=镖车类型
+--SYSEVENT_YP_DIG_TASK									= 1003		--完成挖宝藏任务			--data=0
+--SYSEVENT_YP_STEALBOOK_TASK						= 1004		--完成偷取经书任务		--data=step偷经书步数
+--SYSEVENT_YP_HUNTER_TASK								= 1005		--赏金猎人领奖				--data=level奖励等级
+--SYSEVENT_YP_KILLBOSS									= 1006		--消灭世界BOSS或三方势力BOSS		--data=0
+--SYSEVENT_YP_HJMG_TASK									= 1007		--完成1次幻境秘果任务	--data=0
+--SYSEVENT_YP_STEALFRUIT_TASK						= 1008		--完成1次偷果实任务		--data=0
+--                                                           
+--SYSEVENT_GLOBAL_COST_IB								= 10001		--消耗IB							--data={nG, nD, nP, nNum}
+--SYSEVENT_USE_ITEM_2_1_30692						= 10002		--使用比武大会宝箱		--data=nType{免费1收费2}
+--
+----------------------------------------------------------------
+--
+--Observer = Observer or {}
+--Observer.szVM = "\\script\\misc\\observer\\observer.lua"
+--
+--function Observer:rigster(id, name, script, szfunc)
+--	local sCall = format("ObserverImpt:register(%d, '%s', [[%s]], '%s')", id, name, script, szfunc);
+--	SendScript2VM(Observer.szVM, sCall);
+--end
+--
+--function Observer:onEvent(id, data)
+--	local sCall = format("ObserverImpt:onEvent(%d, %s)", id, Val2Str(data));
+--	SendScript2VM(self.szVM, sCall);
+--end
+--
+--function Observer:onTeamEvent(id, data)
+--	local nCount = GetTeamSize();
+--	if nCount < 1 then
+--		self:onEvent(id, data);
+--	else
+--		local oldPlayerIndex = PlayerIndex;
+--		for i = 1, nCount do
+--			PlayerIndex = GetTeamMember(i);
+--			self:onEvent(id, data);
+--		end
+--		PlayerIndex = oldPlayerIndex;
+--	end
+--end
+--
+--function Observer:show_regs()
+--	local sCall = format("ObserverImpt:show_regs()");
+--	SendScript2VM(self.szVM, sCall);
+--end
+--
+----------------------------------------------------------------

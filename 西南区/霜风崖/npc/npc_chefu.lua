@@ -1,0 +1,29 @@
+-- Include("\\script\\missions\\yp\\hss\\entrynpc.lua")
+
+-- function main()
+-- 	local tSay = {
+-- 		format("%s/leave", "Truy襫 t鑞g n Qu鷑h K誸"),
+-- 		format("%s/nothing", "T筰 h� ch� xem qua th玦"),
+-- 	}
+-- 	local Msg = format("Чi hi謕 b� l筩 阯g r錳, c莕 ta ti詎 ngi m閠 畂筺 kh玭g?");
+-- 	Say(Msg, getn(tSay), tSay);
+-- end
+
+-- function leave()
+-- 	local nCamp = GetTask(TASK_FIELD_PVP_CAMP);
+-- 	if nCamp ~= 2 then
+-- 		Msg2Player("Ngi ch琲 kh玭g thu閏 th� l鵦 kh玭g th� v祇 Qu鷑h K誸!");
+-- 		return 0;
+-- 	end
+-- 	if GetPKValue() >= 10 then
+-- 		Msg2Player("Ngi ch琲 pk10 kh玭g th� v祇 Qu鷑h K誸!");
+-- 		return 0;
+-- 	end
+-- 	if GetTeamSize() ~= 0 then
+-- 		Talk(1,"","Чi hi謕 h穣 r阨 i r錳 quay l筰!");
+-- 		return 0;
+-- 	end
+-- 	enter();
+-- 	SetPos(1791,3879);
+-- 	SetFightState(1);
+-- end

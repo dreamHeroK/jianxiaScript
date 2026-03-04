@@ -1,0 +1,116 @@
+Include("\\script\\lib\\writelog.lua")
+--***********************************变量定义区*****************************
+--------------------------------------------帮会任务随机BOSS使用定义
+Zgc_conf_task_boss = {			--第一等级BOSS
+	"昆仑奴",
+	"裴航",
+	"柳毅",
+	"红线",
+	"沙漠狂刀贺景胜",
+	"伙头军聂大锤",
+	"步非烟",
+}
+Zgc_conf_task_box = {
+	"昆仑奴留下的箱子",
+	"裴航留下的箱子",
+	"柳毅留下的箱子",
+	"红线留下的箱子",
+	"贺景胜的铁箱子",
+	"聂大锤的铁箱子",
+	"步非烟的百宝箱",
+}
+Zgc_cong_task_usemapid = {
+	{302,"青城山"},		
+	{327,"乌蒙部"},
+	{401,"大理府"},
+	{306,"江津村"},
+	{307,"丰都"},
+	{405,"武陵山脚"},
+	{406,"武陵山"},
+	{326,"暮雪山庄"},
+	{310,"剑门关"},
+	{311,"伏牛山"},
+	{218,"灵宝山"},
+	{202,"杏花村"},
+	{151,"云梦泽"},			
+	{601,"大草原一"},
+	{602,"大草原二"},
+	{103,"东海海滨一"},
+	{104,"东海海滨二"},
+	{102,"桃花岛"},
+	{207,"二龙山"},
+	{217,"野猪林"},
+	{208,"梁山泊"},
+	{604,"雁门关"},
+	{106,"龙泉村"},
+	{107,"武夷山"},
+	{600,"王旗部落"},
+}
+TaskID_bfy_crt = 958
+function OnUse(goods_index)
+	SetItemUseLapse(goods_index,90)
+	local mapID,X,Y = GetWorldPos()
+	local chk_flag = 0
+	for i = 1, getn(Zgc_cong_task_usemapid) do				--使用地图判断
+		if Zgc_cong_task_usemapid[i][1] == mapID then
+			chk_flag = 1
+			break
+		end
+	end
+	if chk_flag == 0 then
+		Say("N琲 y quan binh canh gi?nghi猰 ng苩, m ngi B?Phi Y猲 to gan c竎h m蕐 c騨g kh玭g d竚 b衝 m穘g t韎, ngi th?n ch?kh竎 xem!",
+			2,
+			"Ta mu鑞 bi誸 h祅h tung c馻 B?Phi Y猲/Zgc_bfy_actmap_inq",
+			"Ta bi誸 r錳/Zgc_end_dialog"
+		)		
+	else
+		Say("B筺 mu鑞 d飊g B筩h Ng鋍 th筩h? N?c?th?gi髉 b筺 t譵 ra tung t輈h B?Phi Y猲.",
+		2,
+		"S?d鬾g B筩h Ng鋍 th筩h/#yybys_use()",
+		"в ta suy ngh?l筰/end_dialog")
+	end
+end
+function yybys_use()
+	if GetItemCount(2,1,1024) < 1 then
+		Talk(1,"end_dialog","Xin x竎 nh薾 tr猲 ngi c?Hoa cng th筩h v?Sinh Th莕 Cng!")
+		return
+	elseif GetItemCount(2,0,545) < 10 then
+		Talk(1,"end_dialog","Mu鑞 g箃 ta ?")
+		return
+	end
+	if DelItem(2,1,1024,1)~= 1 or DelItem(2,0,545,10) ~= 1 then
+		Talk(1,"end_dialog","Xin x竎 nh薾 tr猲 ngi c?Hoa cng th筩h v?Sinh Th莕 Cng!")
+		return
+	else
+		local strLogCaption = "Nhiem vu Bang hoi"
+		local npc_index = 0
+		local mapID,X,Y = GetWorldPos()
+		npc_index = CreateNpc(Zgc_conf_task_boss[7],Zgc_conf_task_boss[7],mapID,X,Y,-1,1,0,0)
+		SendTongMessage(GetName().."S?d鬾g Sinh Th莕 Cang g鋓 ra B?Phi Y猲!")
+		if IsTongMember() ~= 0 then
+			AddGlobalNews(GetTongName().."C?tin b鋘 h?產ng giao u v韎 B?Phi Y猲!")
+		end
+		SetNpcScript(npc_index,"\\script\\item\\conftaskbosscreate.lua")
+		WriteLogEx(strLogCaption, "B筩h Ng鋍 Th筩h", "1", Zgc_conf_task_boss[7], "", GetTongName())			
+	end
+end
+--********************************生辰纲可使用地图查询*****************************
+function Zgc_bfy_actmap_inq()
+	local dialog_string = "  "
+	for i = 1, getn(Zgc_cong_task_usemapid)do
+		dialog_string = dialog_string .. Zgc_cong_task_usemapid[i][2]
+		if floor(i/5)-(i/5) == 0 then
+			dialog_string = dialog_string .."\n  "
+		else
+			for j = 1,(16-strlen(Zgc_cong_task_usemapid[i][2])) do
+				dialog_string = dialog_string .." "
+			end
+		end
+	end
+	Say("B?Phi Y猲 h祅h tung b蕋 nh, ngi bi誸 tung t輈h h緉 ta ch?c? \n"..dialog_string,
+		1,
+		"Ta bi誸 r錳/Zgc_end_dialog"
+	)
+end
+function end_dialog()
+end

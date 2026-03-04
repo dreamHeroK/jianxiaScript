@@ -1,0 +1,29 @@
+--宋方后营到前营Trap点触发的脚本
+Include("\\script\\battles\\butcher\\head.lua")
+
+function main()
+	--如果处于报名阶段时,玩家不能走到对方的领地中去，所以会将玩家扔到大营内
+	if(GetCurCamp() == 1) then
+		if( GetFightState() == 1) then
+			SetPos(GetMissionV(MS_HOMEIN_X1), GetMissionV(MS_HOMEIN_Y1))
+			SetFightState(0)
+		else
+			RestTime =  GetGameTime() - BT_GetData(PL_LASTDEATHTIME) 
+			if ( RestTime < TIME_PLAYER_REV) then
+				Say((TIME_PLAYER_REV - RestTime) .. "秒之后，您才能离开后营进入战场，将士请稍等！", 0)
+			else
+				file = GetMissionS(3)
+				x,y = bt_getadata(file)
+				SetPos(floor(x/32), floor(y/32))
+				SetFightState(1)
+				SetTempRevPos(SubWorldIdx2ID(SubWorld) , GetMissionV(MS_HOMEIN_X1) * 32, GetMissionV(MS_HOMEIN_Y1) * 32);
+			end;
+		end;
+	elseif (GetCurCamp() == 2) then
+		file = GetMissionS(3)
+		x,y = bt_getadata(file)
+		SetPos(floor(x/32), floor(y/32))
+		Msg2Player("前面枪戟林列，戒备森严，想来是有重兵屯守，你还是不要硬闯为妙！")
+		SetFightState(1)
+	end;
+end;

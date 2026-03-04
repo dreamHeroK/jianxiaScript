@@ -1,0 +1,125 @@
+desc	group_id	rate	award_name	award_type	item_g	item_d	item_p	num	neet_body	need_route	bind	expire_hours	msg_type	runtime_stat_id	script	func
+		groupSum=1000000	NOT NULL	1=OtherGroup	5=Money	9=XiuWei		if award_type=OtherGroup is refer group_id	-1|1~4	-1|0~30	0=Kh«ng khãa, mÆc ®Þnh		0=None(default)	Eg: 2;3		
+				2=Script	6=ZhenQi	10=huoban					4=Khãa, th­êng dïng		1=GlobalMsg			
+				3=Item	7=JunGong	11=linglizhi					1=IDENTIFY §· gi¸m ®Þnh					
+				4=Exp	8=JingLi	12=ShengWang					2=PICKBIND nhÆt khãa					
+				0 = trèng, bæ sung tû lÖ kh«ng ®ñ 100%		13=ShiMenGongXianDu					3=EQUIPBIND khãa					
+				14=ShiLiShegnWang		16=ZhanChangJiFen					5=PRESENT_IB_ITEM TÆng ®¹o cô					
+				15=ShiLiGongXiandu		17=PetChengZhangZhi					99=default					
+				18=FengHuaPoint												
+																
+act_2xu_free	198		exp	4				2000000								
+	198		Nhãm ngÉu nhiªn	1				202								
+act_2xu_free2	199		exp	4				2000000								
+	199		Nhãm ngÉu nhiªn	1				203								
+act_2xu_ib	200		exp	4				3000000								
+	200		Nhãm ngÉu nhiªn	1				204								
+act_2xu_ib2	201		exp	4				3000000								
+	201		Nhãm ngÉu nhiªn	1				205								
+act_2xu_free_rand	202	250000	exp	4				4500000								
+	202	150000	exp	4				5400000								
+	202	100000	exp	4				6800000								
+	202	50000	exp	4				7200000								
+	202	30000	exp	4				8600000								
+	202	20000	exp	4				9900000								
+	202	50000	Ch©n khÝ	6				100								
+	202	30000	§iÓm tr­ëng thµnh	17				50								
+	202	25000	MËt TÞch S­ M«n Cao CÊp Lv70 (NgÉu nhiªn)	1				206								
+	202	50000	Th¸i DÞch Hçn Nguyªn C«ng §å	3	2	0	1082	1								
+	202	30000	Tiªu KiÕp t¸n	3	2	0	141	1				168				
+	202	1000	§Êu hån	3	2	1	1157	1				168				
+	202	30000	Danh väng	12				50								
+	202	30000	§iÓm s­ m«n	13				50								
+	202	30000	§iÓm linh lùc	11				10								
+	202	30000	TiÓu Nh©n s©m qu¶	3	2	0	552	1				168				
+	202	30000	ThÇn N«ng §¬n	3	2	1	343	1				168				
+	202	10000	Qu©n C«ng Ch­¬ng	3	2	1	9999	1				168				
+	202	8000	Qu©n C«ng §¹i	3	2	1	9998	1				168				
+	202	3000	Qu©n C«ng Huy Hoµng	3	2	1	9977	1				168				
+	202	10000	C©y Tø Linh	3	2	1	30269	1				168				
+	202	10000	C©y b¸t nh· nhá	3	2	0	504	1				168				
+	202	5000	C©y B¸t Nh· Lín	3	2	0	398	1				168				
+	202	500	Thiªn Th¹ch linh th¹ch	3	2	1	1068	1				168				
+	202	500	§Þnh Hån Thiªn Th¹ch ThÇn Th¹ch	3	2	1	1067	1				168				
+	202	5000	C­êng hãa quyÓn 12	3	2	1	30424	1				168				
+	202	5000	C­êng hãa quyÓn 13	3	2	1	30425	1				168				
+	202	2500	TÈy Tñy linh ®¬n	3	2	0	137	1				168				
+	202	2500	Tµng R­¬ng	3	2	1	30341	1								
+	202	2000	L­u Quang	3	0	105	119	1				168
+act_2xu_free2_rand	203	169000	exp	4				20000000								
+	203	130000	exp	4				25000000								
+	203	50000	B¹ch C©u Hoµn	3	2	1	270	1				168				
+	203	50000	Tam Thanh hoµn	3	2	1	1097	1				168				
+	203	50000	Lôc ThÇn hoµn	3	2	1	1064	1				168				
+	203	1000	Thiªn Th¹ch Tinh Th¹ch	3	2	1	1009	1				168				
+	203	110000	B¸nh Ýt b¸c b¶o	3	2	1	1125	10		
+	203	110000	B¸nh Ýt ch©n gµ	3	2	1	1124	10		
+	203	110000	T©y B¾c Väng	3	1	1	19	10		
+	203	110000	Minh NguyÖt D¹	3	1	1	17	10		
+	203	110000	B¸nh Bét Vµng	3	1	1	15	10								
+act_2xu_ib_rand	204	200900	exp	4				5500000								
+	204	150000	exp	4				11000000								
+	204	110000	exp	4				16500000								
+	204	50000	exp	4				22000000								
+	204	30000	exp	4				27500000								
+	204	10000	exp	4				33000000								
+	204	30000	§¹i Nh©n s©m	3	2	0	553	1				168				
+	204	30000	B¸nh Ýt b¸t b¶o	3	2	1	1125	1								
+	204	5000	Tµng R­¬ng	3	2	1	30341	1								
+	204	2000	Thiªn Th¹ch linh th¹ch	3	2	1	1068	1				168				
+	204	2000	§Þnh Hån Thiªn Th¹ch ThÇn Th¹ch	3	2	1	1067	1				168				
+	204	30000	Tu Ch©n YÕu QuyÕt	3	2	0	554	1				168				
+	204	70000	Th¸i DÞch Hçn Nguyªn C«ng §å	3	2	0	1082	2								
+	204	30000	 ®iÓm tÝch lòy chiÕn tr­êng	16				500								
+	204	30000	C«ng tr¹ng	7				1000								
+	204	10000	N÷ Oa Tinh Th¹ch	3	2	1	504	1				168				
+	204	10000	Trøng Linh Thó-Cao	3	2	1	30728	1								
+	204	30000	Qu©n C«ng §¹i	3	2	1	9998	1				168				
+	204	10000	Qu©n C«ng Huy Hoµng	3	2	1	9977	1				168				
+	204	100	ThÇn Tµi B¶o R­¬ng	3	2	1	30344	1								
+	204	30000	B¸nh Ýt ch©n gµ	3	2	1	1124	1								
+	204	30000	Minh nguyÖt d¹	3	1	1	17	5								
+	204	30000	T©y b¾c väng	3	1	1	19	5								
+	204	30000	B¸nh bét vµng	3	1	1	15	5								
+	204	17900	B¸t B¶o TÈy Tñy Tiªn §¬n	3	2	0	138	1				168				
+	204	3000	C­êng hãa quyÓn 12	3	2	1	30424	1				168				
+	204	3000	C­êng hãa quyÓn 13	3	2	1	30425	1				168				
+	204	8000	C­êng hãa quyÓn 14	3	2	1	30426	1				168				
+	204	8000	C­êng hãa quyÓn 15	3	2	1	30427	1				168				
+	204	100	L­u Quang	3	0	105	119	1
+act_2xu_ib2_rand	205	159000	exp	4				35000000								
+	205	90000	exp	4				55000000									
+	205	100000	 ®iÓm ch©n khÝ	6				1000	
+	205	100000	 ®iÓm tÝch lòy chiÕn tr­êng	16				1000								
+	205	100000	C«ng tr¹ng	7				2000								
+	205	10000	Thiªn Th¹ch Tinh Th¹ch	3	2	1	1009	1				168			
+	205	1000	ThÇn Tµi B¶o R­¬ng	3	2	1	30344	1	
+	205	80000	B¹ch C©u Tiªn ®¬n	3	2	1	1008	1				168				
+	205	80000	Lôc ThÇn Tiªn ®¬n	3	2	1	1066	1				168				
+	205	80000	Tam Thanh Tiªn ®¬n	3	2	1	1099	1				168	
+	205	50000	ThÊt Hoa tô nguyªn t¸n	3	1	0	266	10	
+	205	50000	ThÊt Hoa tô nguyªn t¸n	3	1	0	270	10	
+	205	50000	ThÊt Hoa tô nguyªn t¸n	3	1	0	273	10	
+	205	50000	ThÊt Hoa tô nguyªn t¸n	3	1	0	275	10			
+highlvbook70_rand	206	50000	Kim Cang B¸t Nh· Ch©n QuyÓn 	3	0	107	204	1								
+	206	50000	TiÒm Long Tóc DiÖt Ch©n QuyÓn	3	0	107	205	1								
+	206	50000	V« TrÇn Bå §Ò Ch©n QuyÓn	3	0	107	206	1								
+	206	50000	Thiªn La Liªn Ch©u Ch©n QuyÓn	3	0	107	207	1								
+	206	50000	Nh­ ý Kim §Ønh Ch©n QuyÓn	3	0	107	208	1								
+	206	50000	BÝch H¶i TuyÖt ¢m Ch©n QuyÓn	3	0	107	209	1								
+	206	50000	Hçn §én TrÊn Nh¹c Ch©n QuyÓn	3	0	107	210	1								
+	206	50000	Quú Thiªn Du Long Ch©n QuyÓn	3	0	107	211	1								
+	206	50000	HuyÒn ¶nh Mª T«ng Ch©n QuyÓn	3	0	107	212	1								
+	206	50000	Qu©n Tö §íi Phong Ch©n QuyÓn	3	0	107	213	1								
+	206	50000	TrÊn Qu©n Phi Long Th­¬ng Ch©n QuyÓn	3	0	107	214	1								
+	206	50000	Xuyªn V©n L¹c Hång Ch©n QuyÓn	3	0	107	215	1								
+	206	40000	HuyÒn Minh Phong Ma Ch©n QuyÓn	3	0	107	216	1								
+	206	40000	Linh Cæ HuyÒn Tµ Ch©n QuyÓn	3	0	107	217	1								
+	206	40000	Cöu Thiªn Phong L«i Ch©n QuyÓn	3	0	107	218	1								
+	206	40000	Hång TrÇn Tóy Méng Ch©n QuyÓn	3	0	107	222	1								
+	206	40000	Phong Hoa Thiªn DiÖp Ch©n QuyÓn	3	0	107	223	1		
+	206	40000	Håi Phong Tr¶m NhËt Ch©n QuyÓn	3	0	107	219	1		
+	206	40000	Phô Kú Hµnh TrËn Ch©n QuyÓn	3	0	107	220	1		
+	206	40000	Ng­ng HuyÕt Phong Hån Ch©n QuyÓn	3	0	107	221	1	
+	206	40000	Mª Tung Ch©n QuyÓn	3	0	107	231	1		
+	206	40000	Thiªn Phong Ch©n QuyÓn	3	0	107	235	1		

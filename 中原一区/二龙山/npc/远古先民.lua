@@ -1,0 +1,18 @@
+function main()
+--Say ("T? tiªn ta ®· ®Şnh c? ? ®©y rÊt l©u råi, ng­¬i c? th? lµm dÊu ? ®©y ®Ó khái l¹c ®­îc.",2,"Hay l¾m! Ta s? kh¾c k? hiÖu ? ®©y./yes","Ta t? t×m hiÓu vËy!/no")
+--end
+
+function yes()
+--i=AddRecord()
+--if i==0 then
+--TaskTip("B¹n ch­a c? k? n¨ng luyÖn bïa, kh«ng th? lµm k? hiÖu!")
+--elseif i==1 then
+--TaskTip("K? n¨ng luyÖn bïa cña b¹n ch­a ®¹t ®Õn cÊp 3, kh«ng th? lµm k? hiÖu!")
+--elseif i==2 then
+--TaskTip("B¹n qu? tinh m¾t! Tho¸ng chèc ®· nh? ®­îc v? tr? ? ®©y!")
+-else
+--end 
+end
+
+function no()
+end

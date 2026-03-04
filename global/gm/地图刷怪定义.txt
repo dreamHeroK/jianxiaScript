@@ -1,0 +1,17 @@
+function wolongdong1()
+
+ local wolongtPoes = {	
+		{"侦查木偶","侦查木偶",610,2085,4168},
+        {"铁足蛛兽","铁足蛛兽",610,2085,4168},
+        {"铜壁机甲人","铜壁机甲人",610,2085,4168}, 		
+        {"震雅吞云兽","震雅吞云兽",610,2085,4168},		
+	} 
+ 	for _, tPos in wolongtPoes do
+	for i = 1, 120 do--数量
+	local npcIndex = CreateNpc(tPos[1],tPos[2],tPos[3],tPos[4]+ random(-i, i),tPos[5]+ random(-i, i),-1,1,1,1500);--最后一个距离
+	end
+    end;
+  
+  
+  
+end;

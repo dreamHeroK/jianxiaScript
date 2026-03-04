@@ -1,0 +1,60 @@
+Include("\\script\\task\\global_task\\gtask_head.lua")
+Import("\\script\\task\\global_task\\gtask_data.lua")
+
+function OnUse(nItemIdx)
+	get_mission_task(nItemIdx)
+end
+
+
+function get_mission_task(nItemIdx, bConfirm)
+	local nTaskId = 487
+	local nNeedGold = 100
+	local nNeedItem = 1
+	local szTaskName = "Nhi÷m vÙ v≠Ót ∂i"
+	
+	if tGtTask:check_cur_task(nTaskId)==1 then--“—æ≠”–»ŒŒÒ
+		--if tGtTask:IsTaskCanOver(nTaskId) == 1 then
+			if not bConfirm then
+    			local szTitle = format("C„ ph∂i Æπi hi÷p Æ∑ hoµn thµnh %s, muËn nhÀn th≠Îng?", szTaskName)
+            	local tbSay = {}
+            	tinsert(tbSay, format("%s/#get_mission_task(%d,1)", "NhÀn l y ph«n th≠Îng.",nItemIdx))
+            	tinsert(tbSay, format("%s/nothing", "Ra kh·i"))
+            	Say(szTitle, getn(tbSay), tbSay)
+    		else
+    			if FinishGTask(nTaskId) == 1 then
+    				Talk(1, "", format("Bπn Æ∑ nhÀn ph«n th≠Îng thµnh c´ng.", szTaskName))
+    			else
+    				Talk(1, "", format("Bπn ch≠a hoµn thµnh %s", szTaskName))
+    			end
+    		end
+--    	else
+--    		Talk(1, "", format("œ¿ ø“—”–…–Œ¥ÕÍ≥…µƒ%s£¨ªπ «œ»ÕÍ≥…»ŒŒÒ∞…", szTaskName))
+--		end
+		return
+	end
+	
+	------ªπ√ª”–»ŒŒÒ
+	
+	if not bConfirm then
+		local szTitle = format("Ti™u hao %d %s Æ” nhÀn %s, hoµn thµnh %s sœ nhÀn Æ≠Óc nhi“u kinh nghi÷m, x∏c Æﬁnh dÔng?", nNeedGold, " Kim ", szTaskName, szTaskName)
+    	local tbSay = {}
+    	tinsert(tbSay, format("%s/#get_mission_task(%d,1)", "NhÀn ",nItemIdx))
+    	tinsert(tbSay, format("%s/nothing", "Ra kh·i"))
+    	Say(szTitle, getn(tbSay), tbSay)
+		return
+	end
+	
+	if GetCash() < nNeedGold * 10000 then
+		Talk(1,"",format("Kh´ng ÆÒ ti“n"))
+		return
+	end
+	
+	if Pay(nNeedGold * 10000) == 1 then
+		if OpenGTask(nTaskId) == 1 then
+			Talk(1, "", format("Bπn Æ∑ nhÀn Æ≠Óc nhi÷m vÙ %s", szTaskName))
+		else
+			Talk(1, "", format("Bπn nhÀn nhi÷m vÙ %s th t bπi", szTaskName))
+		end
+		return 1
+	end
+end
