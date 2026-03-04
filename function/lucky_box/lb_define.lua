@@ -3,7 +3,7 @@ DebugOutput = nothing
 
 --活动开启时间
 LB_START_TIME = {2025,05,17,0,0,0};
-LB_STOP_TIME = {2026,12,19,23,59,0};
+LB_STOP_TIME = {2027,12,19,23,59,0};
 
 --奖励配置表
 LB_AWARD_CONFIG = "\\script\\function\\lucky_box\\lucky_box.txt"

@@ -386,45 +386,45 @@ end;
 --幸运币掉落部分-------------------------------------
 --系统公告调用
 function main()
---	if lb_IsOpen() ~= 1 then
---		return 0;
---	end
---	local nHour = tonumber(date("%H"))
---	local msg = ""
---	if nHour >= 11 and nHour <= 12 then
---		msg = "11:00-13:00 幸运转转转活动开启，前往沙漠迷宫和药王谷击杀怪物，幸运硬币双倍掉落！"
---		Msg2Global(msg);
---		AddGlobalNews(msg, 1);
---	elseif nHour >= 20 and nHour <= 21 then
---		msg = "20:00-22:00 幸运转转转活动开启，前往沙漠迷宫和药王谷击杀怪物，幸运硬币双倍掉落！"
---		Msg2Global(msg);
---		AddGlobalNews(msg, 1);
---	end
+	if lb_IsOpen() ~= 1 then
+		return 0;
+	end
+	local nHour = tonumber(date("%H"))
+	local msg = ""
+	if nHour >= 11 and nHour <= 12 then
+		msg = "11:00-13:00 幸运转转转活动开启，前往沙漠迷宫和药王谷击杀怪物，幸运硬币双倍掉落！"
+		Msg2Global(msg);
+		AddGlobalNews(msg, 1);
+	elseif nHour >= 20 and nHour <= 21 then
+		msg = "20:00-22:00 幸运转转转活动开启，前往沙漠迷宫和药王谷击杀怪物，幸运硬币双倍掉落！"
+		Msg2Global(msg);
+		AddGlobalNews(msg, 1);
+	end
 end
 
 --幸运币掉落
 function lb_OnKiller(szNpcName)
---	if lb_IsOpen() ~= 1 then
---		return 0;
---	end
---	if szNpcName ~= "沙漠行者" and szNpcName ~= "寻宝人" and szNpcName ~= "西夏武士" and szNpcName ~= "西夏勇士" then
---		return 0;
---	end
---	local nRand = 3;
---	local nHour = tonumber(date("%H"))
---	if (nHour >= 11 and nHour <= 12) or (nHour >= 20 and nHour <= 21) then
---		nRand = 8
---	end
---	if random(100) > nRand then
---		return 0;
---	end
---	local nMapID, nX, nY = GetWorldPos()
---	gf_TeamOperateEX(function ()
---		if %nMapID ~= GetWorldPos() then
---			return
---		end
---		GiveWishAward()
---	end)
+	if lb_IsOpen() ~= 1 then
+		return 0;
+	end
+	if szNpcName ~= "沙漠行者" and szNpcName ~= "寻宝人" and szNpcName ~= "西夏武士" and szNpcName ~= "西夏勇士" then
+		return 0;
+	end
+	local nRand = 3;
+	local nHour = tonumber(date("%H"))
+	if (nHour >= 11 and nHour <= 12) or (nHour >= 20 and nHour <= 21) then
+		nRand = 8
+	end
+	if random(100) > nRand then
+		return 0;
+	end
+	local nMapID, nX, nY = GetWorldPos()
+	gf_TeamOperateEX(function ()
+		if nMapID ~= GetWorldPos() then
+			return
+		end
+		GiveWishAward()
+	end)
 end
 
 
