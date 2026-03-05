@@ -12,9 +12,9 @@ end
 
 function main()
 	local tbDialog = {
---		"我要使用离线托管时间换取白驹丸的托管经验/get_offline_baiju",
---		"我要使用离线托管时间换取六神丸的托管声望/get_offline_liushen",
---		"我要使用离线托管时间换取三清丸的托管师门贡献度/get_offline_sanqing",
+		"我要使用离线托管时间换取白驹丸的托管经验/get_offline_baiju",
+		"我要使用离线托管时间换取六神丸的托管声望/get_offline_liushen",
+		"我要使用离线托管时间换取三清丸的托管师门贡献度/get_offline_sanqing",
 --		"我要使用离线托管时间换取聚灵丸的托管真气/get_offline_juling_talk",
 		"我要处理帮会相关事宜/main_tong",
 		"我要用1个和氏璧兑换会盟令牌/dui_heshibi_huimeng",

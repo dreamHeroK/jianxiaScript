@@ -20,13 +20,13 @@ function UseJingYanDan(nCount)
 	if DelItem(2,95,1885,nCount) == 1 then
 		local nLevel = GetLevel();
 		if nLevel < 30 then
-			nExpNum = 12800 * nCount
+			nExpNum = 128000 * nCount
 		elseif nLevel >= 30 and nLevel < 70 then
-			nExpNum = 25600 * nCount
+			nExpNum = 256000 * nCount
 		elseif nLevel >= 70 and nLevel < 80 then
-			nExpNum = 51200 * nCount
+			nExpNum = 512000 * nCount
 		elseif nLevel >= 80 then
-			nExpNum = 102400 * nCount
+			nExpNum = 1024000 * nCount
 		end
 		local tbAward = {nExp = nExpNum, }
 		tbAwardTemplet:Give(tbAward, "江湖经验丹", "获得经验")

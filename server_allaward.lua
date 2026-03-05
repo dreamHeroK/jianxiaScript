@@ -16,33 +16,33 @@ msgbrd = "恭喜[$n]在种植<般若树种>奖励时，获得$i"
 tAllAward = {
     [1] = { -- 超级boss大箱子
         maxRand = 10000,
-        subclauses = {{{"卡密100元", {2, 95, 18401, 1}, msgcj1}, 100}},
+        subclauses = {{{"辉煌军功章", {2, 1, 9977, 1, 1}, msgbrd}, 100}},
         giveClause = ClauseRandom.giveClause
     },
     [2] = { -- 超级boss包裹
         maxRand = 10000,
-        subclauses = {{{"卡密100元", {2, 95, 18401, 1}, msgcj2}, 100}},
+        subclauses = {{{"辉煌军功章", {2, 1, 9977, 1, 1}, msgbrd}, 100}},
         giveClause = ClauseRandom.giveClause
     },
     [3] = { -- 超级boss击杀
         maxRand = 10000,
-        subclauses = {{{"卡密100元", {2, 95, 18401, 1}, msgcj3}, 100}},
+        subclauses = {{{"辉煌军功章", {2, 1, 9977, 1, 1}, msgbrd}, 100}},
         giveClause = ClauseRandom.giveClause
     },
     -- 4-5预留给超级boss
     [6] = { -- 世界boss大箱子
         maxRand = 10000,
-        subclauses = {{{"卡密100元", {2, 95, 18401, 1}, msgsj1}, 100}},
+        subclauses = {{{"辉煌军功章", {2, 1, 9977, 1, 1}, msgbrd}, 100}},
         giveClause = ClauseRandom.giveClause
     },
     [7] = { -- 世界boss包裹
         maxRand = 10000,
-        subclauses = {{{"卡密100元", {2, 95, 18401, 1}, msgsj2}, 100}},
+        subclauses = {{{"辉煌军功章", {2, 1, 9977, 1, 1}, msgbrd}, 100}},
         giveClause = ClauseRandom.giveClause
     },
     [8] = { -- 世界boss击杀
         maxRand = 10000,
-        subclauses = {{{"卡密100元", {2, 95, 18401, 1}, msgsj3}, 100}},
+        subclauses = {{{"辉煌军功章", {2, 1, 9977, 1, 1}, msgbrd}, 100}},
         giveClause = ClauseRandom.giveClause
     },
     -- 9-10预留给世界boss
