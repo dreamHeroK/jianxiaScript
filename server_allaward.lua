@@ -1,7 +1,6 @@
 Include("\\script\\class\\clause3.lua");
 Include("\\script\\lib\\globalfunctions.lua")
 Include("\\script\\lib\\itemfunctions.lua") --
-Include("\\script\\task\\killer\\killer_head.lua");
 Include("\\script\\task\\killer\\cangbaotu_head.lua");
 -- Include("\\script\\server_allaward.lua")
 
