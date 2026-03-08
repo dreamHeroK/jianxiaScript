@@ -80,6 +80,17 @@ KillerPointData = {
 	[95]={2.5},
 }
 
+if not tAllAward or type(tAllAward) ~= "table" then
+	-- 尝试重新加载
+	dostring("tAllAward = nil");
+	Include("\\script\\server_allaward.lua");
+	if not tAllAward or type(tAllAward) ~= "table" then
+		WriteLog("cangbaotu_head", "严重错误: 无法加载 tAllAward!");
+		-- 可能需要设置一个安全的空表，避免后续报错
+		tAllAward = {};
+	end
+end
+
 --给金钱
 function gl_aw_addMoney(nArg)
 	local nMoney = floor(nArg*10000);
