@@ -357,7 +357,7 @@ function SpecialQues(choice)
 				break
 			end
 		end
-		-- ReSort(options)
+		ReSort(options)
 		Say("<color=green>兔小丫<color>：啊！老是问同一类问题太无聊了，我突然想到一个问题，请问声望是<color=yellow>"..nShengwang.."<color>时的称号是什么？",4,
 				 options[1], options[2], options[3], options[4])
 	elseif num == 3 then  --3.猜升级所需经验
@@ -372,7 +372,7 @@ function SpecialQues(choice)
 		options[2] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[1]), nchoice, 6)
 		options[3] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[2]), nchoice, 6)
 		options[4] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[3]), nchoice, 6)		
-		-- ReSort(options)
+		ReSort(options)
 		Say("<color=green>兔小丫<color>：啊！老是问同一类问题太无聊了，我突然想到一个问题，请问<color=yellow>"..level.."级升到"..(level+1).."级<color>需要多少经验？",4,
 				 options[1], options[2], options[3], options[4])
 	elseif num == 4 then  --4.猜当前等级交满收集品能获得多少钱
@@ -388,7 +388,7 @@ function SpecialQues(choice)
 		options[2] = format("%s/#answer_fail(%d,%d)", (gold+tab_gold[1]), nchoice, 6)
 		options[3] = format("%s/#answer_fail(%d,%d)", (gold+tab_gold[2]), nchoice, 6)
 		options[4] = format("%s/#answer_fail(%d,%d)", (gold+tab_gold[3]), nchoice, 6)		
-		-- ReSort(options)
+		ReSort(options)
 		Say("<color=green>兔小丫<color>：啊！老是问同一类问题太无聊了，我突然想到一个问题，请问你现在上交帮会高级收集品<color=yellow>"..sinup.."个<color>能获得多少钱？以<color=yellow>铜<color>为单位。",4,
 				 options[1], options[2], options[3], options[4])		
 	elseif num == 5 then  --5.猜某个等级采集技能升级经验
@@ -404,7 +404,7 @@ function SpecialQues(choice)
 		options[2] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[1]), nchoice, 6)
 		options[3] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[2]), nchoice, 6)
 		options[4] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[3]), nchoice, 6)		
-		-- ReSort(options)
+		ReSort(options)
 		Say("<color=green>兔小丫<color>：啊！老是问同一类问题太无聊了，我突然想到一个问题，请问<color=yellow>"..tGatherSkill[skillID].."<color>从<color=yellow>"..level.."级升到"..(level+1).."级<color>需要多少经验？",4,
 				 options[1], options[2], options[3], options[4])
 	elseif num == 6 then  --6.猜某个等级生产系技能升级经验
@@ -420,7 +420,7 @@ function SpecialQues(choice)
 		options[2] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[1]), nchoice, 6)
 		options[3] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[2]), nchoice, 6)
 		options[4] = format("%s/#answer_fail(%d,%d)", (exp+tab_exp[3]), nchoice, 6)		
-		-- ReSort(options)
+		ReSort(options)
 		Say("<color=green>兔小丫<color>：啊！老是问同一类问题太无聊了，我突然想到一个问题，请问<color=yellow>"..tComposeSkill[skillID].."<color>从<color=yellow>"..level.."级升到"..(level+1).."级<color>需要多少经验？",4,
 				 options[1], options[2], options[3], options[4])	
 	elseif num == 7 then  --根据XX猜XX,调用吴炜脚本
@@ -456,7 +456,7 @@ function SpecialQues(choice)
 		options[2] = format("%s/#answer_fail(%d,%d)", result+radresult[1], nchoice, 6)
 		options[3] = format("%s/#answer_fail(%d,%d)", result+radresult[2], nchoice, 6)
 		options[4] = format("%s/#answer_fail(%d,%d)", result+radresult[3], nchoice, 6)
-		-- ReSort(options)		
+		ReSort(options)		
 		Say("<color=green>兔小丫<color>：最近我在研究九九口诀，遇到一个问题不知道大侠能不能帮我解决：隔壁老王养了<color=yellow>"..A.."<color>只鸡，每只鸡每天都会下<color=yellow>"..B.."<color>个蛋。他还养了<color=yellow>"..C.."<color>只鸭子，每只鸭子每天都会下<color=yellow>"..D.."<color>个蛋。每个蛋能卖<color=yellow>2<color>个铜板，卖蛋的收入还得交给官府<color=yellow>十分之一<color>的关税，请问他一天能赚多少个铜板啊？",4,
 				 options[1], options[2], options[3], options[4])	
 	end

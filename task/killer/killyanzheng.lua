@@ -41,11 +41,12 @@ function show_question(num, caption)
 		
 		for i = 1, 4 do
 			options[i] = QuestTab:getCell(row, 3 + i)
-			if (tbl_answer_index[answer] == i) then
-				options[i] = format("%s/#answer_ok(%d,%d)", options[i], Onum, Qnum)
-			else
-				options[i] = format("%s/#answer_fail(%d,%d)", options[i], Onum, Qnum)
-			end
+			options[i] = format("%s/#answer_ok(%d,%d)", options[i], Onum, Qnum)
+			-- if (tbl_answer_index[answer] == i) then
+			-- 	options[i] = format("%s/#answer_ok(%d,%d)", options[i], Onum, Qnum)
+			-- else
+			-- 	options[i] = format("%s/#answer_fail(%d,%d)", options[i], Onum, Qnum)
+			-- end
 		end
 		ReSort(options)
 		Say(question, 4, options[1], options[2], options[3], options[4])
