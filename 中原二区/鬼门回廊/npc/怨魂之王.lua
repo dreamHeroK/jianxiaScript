@@ -15,7 +15,7 @@ function OnUse()
     local nMapID, nWx, nWy = GetWorldPos();
     local nTime = GetTime() - GetTask(CREAT_YUANHUNZHIWANG_TIME);
     
-    if nMapID == 328 and GetFightState() == 1 then
+    if nMapID == 328 and GetFightState() == 0 then
         if GetTask(TASK_XB_ID_02) == 4 then
             if nTime >= 1800 then
                 local nYHIndex = CreateNpc("怨魂之王", "怨魂之王", nMapID, nWx, nWy, -1, 1, 1, 50);

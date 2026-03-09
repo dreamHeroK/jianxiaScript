@@ -1,4 +1,4 @@
--- Update dame cho TYLL
+-- 为 TYLL 更新伤害值
 Import("\\script\\lib\\globalfunctions.lua")
 g_tInfo = {
     [PackItemId(2, 20, 1)] = 50,
