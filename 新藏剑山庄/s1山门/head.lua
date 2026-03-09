@@ -392,7 +392,7 @@ function ttd_passStage(nStage)
 	--给箱子
 	local nNpcIndex = 0
 	if nStage == 4 then
---		nNpcIndex = CreateNpc("jinbaoxiang",format("Kim Rng"),m,1699,3163); --建立金宝箱留着以后用
+--		nNpcIndex = CreateNpc("jinbaoxiang",format("Kim R?琻g"),m,1699,3163); --建立金宝箱留着以后用
 --		SetNpcScript(nNpcIndex,"\\settings\\static_script\\missions\\cangjianshanzhuang\\head.lua");
 	else
     	for i=1,4 do
@@ -449,8 +449,8 @@ function ttd_passStage(nStage)
 	
 end
 function passaward()--奖励修改
---gf_ModifyExp(3000000);--增加经验300W
---tAllAward[50]:giveClause();
+gf_ModifyExp(3000000);--增加经验300W
+tAllAward[50]:giveClause();
 end
 
 
@@ -651,7 +651,7 @@ function main()
 	local nNpcIndex = GetMissionV(tbJZMY.mv22);
 --	print("GetMissionV(mv23) =",nNpcIndex);
 	if nNpcIndex == 0 then
-		print("ERROR: T礽 nguy猲 B秓 Rng ")
+		print("ERROR: T礽 nguy猲 B秓 R?琻g ")
 		return 0;
 	end
 	--是否是队长

@@ -1,10 +1,16 @@
 --超级npc合成
+-- 装备等级：藏剑系列为低级(可参与合成)，元灵八卦/瀚宇八卦/光昭烈武为更高级(合成产出)
+-- 规则：任意5件低级装备可合成1件更高级装备（自选部位：头/衣/裤）
 
 name = "<color=green>装备合成大师<color>:"
 hechengI = 1050 --当天合成的失败概率记录
 Include("\\script\\item\\yanhuo.lua");
 Include("\\script\\online_activites\\task_values.lua")
 Include("\\script\\ks2vng\\global\\playerlogout.lua")
+
+-- 低级装备（可参与合成）：藏剑系列 头(0,103,95-98) 衣(0,100,95-98) 裤(0,101,95-98)
+-- 更高级装备（合成产出）：元灵八卦(头包) 瀚宇八卦(衣包) 光昭烈武(裤包)
+
 function main()
 
 	if random(1,15) == 1 then
@@ -30,6 +36,7 @@ function main()
 	i2 = cjzjsbiao + cjzjskuiw + cjzjsjiaox + cjzjsxingan
 	i3 = cjzjzbiao + cjzjzkuiw + cjzjzjiaox + cjzjzxingan
 	i4 = i1 + i2 + i3
+	-- 当前装备等级与数量：仅统计可参与合成的低级装备（藏剑系列）
 	if i4 <= 0 then
 		 Talk(1,"",name.."少侠身上藏剑装备视乎一件都没有，年轻人，要多加努力，还是请回吧！攒够了5件装备再来找我吧！");
 		return
