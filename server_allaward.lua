@@ -1,8 +1,11 @@
+-- 先初始化为空表，避免因后续 Include 失败或循环引用导致 tAllAward 始终为 nil
+tAllAward = tAllAward or {};
+-- 不要在此 Include cangbaotu_head.lua，否则会形成循环引用导致 tAllAward 无法正确赋值：
+-- server_allaward -> cangbaotu_head -> killer_head -> server_allaward
+-- 需要藏宝图相关功能的脚本请自行 Include cangbaotu_head 或 killer_head
 Include("\\script\\class\\clause3.lua");
-Include("\\script\\lib\\globalfunctions.lua")
-Include("\\script\\lib\\itemfunctions.lua") --
-Include("\\script\\task\\killer\\cangbaotu_head.lua");
--- Include("\\script\\server_allaward.lua")
+Include("\\script\\lib\\globalfunctions.lua");
+Include("\\script\\lib\\itemfunctions.lua");
 
 msgcj1 = "恭喜$n开启超级boss箱子获得$i";
 msgcj2 = "恭喜$n开启超级boss包裹获得$i";
