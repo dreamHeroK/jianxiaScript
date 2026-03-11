@@ -13,9 +13,7 @@ function OnUse(nItemIndex)
 		nNextTime = 1
 		szTalk4 = {"请去鬼门深处使用此物。"};
 		tNpc = {"怨魂之王", "怨魂之王", 1, "", 2, 5*60, {328}}
-	if GetItemCount(2,0,717) < 1 then
-		AddItem(2,0,717,1,4)
-	end			
+		-- 不要在此处给物品(2,0,717)，否则 CallSpclNpc 会认为任务已完成直接 return 1，不会召唤
 	end
 
 	local nCheckTask = UseItemToCallNpc(nItemIndex, nGtask, nGtype, nTimeTaskID, tNpc, nNextTime)
